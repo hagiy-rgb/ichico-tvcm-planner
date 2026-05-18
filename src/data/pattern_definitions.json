@@ -1,0 +1,114 @@
+{
+  "version": "2.0-tentative",
+  "description": "絵柄（スポット出稿パターン）の定義。横軸=時間帯、縦軸=曜日のマトリクスでCM枠を塗った形状を表す業界用語。5プリセット + フルカスタム。各プリセットは曜日グループ（平日/土日/個別曜日）ごとに時間帯を複数指定でき、ユーザーが編集可能。",
+  "_warning": "プリセットの時間帯はビデオリサーチ仙台地区の時間区分・業界一般論からの暫定値。ICHICO営業ヒアリングおよびクライアント要望で確定する。アプリ起動後もUIから編集可能。",
+
+  "time_zone_master": {
+    "description": "ビデオリサーチ仙台PMの時間区分（60分刻み、05:00-29:00表記）に準拠",
+    "zones": [
+      { "code": "EARLY_MORNING", "label": "早朝", "range": "05:00-07:00" },
+      { "code": "MORNING", "label": "朝（情報番組帯）", "range": "07:00-10:00" },
+      { "code": "DAYTIME", "label": "昼（ワイドショー帯）", "range": "10:00-15:00" },
+      { "code": "EVENING", "label": "夕方（ニュース帯）", "range": "15:00-19:00" },
+      { "code": "GOLDEN", "label": "ゴールデン", "range": "19:00-22:00" },
+      { "code": "PRIME", "label": "プライム", "range": "22:00-23:00" },
+      { "code": "LATE_NIGHT", "label": "深夜", "range": "23:00-29:00" }
+    ]
+  },
+
+  "weekday_groups": {
+    "description": "曜日グループ。プリセットは平日/土日を分けて時間帯指定する。個別曜日指定も可能。",
+    "groups": [
+      { "code": "WEEKDAY", "label": "平日", "days": ["月", "火", "水", "木", "金"] },
+      { "code": "WEEKEND", "label": "土日", "days": ["土", "日"] },
+      { "code": "ALL", "label": "全曜日", "days": ["月", "火", "水", "木", "金", "土", "日"] }
+    ],
+    "individual_days_selectable": true
+  },
+
+  "patterns": {
+    "全日": {
+      "label": "全日（オール）",
+      "description": "全時間帯・全曜日に均等出稿。深夜含む。最安価。視聴率の薄い時間帯も含むため到達効率は中庸だがコスト効率は高い。",
+      "default_blocks": [
+        { "weekday_group": "ALL", "time_slots": [{ "start": "05:00", "end": "29:00" }] }
+      ],
+      "cost_tier": "lowest",
+      "default_coefficient_vs_average": 1.00
+    },
+    "ヨの字": {
+      "label": "ヨの字",
+      "description": "朝の情報番組+昼ワイドショー+夜ワイドの3セグメント。マトリクス上で『ヨ』の字に似た配置。平日と土日で番組編成が異なるため時間帯を分けて指定する。",
+      "default_blocks": [
+        { "weekday_group": "WEEKDAY", "time_slots": [
+          { "start": "07:00", "end": "09:00" },
+          { "start": "12:00", "end": "13:00" },
+          { "start": "18:00", "end": "23:00" }
+        ]},
+        { "weekday_group": "WEEKEND", "time_slots": [
+          { "start": "08:00", "end": "11:00" },
+          { "start": "18:00", "end": "23:00" }
+        ]}
+      ],
+      "cost_tier": "mid",
+      "default_coefficient_vs_average": 1.05
+    },
+    "コの字": {
+      "label": "コの字",
+      "description": "朝の情報番組+夕方ニュース+夜ワイドの構成。マトリクス上で『コ』の字に似た配置。昼帯を抜く分ヨの字より到達質が高い。",
+      "default_blocks": [
+        { "weekday_group": "WEEKDAY", "time_slots": [
+          { "start": "07:00", "end": "09:00" },
+          { "start": "17:00", "end": "23:00" }
+        ]},
+        { "weekday_group": "WEEKEND", "time_slots": [
+          { "start": "08:00", "end": "11:00" },
+          { "start": "17:00", "end": "23:00" }
+        ]}
+      ],
+      "cost_tier": "mid-high",
+      "default_coefficient_vs_average": 1.10
+    },
+    "逆L": {
+      "label": "逆L字",
+      "description": "夜のゴールデン・プライム中心に、夕方からの縦のラインを加えた構成。マトリクス上で『逆L』に似た配置。最高単価だが到達質が最も高い。",
+      "default_blocks": [
+        { "weekday_group": "ALL", "time_slots": [
+          { "start": "18:00", "end": "24:00" }
+        ]}
+      ],
+      "cost_tier": "highest",
+      "default_coefficient_vs_average": 1.20
+    },
+    "一の字": {
+      "label": "一の字",
+      "description": "特定の時間帯を全曜日横断で打つ構成。マトリクス上で横一直線（『一』の字）。ゴールデン1帯集中など、特定タイムゾーンに絞り込む。",
+      "default_blocks": [
+        { "weekday_group": "ALL", "time_slots": [
+          { "start": "19:00", "end": "22:00" }
+        ]}
+      ],
+      "cost_tier": "variable",
+      "default_coefficient_vs_average": 1.15,
+      "note": "一の字は時間帯選定によって係数が大きく変動する。ゴールデン一本なら1.20超、昼一本なら1.00未満。高精度モードでの実測加重を強く推奨。"
+    },
+    "カスタム": {
+      "label": "カスタム",
+      "description": "ユーザーが曜日グループ・時間帯を完全に自由設定。プリセットから出発して微調整した結果もここに分類される。",
+      "default_blocks": [],
+      "cost_tier": "variable",
+      "default_coefficient_vs_average": null
+    }
+  },
+
+  "calculation_notes": {
+    "standard_mode": "曜日時間区分データがインポートされていない場合、default_coefficient_vs_average を使用。カスタムは選択時間帯の time_zone_master に基づく簡易加重で推定。",
+    "high_precision_mode": "曜日時間区分データがある場合、選択された曜日×時間帯セルの視聴率を加重平均し、effective_coefficient = weighted_rating_pattern / weighted_rating_全日 で算出。これをポアソンモデルの k に乗算。",
+    "weighted_rating_formula": "weighted_rating = sum(rating[hour, weekday]) / N_cells（選択セルのみ）",
+    "k_effective_formula": "k_effective = k_industry * effective_coefficient"
+  },
+
+  "calibration_log": [
+    { "date": "2026-05-15", "version": "2.0-tentative", "source": "業界一般論・ビデオリサーチ仙台時間区分", "notes": "一の字を追加、平日/土日分離構造に刷新。ICHICO営業ヒアリング待ち。" }
+  ]
+}

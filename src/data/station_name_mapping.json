@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "description": "曜日・時間区分集計の局名表記と、既存リーチExcelマスタ表記のマッピングテーブル。新エリア追加時はここに追記する。",
+  "mappings": {
+    "宮城": {
+      "tbc": "TBC",
+      "ｔｂｃ": "TBC",
+      "TBC": "TBC",
+      "ミヤギテレビ": "MMT",
+      "MMT": "MMT",
+      "東日本放送": "KHB",
+      "KHB": "KHB",
+      "仙台放送": "OX",
+      "OX": "OX",
+      "NHK総合": "NHK",
+      "NHKＥテレ": "NHK_E",
+      "ＮＨＫＥテレ": "NHK_E"
+    },
+    "_aliases": {
+      "comment": "他エリアは順次追加。例: 関東のNTV/TBS/CX/EX/TX、関西のYTV/MBS/KTV/ABC/TVO 等"
+    }
+  },
+  "fuzzy_matching_rules": [
+    {
+      "rule": "全角・半角の差を無視（例: 'ｔｂｃ' = 'tbc'）",
+      "implementation": "全角アルファベットを半角に正規化してから照合"
+    },
+    {
+      "rule": "大文字小文字を無視",
+      "implementation": "toLowerCase() で照合"
+    },
+    {
+      "rule": "「テレビ」「放送」のサフィックスを揺れと扱う",
+      "implementation": "サフィックス除去後にレーベンシュタイン距離で類似度判定"
+    }
+  ],
+  "unmapped_handling": {
+    "policy": "マッピング不能な局名はそのまま保持し、UIで手動マッピング画面を提示",
+    "fallback": "ユーザーが手動マッピングした場合は本JSONに自動追記する"
+  }
+}

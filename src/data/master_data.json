@@ -1,0 +1,7409 @@
+{
+  "version": "1.0",
+  "source": "テレビスポットリーチシミュレーション_β版__20250403更新_rev.xlsx",
+  "extracted_at": "2026-05-15",
+  "area_target_master": [
+    {
+      "area": "関東",
+      "station_group": "NTV",
+      "target": "世帯",
+      "population_thousand": 21611
+    },
+    {
+      "area": "関東",
+      "station_group": "TBS",
+      "target": "世帯",
+      "population_thousand": 21624
+    },
+    {
+      "area": "関東",
+      "station_group": "CX",
+      "target": "世帯",
+      "population_thousand": 21736
+    },
+    {
+      "area": "関東",
+      "station_group": "EX",
+      "target": "世帯",
+      "population_thousand": 21737
+    },
+    {
+      "area": "関東",
+      "station_group": "TX",
+      "target": "世帯",
+      "population_thousand": 21745
+    },
+    {
+      "area": "関西",
+      "station_group": "YTV",
+      "target": "世帯",
+      "population_thousand": 10270
+    },
+    {
+      "area": "関西",
+      "station_group": "MBS",
+      "target": "世帯",
+      "population_thousand": 10364
+    },
+    {
+      "area": "関西",
+      "station_group": "KTV",
+      "target": "世帯",
+      "population_thousand": 10312
+    },
+    {
+      "area": "関西",
+      "station_group": "ABC",
+      "target": "世帯",
+      "population_thousand": 10361
+    },
+    {
+      "area": "関西",
+      "station_group": "TVO",
+      "target": "世帯",
+      "population_thousand": 7944
+    },
+    {
+      "area": "名古屋",
+      "station_group": "CTV・CBC・THK・NBN",
+      "target": "世帯",
+      "population_thousand": 5032
+    },
+    {
+      "area": "名古屋",
+      "station_group": "TVA",
+      "target": "世帯",
+      "population_thousand": 4756
+    },
+    {
+      "area": "福岡",
+      "station_group": "FBS",
+      "target": "世帯",
+      "population_thousand": 3127
+    },
+    {
+      "area": "福岡",
+      "station_group": "RKB",
+      "target": "世帯",
+      "population_thousand": 3077
+    },
+    {
+      "area": "福岡",
+      "station_group": "TNC",
+      "target": "世帯",
+      "population_thousand": 3463
+    },
+    {
+      "area": "福岡",
+      "station_group": "KBC",
+      "target": "世帯",
+      "population_thousand": 3142
+    },
+    {
+      "area": "福岡",
+      "station_group": "TVQ",
+      "target": "世帯",
+      "population_thousand": 3212
+    },
+    {
+      "area": "北海道",
+      "station_group": "STV・HBC・HTB",
+      "target": "世帯",
+      "population_thousand": 2801
+    },
+    {
+      "area": "北海道",
+      "station_group": "UHB",
+      "target": "世帯",
+      "population_thousand": 2799
+    },
+    {
+      "area": "北海道",
+      "station_group": "TVH",
+      "target": "世帯",
+      "population_thousand": 2728
+    },
+    {
+      "area": "青森",
+      "station_group": "RAB・ATV・ABA",
+      "target": "世帯",
+      "population_thousand": 601
+    },
+    {
+      "area": "岩手",
+      "station_group": "IBC・IAT",
+      "target": "世帯",
+      "population_thousand": 661
+    },
+    {
+      "area": "岩手",
+      "station_group": "TVI",
+      "target": "世帯",
+      "population_thousand": 665
+    },
+    {
+      "area": "岩手",
+      "station_group": "MIT",
+      "target": "世帯",
+      "population_thousand": 751
+    },
+    {
+      "area": "秋田",
+      "station_group": "ABS・AKT・AAB",
+      "target": "世帯",
+      "population_thousand": 426
+    },
+    {
+      "area": "山形",
+      "station_group": "YBC・YTS・TUY・SAY",
+      "target": "世帯",
+      "population_thousand": 420
+    },
+    {
+      "area": "宮城",
+      "station_group": "TBC・OX・MMT・KHB",
+      "target": "世帯",
+      "population_thousand": 1041
+    },
+    {
+      "area": "福島",
+      "station_group": "FTV・FCT・KFB・TUF",
+      "target": "世帯",
+      "population_thousand": 794
+    },
+    {
+      "area": "新潟",
+      "station_group": "BSN・NST・TeNY・UX",
+      "target": "世帯",
+      "population_thousand": 911
+    },
+    {
+      "area": "長野",
+      "station_group": "SBC・NBS・TSB・ABN",
+      "target": "世帯",
+      "population_thousand": 884
+    },
+    {
+      "area": "山梨",
+      "station_group": "YBS・UTY",
+      "target": "世帯",
+      "population_thousand": 368
+    },
+    {
+      "area": "静岡",
+      "station_group": "SBS・SUT・SATV・SDT",
+      "target": "世帯",
+      "population_thousand": 1622
+    },
+    {
+      "area": "富山",
+      "station_group": "KNB・BBT・TUT",
+      "target": "世帯",
+      "population_thousand": 428
+    },
+    {
+      "area": "石川",
+      "station_group": "MRO",
+      "target": "世帯",
+      "population_thousand": 681
+    },
+    {
+      "area": "石川",
+      "station_group": "ITC・KTK",
+      "target": "世帯",
+      "population_thousand": 494
+    },
+    {
+      "area": "石川",
+      "station_group": "HAB",
+      "target": "世帯",
+      "population_thousand": 1057
+    },
+    {
+      "area": "福井",
+      "station_group": "FBC・FTB",
+      "target": "世帯",
+      "population_thousand": 300
+    },
+    {
+      "area": "鳥取・島根",
+      "station_group": "BSS・NKT・TSK",
+      "target": "世帯",
+      "population_thousand": 533
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "RSK",
+      "target": "世帯",
+      "population_thousand": 1319
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "OHK・RNC・KSB",
+      "target": "世帯",
+      "population_thousand": 1307
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "TSC",
+      "target": "世帯",
+      "population_thousand": 1326
+    },
+    {
+      "area": "広島",
+      "station_group": "RCC・HTV・TSS",
+      "target": "世帯",
+      "population_thousand": 1400
+    },
+    {
+      "area": "広島",
+      "station_group": "HOME",
+      "target": "世帯",
+      "population_thousand": 1427
+    },
+    {
+      "area": "山口",
+      "station_group": "KRY・TYS",
+      "target": "世帯",
+      "population_thousand": 659
+    },
+    {
+      "area": "山口",
+      "station_group": "YAB",
+      "target": "世帯",
+      "population_thousand": 662
+    },
+    {
+      "area": "徳島",
+      "station_group": "JRT",
+      "target": "世帯",
+      "population_thousand": 337
+    },
+    {
+      "area": "愛媛",
+      "station_group": "RNB・EBC・ITV",
+      "target": "世帯",
+      "population_thousand": 656
+    },
+    {
+      "area": "愛媛",
+      "station_group": "EAT",
+      "target": "世帯",
+      "population_thousand": 664
+    },
+    {
+      "area": "高知",
+      "station_group": "RKC・KUTV・KSS",
+      "target": "世帯",
+      "population_thousand": 351
+    },
+    {
+      "area": "長崎",
+      "station_group": "NBC・KTN・NCC・NIB",
+      "target": "世帯",
+      "population_thousand": 632
+    },
+    {
+      "area": "熊本",
+      "station_group": "RKK・KKT・KAB",
+      "target": "世帯",
+      "population_thousand": 798
+    },
+    {
+      "area": "熊本",
+      "station_group": "TKU",
+      "target": "世帯",
+      "population_thousand": 796
+    },
+    {
+      "area": "佐賀",
+      "station_group": "STS",
+      "target": "世帯",
+      "population_thousand": 714
+    },
+    {
+      "area": "大分",
+      "station_group": "OBS・TOS・OAB",
+      "target": "世帯",
+      "population_thousand": 545
+    },
+    {
+      "area": "宮崎",
+      "station_group": "MRT・UMK",
+      "target": "世帯",
+      "population_thousand": 548
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "MBC・KTS",
+      "target": "世帯",
+      "population_thousand": 912
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "KKB・KYT",
+      "target": "世帯",
+      "population_thousand": 920
+    },
+    {
+      "area": "沖縄",
+      "station_group": "RBC・OTV・QAB",
+      "target": "世帯",
+      "population_thousand": 687
+    },
+    {
+      "area": "東京",
+      "station_group": "MX",
+      "target": "世帯",
+      "population_thousand": 15879
+    },
+    {
+      "area": "群馬",
+      "station_group": "GTV",
+      "target": "世帯",
+      "population_thousand": 1104
+    },
+    {
+      "area": "埼玉",
+      "station_group": "TVS",
+      "target": "世帯",
+      "population_thousand": 4427
+    },
+    {
+      "area": "栃木",
+      "station_group": "GYT",
+      "target": "世帯",
+      "population_thousand": 885
+    },
+    {
+      "area": "千葉",
+      "station_group": "CTC",
+      "target": "世帯",
+      "population_thousand": 3868
+    },
+    {
+      "area": "神奈川",
+      "station_group": "TVK",
+      "target": "世帯",
+      "population_thousand": 5873
+    },
+    {
+      "area": "岐阜",
+      "station_group": "GBS",
+      "target": "世帯",
+      "population_thousand": 1111
+    },
+    {
+      "area": "三重",
+      "station_group": "MTV",
+      "target": "世帯",
+      "population_thousand": 2385
+    },
+    {
+      "area": "滋賀",
+      "station_group": "BBC",
+      "target": "世帯",
+      "population_thousand": 643
+    },
+    {
+      "area": "京都",
+      "station_group": "KBS",
+      "target": "世帯",
+      "population_thousand": 3739
+    },
+    {
+      "area": "兵庫",
+      "station_group": "SUN",
+      "target": "世帯",
+      "population_thousand": 7271
+    },
+    {
+      "area": "奈良",
+      "station_group": "TVN",
+      "target": "世帯",
+      "population_thousand": 682
+    },
+    {
+      "area": "和歌山",
+      "station_group": "WTV",
+      "target": "世帯",
+      "population_thousand": 448
+    },
+    {
+      "area": "関東",
+      "station_group": "NTV",
+      "target": "個人全体",
+      "population_thousand": 43040
+    },
+    {
+      "area": "関東",
+      "station_group": "TBS",
+      "target": "個人全体",
+      "population_thousand": 43068
+    },
+    {
+      "area": "関東",
+      "station_group": "CX",
+      "target": "個人全体",
+      "population_thousand": 43314
+    },
+    {
+      "area": "関東",
+      "station_group": "EX",
+      "target": "個人全体",
+      "population_thousand": 43316
+    },
+    {
+      "area": "関東",
+      "station_group": "TX",
+      "target": "個人全体",
+      "population_thousand": 43333
+    },
+    {
+      "area": "関西",
+      "station_group": "YTV",
+      "target": "個人全体",
+      "population_thousand": 20697
+    },
+    {
+      "area": "関西",
+      "station_group": "MBS",
+      "target": "個人全体",
+      "population_thousand": 20911
+    },
+    {
+      "area": "関西",
+      "station_group": "KTV",
+      "target": "個人全体",
+      "population_thousand": 20786
+    },
+    {
+      "area": "関西",
+      "station_group": "ABC",
+      "target": "個人全体",
+      "population_thousand": 20902
+    },
+    {
+      "area": "関西",
+      "station_group": "TVO",
+      "target": "個人全体",
+      "population_thousand": 15670
+    },
+    {
+      "area": "名古屋",
+      "station_group": "CTV・CBC・THK・NBN",
+      "target": "個人全体",
+      "population_thousand": 10978
+    },
+    {
+      "area": "名古屋",
+      "station_group": "TVA",
+      "target": "個人全体",
+      "population_thousand": 10356
+    },
+    {
+      "area": "福岡",
+      "station_group": "FBS",
+      "target": "個人全体",
+      "population_thousand": 6330
+    },
+    {
+      "area": "福岡",
+      "station_group": "RKB",
+      "target": "個人全体",
+      "population_thousand": 6228
+    },
+    {
+      "area": "福岡",
+      "station_group": "TNC",
+      "target": "個人全体",
+      "population_thousand": 7004
+    },
+    {
+      "area": "福岡",
+      "station_group": "KBC",
+      "target": "個人全体",
+      "population_thousand": 6362
+    },
+    {
+      "area": "福岡",
+      "station_group": "TVQ",
+      "target": "個人全体",
+      "population_thousand": 6499
+    },
+    {
+      "area": "北海道",
+      "station_group": "STV・HBC・HTB",
+      "target": "個人全体",
+      "population_thousand": 5070
+    },
+    {
+      "area": "北海道",
+      "station_group": "UHB",
+      "target": "個人全体",
+      "population_thousand": 5066
+    },
+    {
+      "area": "北海道",
+      "station_group": "TVH",
+      "target": "個人全体",
+      "population_thousand": 4929
+    },
+    {
+      "area": "青森",
+      "station_group": "RAB・ATV・ABA",
+      "target": "個人全体",
+      "population_thousand": 1230
+    },
+    {
+      "area": "岩手",
+      "station_group": "IBC・IAT",
+      "target": "個人全体",
+      "population_thousand": 1439
+    },
+    {
+      "area": "岩手",
+      "station_group": "TVI",
+      "target": "個人全体",
+      "population_thousand": 1449
+    },
+    {
+      "area": "岩手",
+      "station_group": "MIT",
+      "target": "個人全体",
+      "population_thousand": 1631
+    },
+    {
+      "area": "秋田",
+      "station_group": "ABS・AKT・AAB",
+      "target": "個人全体",
+      "population_thousand": 938
+    },
+    {
+      "area": "山形",
+      "station_group": "YBC・YTS・TUY・SAY",
+      "target": "個人全体",
+      "population_thousand": 1031
+    },
+    {
+      "area": "宮城",
+      "station_group": "TBC・OX・MMT・KHB",
+      "target": "個人全体",
+      "population_thousand": 2249
+    },
+    {
+      "area": "福島",
+      "station_group": "FTV・FCT・KFB・TUF",
+      "target": "個人全体",
+      "population_thousand": 1795
+    },
+    {
+      "area": "新潟",
+      "station_group": "BSN・NST・TeNY・UX",
+      "target": "個人全体",
+      "population_thousand": 2135
+    },
+    {
+      "area": "長野",
+      "station_group": "SBC・NBS・TSB・ABN",
+      "target": "個人全体",
+      "population_thousand": 2003
+    },
+    {
+      "area": "山梨",
+      "station_group": "YBS・UTY",
+      "target": "個人全体",
+      "population_thousand": 795
+    },
+    {
+      "area": "静岡",
+      "station_group": "SBS・SUT・SATV・SDT",
+      "target": "個人全体",
+      "population_thousand": 3570
+    },
+    {
+      "area": "富山",
+      "station_group": "KNB・BBT・TUT",
+      "target": "個人全体",
+      "population_thousand": 1011
+    },
+    {
+      "area": "石川",
+      "station_group": "MRO",
+      "target": "個人全体",
+      "population_thousand": 1559
+    },
+    {
+      "area": "石川",
+      "station_group": "ITC・KTK",
+      "target": "個人全体",
+      "population_thousand": 1093
+    },
+    {
+      "area": "石川",
+      "station_group": "HAB",
+      "target": "個人全体",
+      "population_thousand": 2436
+    },
+    {
+      "area": "福井",
+      "station_group": "FBC・FTB",
+      "target": "個人全体",
+      "population_thousand": 746
+    },
+    {
+      "area": "鳥取・島根",
+      "station_group": "BSS・NKT・TSK",
+      "target": "個人全体",
+      "population_thousand": 1184
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "RSK",
+      "target": "個人全体",
+      "population_thousand": 2787
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "OHK・RNC・KSB",
+      "target": "個人全体",
+      "population_thousand": 2763
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "TSC",
+      "target": "個人全体",
+      "population_thousand": 2801
+    },
+    {
+      "area": "広島",
+      "station_group": "RCC・HTV・TSS",
+      "target": "個人全体",
+      "population_thousand": 2848
+    },
+    {
+      "area": "広島",
+      "station_group": "HOME",
+      "target": "個人全体",
+      "population_thousand": 2912
+    },
+    {
+      "area": "山口",
+      "station_group": "KRY・TYS",
+      "target": "個人全体",
+      "population_thousand": 1306
+    },
+    {
+      "area": "山口",
+      "station_group": "YAB",
+      "target": "個人全体",
+      "population_thousand": 1313
+    },
+    {
+      "area": "徳島",
+      "station_group": "JRT",
+      "target": "個人全体",
+      "population_thousand": 708
+    },
+    {
+      "area": "愛媛",
+      "station_group": "RNB・EBC・ITV",
+      "target": "個人全体",
+      "population_thousand": 1307
+    },
+    {
+      "area": "愛媛",
+      "station_group": "EAT",
+      "target": "個人全体",
+      "population_thousand": 1323
+    },
+    {
+      "area": "高知",
+      "station_group": "RKC・KUTV・KSS",
+      "target": "個人全体",
+      "population_thousand": 676
+    },
+    {
+      "area": "長崎",
+      "station_group": "NBC・KTN・NCC・NIB",
+      "target": "個人全体",
+      "population_thousand": 1283
+    },
+    {
+      "area": "熊本",
+      "station_group": "RKK・KKT・KAB",
+      "target": "個人全体",
+      "population_thousand": 1697
+    },
+    {
+      "area": "熊本",
+      "station_group": "TKU",
+      "target": "個人全体",
+      "population_thousand": 1694
+    },
+    {
+      "area": "佐賀",
+      "station_group": "STS",
+      "target": "個人全体",
+      "population_thousand": 1631
+    },
+    {
+      "area": "大分",
+      "station_group": "OBS・TOS・OAB",
+      "target": "個人全体",
+      "population_thousand": 1108
+    },
+    {
+      "area": "宮崎",
+      "station_group": "MRT・UMK",
+      "target": "個人全体",
+      "population_thousand": 1079
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "MBC・KTS",
+      "target": "個人全体",
+      "population_thousand": 1757
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "KKB・KYT",
+      "target": "個人全体",
+      "population_thousand": 1774
+    },
+    {
+      "area": "沖縄",
+      "station_group": "RBC・OTV・QAB",
+      "target": "個人全体",
+      "population_thousand": 1432
+    },
+    {
+      "area": "東京",
+      "station_group": "MX",
+      "target": "個人全体",
+      "population_thousand": 30703
+    },
+    {
+      "area": "群馬",
+      "station_group": "GTV",
+      "target": "個人全体",
+      "population_thousand": 2406
+    },
+    {
+      "area": "埼玉",
+      "station_group": "TVS",
+      "target": "個人全体",
+      "population_thousand": 9107
+    },
+    {
+      "area": "栃木",
+      "station_group": "GYT",
+      "target": "個人全体",
+      "population_thousand": 1967
+    },
+    {
+      "area": "千葉",
+      "station_group": "CTC",
+      "target": "個人全体",
+      "population_thousand": 7977
+    },
+    {
+      "area": "神奈川",
+      "station_group": "TVK",
+      "target": "個人全体",
+      "population_thousand": 11591
+    },
+    {
+      "area": "岐阜",
+      "station_group": "GBS",
+      "target": "個人全体",
+      "population_thousand": 2567
+    },
+    {
+      "area": "三重",
+      "station_group": "MTV",
+      "target": "個人全体",
+      "population_thousand": 5005
+    },
+    {
+      "area": "滋賀",
+      "station_group": "BBC",
+      "target": "個人全体",
+      "population_thousand": 1466
+    },
+    {
+      "area": "京都",
+      "station_group": "KBS",
+      "target": "個人全体",
+      "population_thousand": 7501
+    },
+    {
+      "area": "兵庫",
+      "station_group": "SUN",
+      "target": "個人全体",
+      "population_thousand": 14417
+    },
+    {
+      "area": "奈良",
+      "station_group": "TVN",
+      "target": "個人全体",
+      "population_thousand": 1481
+    },
+    {
+      "area": "和歌山",
+      "station_group": "WTV",
+      "target": "個人全体",
+      "population_thousand": 922
+    },
+    {
+      "area": "関東",
+      "station_group": "NTV",
+      "target": "男女4～12才",
+      "population_thousand": 3187
+    },
+    {
+      "area": "関東",
+      "station_group": "TBS",
+      "target": "男女4～12才",
+      "population_thousand": 3189
+    },
+    {
+      "area": "関東",
+      "station_group": "CX",
+      "target": "男女4～12才",
+      "population_thousand": 3206
+    },
+    {
+      "area": "関東",
+      "station_group": "EX",
+      "target": "男女4～12才",
+      "population_thousand": 3206
+    },
+    {
+      "area": "関東",
+      "station_group": "TX",
+      "target": "男女4～12才",
+      "population_thousand": 3208
+    },
+    {
+      "area": "関西",
+      "station_group": "YTV",
+      "target": "男女4～12才",
+      "population_thousand": 1576
+    },
+    {
+      "area": "関西",
+      "station_group": "MBS",
+      "target": "男女4～12才",
+      "population_thousand": 1592
+    },
+    {
+      "area": "関西",
+      "station_group": "KTV",
+      "target": "男女4～12才",
+      "population_thousand": 1582
+    },
+    {
+      "area": "関西",
+      "station_group": "ABC",
+      "target": "男女4～12才",
+      "population_thousand": 1591
+    },
+    {
+      "area": "関西",
+      "station_group": "TVO",
+      "target": "男女4～12才",
+      "population_thousand": 1186
+    },
+    {
+      "area": "名古屋",
+      "station_group": "CTV・CBC・THK・NBN",
+      "target": "男女4～12才",
+      "population_thousand": 889
+    },
+    {
+      "area": "名古屋",
+      "station_group": "TVA",
+      "target": "男女4～12才",
+      "population_thousand": 845
+    },
+    {
+      "area": "福岡",
+      "station_group": "FBS",
+      "target": "男女4～12才",
+      "population_thousand": 530
+    },
+    {
+      "area": "福岡",
+      "station_group": "RKB",
+      "target": "男女4～12才",
+      "population_thousand": 523
+    },
+    {
+      "area": "福岡",
+      "station_group": "TNC",
+      "target": "男女4～12才",
+      "population_thousand": 582
+    },
+    {
+      "area": "福岡",
+      "station_group": "KBC",
+      "target": "男女4～12才",
+      "population_thousand": 533
+    },
+    {
+      "area": "福岡",
+      "station_group": "TVQ",
+      "target": "男女4～12才",
+      "population_thousand": 542
+    },
+    {
+      "area": "北海道",
+      "station_group": "STV・HBC・HTB",
+      "target": "男女4～12才",
+      "population_thousand": 343
+    },
+    {
+      "area": "北海道",
+      "station_group": "UHB",
+      "target": "男女4～12才",
+      "population_thousand": 343
+    },
+    {
+      "area": "北海道",
+      "station_group": "TVH",
+      "target": "男女4～12才",
+      "population_thousand": 333
+    },
+    {
+      "area": "青森",
+      "station_group": "RAB・ATV・ABA",
+      "target": "男女4～12才",
+      "population_thousand": 82
+    },
+    {
+      "area": "岩手",
+      "station_group": "IBC・IAT",
+      "target": "男女4～12才",
+      "population_thousand": 101
+    },
+    {
+      "area": "岩手",
+      "station_group": "TVI",
+      "target": "男女4～12才",
+      "population_thousand": 102
+    },
+    {
+      "area": "岩手",
+      "station_group": "MIT",
+      "target": "男女4～12才",
+      "population_thousand": 114
+    },
+    {
+      "area": "秋田",
+      "station_group": "ABS・AKT・AAB",
+      "target": "男女4～12才",
+      "population_thousand": 57
+    },
+    {
+      "area": "山形",
+      "station_group": "YBC・YTS・TUY・SAY",
+      "target": "男女4～12才",
+      "population_thousand": 73
+    },
+    {
+      "area": "宮城",
+      "station_group": "TBC・OX・MMT・KHB",
+      "target": "男女4～12才",
+      "population_thousand": 170
+    },
+    {
+      "area": "福島",
+      "station_group": "FTV・FCT・KFB・TUF",
+      "target": "男女4～12才",
+      "population_thousand": 129
+    },
+    {
+      "area": "新潟",
+      "station_group": "BSN・NST・TeNY・UX",
+      "target": "男女4～12才",
+      "population_thousand": 153
+    },
+    {
+      "area": "長野",
+      "station_group": "SBC・NBS・TSB・ABN",
+      "target": "男女4～12才",
+      "population_thousand": 151
+    },
+    {
+      "area": "山梨",
+      "station_group": "YBS・UTY",
+      "target": "男女4～12才",
+      "population_thousand": 57
+    },
+    {
+      "area": "静岡",
+      "station_group": "SBS・SUT・SATV・SDT",
+      "target": "男女4～12才",
+      "population_thousand": 272
+    },
+    {
+      "area": "富山",
+      "station_group": "KNB・BBT・TUT",
+      "target": "男女4～12才",
+      "population_thousand": 71
+    },
+    {
+      "area": "石川",
+      "station_group": "MRO",
+      "target": "男女4～12才",
+      "population_thousand": 121
+    },
+    {
+      "area": "石川",
+      "station_group": "ITC・KTK",
+      "target": "男女4～12才",
+      "population_thousand": 84
+    },
+    {
+      "area": "石川",
+      "station_group": "HAB",
+      "target": "男女4～12才",
+      "population_thousand": 182
+    },
+    {
+      "area": "福井",
+      "station_group": "FBC・FTB",
+      "target": "男女4～12才",
+      "population_thousand": 58
+    },
+    {
+      "area": "鳥取・島根",
+      "station_group": "BSS・NKT・TSK",
+      "target": "男女4～12才",
+      "population_thousand": 93
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "RSK",
+      "target": "男女4～12才",
+      "population_thousand": 219
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "OHK・RNC・KSB",
+      "target": "男女4～12才",
+      "population_thousand": 218
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "TSC",
+      "target": "男女4～12才",
+      "population_thousand": 220
+    },
+    {
+      "area": "広島",
+      "station_group": "RCC・HTV・TSS",
+      "target": "男女4～12才",
+      "population_thousand": 229
+    },
+    {
+      "area": "広島",
+      "station_group": "HOME",
+      "target": "男女4～12才",
+      "population_thousand": 233
+    },
+    {
+      "area": "山口",
+      "station_group": "KRY・TYS",
+      "target": "男女4～12才",
+      "population_thousand": 96
+    },
+    {
+      "area": "山口",
+      "station_group": "YAB",
+      "target": "男女4～12才",
+      "population_thousand": 96
+    },
+    {
+      "area": "徳島",
+      "station_group": "JRT",
+      "target": "男女4～12才",
+      "population_thousand": 51
+    },
+    {
+      "area": "愛媛",
+      "station_group": "RNB・EBC・ITV",
+      "target": "男女4～12才",
+      "population_thousand": 97
+    },
+    {
+      "area": "愛媛",
+      "station_group": "EAT",
+      "target": "男女4～12才",
+      "population_thousand": 98
+    },
+    {
+      "area": "高知",
+      "station_group": "RKC・KUTV・KSS",
+      "target": "男女4～12才",
+      "population_thousand": 46
+    },
+    {
+      "area": "長崎",
+      "station_group": "NBC・KTN・NCC・NIB",
+      "target": "男女4～12才",
+      "population_thousand": 102
+    },
+    {
+      "area": "熊本",
+      "station_group": "RKK・KKT・KAB",
+      "target": "男女4～12才",
+      "population_thousand": 143
+    },
+    {
+      "area": "熊本",
+      "station_group": "TKU",
+      "target": "男女4～12才",
+      "population_thousand": 143
+    },
+    {
+      "area": "佐賀",
+      "station_group": "STS",
+      "target": "男女4～12才",
+      "population_thousand": 139
+    },
+    {
+      "area": "大分",
+      "station_group": "OBS・TOS・OAB",
+      "target": "男女4～12才",
+      "population_thousand": 86
+    },
+    {
+      "area": "宮崎",
+      "station_group": "MRT・UMK",
+      "target": "男女4～12才",
+      "population_thousand": 90
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "MBC・KTS",
+      "target": "男女4～12才",
+      "population_thousand": 150
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "KKB・KYT",
+      "target": "男女4～12才",
+      "population_thousand": 151
+    },
+    {
+      "area": "沖縄",
+      "station_group": "RBC・OTV・QAB",
+      "target": "男女4～12才",
+      "population_thousand": 154
+    },
+    {
+      "area": "東京",
+      "station_group": "MX",
+      "target": "男女4～12才",
+      "population_thousand": 2289
+    },
+    {
+      "area": "群馬",
+      "station_group": "GTV",
+      "target": "男女4～12才",
+      "population_thousand": 174
+    },
+    {
+      "area": "埼玉",
+      "station_group": "TVS",
+      "target": "男女4～12才",
+      "population_thousand": 681
+    },
+    {
+      "area": "栃木",
+      "station_group": "GYT",
+      "target": "男女4～12才",
+      "population_thousand": 147
+    },
+    {
+      "area": "千葉",
+      "station_group": "CTC",
+      "target": "男女4～12才",
+      "population_thousand": 604
+    },
+    {
+      "area": "神奈川",
+      "station_group": "TVK",
+      "target": "男女4～12才",
+      "population_thousand": 866
+    },
+    {
+      "area": "岐阜",
+      "station_group": "GBS",
+      "target": "男女4～12才",
+      "population_thousand": 201
+    },
+    {
+      "area": "三重",
+      "station_group": "MTV",
+      "target": "男女4～12才",
+      "population_thousand": 396
+    },
+    {
+      "area": "滋賀",
+      "station_group": "BBC",
+      "target": "男女4～12才",
+      "population_thousand": 128
+    },
+    {
+      "area": "京都",
+      "station_group": "KBS",
+      "target": "男女4～12才",
+      "population_thousand": 589
+    },
+    {
+      "area": "兵庫",
+      "station_group": "SUN",
+      "target": "男女4～12才",
+      "population_thousand": 1094
+    },
+    {
+      "area": "奈良",
+      "station_group": "TVN",
+      "target": "男女4～12才",
+      "population_thousand": 112
+    },
+    {
+      "area": "和歌山",
+      "station_group": "WTV",
+      "target": "男女4～12才",
+      "population_thousand": 66
+    },
+    {
+      "area": "関東",
+      "station_group": "NTV",
+      "target": "男女13～19才",
+      "population_thousand": 2636
+    },
+    {
+      "area": "関東",
+      "station_group": "TBS",
+      "target": "男女13～19才",
+      "population_thousand": 2638
+    },
+    {
+      "area": "関東",
+      "station_group": "CX",
+      "target": "男女13～19才",
+      "population_thousand": 2654
+    },
+    {
+      "area": "関東",
+      "station_group": "EX",
+      "target": "男女13～19才",
+      "population_thousand": 2654
+    },
+    {
+      "area": "関東",
+      "station_group": "TX",
+      "target": "男女13～19才",
+      "population_thousand": 2655
+    },
+    {
+      "area": "関西",
+      "station_group": "YTV",
+      "target": "男女13～19才",
+      "population_thousand": 1351
+    },
+    {
+      "area": "関西",
+      "station_group": "MBS",
+      "target": "男女13～19才",
+      "population_thousand": 1365
+    },
+    {
+      "area": "関西",
+      "station_group": "KTV",
+      "target": "男女13～19才",
+      "population_thousand": 1356
+    },
+    {
+      "area": "関西",
+      "station_group": "ABC",
+      "target": "男女13～19才",
+      "population_thousand": 1364
+    },
+    {
+      "area": "関西",
+      "station_group": "TVO",
+      "target": "男女13～19才",
+      "population_thousand": 1012
+    },
+    {
+      "area": "名古屋",
+      "station_group": "CTV・CBC・THK・NBN",
+      "target": "男女13～19才",
+      "population_thousand": 746
+    },
+    {
+      "area": "名古屋",
+      "station_group": "TVA",
+      "target": "男女13～19才",
+      "population_thousand": 707
+    },
+    {
+      "area": "福岡",
+      "station_group": "FBS",
+      "target": "男女13～19才",
+      "population_thousand": 422
+    },
+    {
+      "area": "福岡",
+      "station_group": "RKB",
+      "target": "男女13～19才",
+      "population_thousand": 416
+    },
+    {
+      "area": "福岡",
+      "station_group": "TNC",
+      "target": "男女13～19才",
+      "population_thousand": 466
+    },
+    {
+      "area": "福岡",
+      "station_group": "KBC",
+      "target": "男女13～19才",
+      "population_thousand": 424
+    },
+    {
+      "area": "福岡",
+      "station_group": "TVQ",
+      "target": "男女13～19才",
+      "population_thousand": 432
+    },
+    {
+      "area": "北海道",
+      "station_group": "STV・HBC・HTB",
+      "target": "男女13～19才",
+      "population_thousand": 300
+    },
+    {
+      "area": "北海道",
+      "station_group": "UHB",
+      "target": "男女13～19才",
+      "population_thousand": 300
+    },
+    {
+      "area": "北海道",
+      "station_group": "TVH",
+      "target": "男女13～19才",
+      "population_thousand": 291
+    },
+    {
+      "area": "青森",
+      "station_group": "RAB・ATV・ABA",
+      "target": "男女13～19才",
+      "population_thousand": 74
+    },
+    {
+      "area": "岩手",
+      "station_group": "IBC・IAT",
+      "target": "男女13～19才",
+      "population_thousand": 90
+    },
+    {
+      "area": "岩手",
+      "station_group": "TVI",
+      "target": "男女13～19才",
+      "population_thousand": 90
+    },
+    {
+      "area": "岩手",
+      "station_group": "MIT",
+      "target": "男女13～19才",
+      "population_thousand": 101
+    },
+    {
+      "area": "秋田",
+      "station_group": "ABS・AKT・AAB",
+      "target": "男女13～19才",
+      "population_thousand": 53
+    },
+    {
+      "area": "山形",
+      "station_group": "YBC・YTS・TUY・SAY",
+      "target": "男女13～19才",
+      "population_thousand": 66
+    },
+    {
+      "area": "宮城",
+      "station_group": "TBC・OX・MMT・KHB",
+      "target": "男女13～19才",
+      "population_thousand": 145
+    },
+    {
+      "area": "福島",
+      "station_group": "FTV・FCT・KFB・TUF",
+      "target": "男女13～19才",
+      "population_thousand": 116
+    },
+    {
+      "area": "新潟",
+      "station_group": "BSN・NST・TeNY・UX",
+      "target": "男女13～19才",
+      "population_thousand": 133
+    },
+    {
+      "area": "長野",
+      "station_group": "SBC・NBS・TSB・ABN",
+      "target": "男女13～19才",
+      "population_thousand": 133
+    },
+    {
+      "area": "山梨",
+      "station_group": "YBS・UTY",
+      "target": "男女13～19才",
+      "population_thousand": 52
+    },
+    {
+      "area": "静岡",
+      "station_group": "SBS・SUT・SATV・SDT",
+      "target": "男女13～19才",
+      "population_thousand": 234
+    },
+    {
+      "area": "富山",
+      "station_group": "KNB・BBT・TUT",
+      "target": "男女13～19才",
+      "population_thousand": 64
+    },
+    {
+      "area": "石川",
+      "station_group": "MRO",
+      "target": "男女13～19才",
+      "population_thousand": 106
+    },
+    {
+      "area": "石川",
+      "station_group": "ITC・KTK",
+      "target": "男女13～19才",
+      "population_thousand": 74
+    },
+    {
+      "area": "石川",
+      "station_group": "HAB",
+      "target": "男女13～19才",
+      "population_thousand": 161
+    },
+    {
+      "area": "福井",
+      "station_group": "FBC・FTB",
+      "target": "男女13～19才",
+      "population_thousand": 51
+    },
+    {
+      "area": "鳥取・島根",
+      "station_group": "BSS・NKT・TSK",
+      "target": "男女13～19才",
+      "population_thousand": 77
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "RSK",
+      "target": "男女13～19才",
+      "population_thousand": 185
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "OHK・RNC・KSB",
+      "target": "男女13～19才",
+      "population_thousand": 184
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "TSC",
+      "target": "男女13～19才",
+      "population_thousand": 186
+    },
+    {
+      "area": "広島",
+      "station_group": "RCC・HTV・TSS",
+      "target": "男女13～19才",
+      "population_thousand": 189
+    },
+    {
+      "area": "広島",
+      "station_group": "HOME",
+      "target": "男女13～19才",
+      "population_thousand": 193
+    },
+    {
+      "area": "山口",
+      "station_group": "KRY・TYS",
+      "target": "男女13～19才",
+      "population_thousand": 83
+    },
+    {
+      "area": "山口",
+      "station_group": "YAB",
+      "target": "男女13～19才",
+      "population_thousand": 83
+    },
+    {
+      "area": "徳島",
+      "station_group": "JRT",
+      "target": "男女13～19才",
+      "population_thousand": 43
+    },
+    {
+      "area": "愛媛",
+      "station_group": "RNB・EBC・ITV",
+      "target": "男女13～19才",
+      "population_thousand": 83
+    },
+    {
+      "area": "愛媛",
+      "station_group": "EAT",
+      "target": "男女13～19才",
+      "population_thousand": 84
+    },
+    {
+      "area": "高知",
+      "station_group": "RKC・KUTV・KSS",
+      "target": "男女13～19才",
+      "population_thousand": 41
+    },
+    {
+      "area": "長崎",
+      "station_group": "NBC・KTN・NCC・NIB",
+      "target": "男女13～19才",
+      "population_thousand": 84
+    },
+    {
+      "area": "熊本",
+      "station_group": "RKK・KKT・KAB",
+      "target": "男女13～19才",
+      "population_thousand": 114
+    },
+    {
+      "area": "熊本",
+      "station_group": "TKU",
+      "target": "男女13～19才",
+      "population_thousand": 114
+    },
+    {
+      "area": "佐賀",
+      "station_group": "STS",
+      "target": "男女13～19才",
+      "population_thousand": 113
+    },
+    {
+      "area": "大分",
+      "station_group": "OBS・TOS・OAB",
+      "target": "男女13～19才",
+      "population_thousand": 71
+    },
+    {
+      "area": "宮崎",
+      "station_group": "MRT・UMK",
+      "target": "男女13～19才",
+      "population_thousand": 72
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "MBC・KTS",
+      "target": "男女13～19才",
+      "population_thousand": 118
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "KKB・KYT",
+      "target": "男女13～19才",
+      "population_thousand": 119
+    },
+    {
+      "area": "沖縄",
+      "station_group": "RBC・OTV・QAB",
+      "target": "男女13～19才",
+      "population_thousand": 115
+    },
+    {
+      "area": "東京",
+      "station_group": "MX",
+      "target": "男女13～19才",
+      "population_thousand": 1838
+    },
+    {
+      "area": "群馬",
+      "station_group": "GTV",
+      "target": "男女13～19才",
+      "population_thousand": 160
+    },
+    {
+      "area": "埼玉",
+      "station_group": "TVS",
+      "target": "男女13～19才",
+      "population_thousand": 570
+    },
+    {
+      "area": "栃木",
+      "station_group": "GYT",
+      "target": "男女13～19才",
+      "population_thousand": 129
+    },
+    {
+      "area": "千葉",
+      "station_group": "CTC",
+      "target": "男女13～19才",
+      "population_thousand": 511
+    },
+    {
+      "area": "神奈川",
+      "station_group": "TVK",
+      "target": "男女13～19才",
+      "population_thousand": 715
+    },
+    {
+      "area": "岐阜",
+      "station_group": "GBS",
+      "target": "男女13～19才",
+      "population_thousand": 177
+    },
+    {
+      "area": "三重",
+      "station_group": "MTV",
+      "target": "男女13～19才",
+      "population_thousand": 331
+    },
+    {
+      "area": "滋賀",
+      "station_group": "BBC",
+      "target": "男女13～19才",
+      "population_thousand": 106
+    },
+    {
+      "area": "京都",
+      "station_group": "KBS",
+      "target": "男女13～19才",
+      "population_thousand": 492
+    },
+    {
+      "area": "兵庫",
+      "station_group": "SUN",
+      "target": "男女13～19才",
+      "population_thousand": 933
+    },
+    {
+      "area": "奈良",
+      "station_group": "TVN",
+      "target": "男女13～19才",
+      "population_thousand": 100
+    },
+    {
+      "area": "和歌山",
+      "station_group": "WTV",
+      "target": "男女13～19才",
+      "population_thousand": 58
+    },
+    {
+      "area": "関東",
+      "station_group": "NTV",
+      "target": "男20～34才",
+      "population_thousand": 3830
+    },
+    {
+      "area": "関東",
+      "station_group": "TBS",
+      "target": "男20～34才",
+      "population_thousand": 3833
+    },
+    {
+      "area": "関東",
+      "station_group": "CX",
+      "target": "男20～34才",
+      "population_thousand": 3850
+    },
+    {
+      "area": "関東",
+      "station_group": "EX",
+      "target": "男20～34才",
+      "population_thousand": 3850
+    },
+    {
+      "area": "関東",
+      "station_group": "TX",
+      "target": "男20～34才",
+      "population_thousand": 3852
+    },
+    {
+      "area": "関西",
+      "station_group": "YTV",
+      "target": "男20～34才",
+      "population_thousand": 1649
+    },
+    {
+      "area": "関西",
+      "station_group": "MBS",
+      "target": "男20～34才",
+      "population_thousand": 1665
+    },
+    {
+      "area": "関西",
+      "station_group": "KTV",
+      "target": "男20～34才",
+      "population_thousand": 1655
+    },
+    {
+      "area": "関西",
+      "station_group": "ABC",
+      "target": "男20～34才",
+      "population_thousand": 1664
+    },
+    {
+      "area": "関西",
+      "station_group": "TVO",
+      "target": "男20～34才",
+      "population_thousand": 1266
+    },
+    {
+      "area": "名古屋",
+      "station_group": "CTV・CBC・THK・NBN",
+      "target": "男20～34才",
+      "population_thousand": 955
+    },
+    {
+      "area": "名古屋",
+      "station_group": "TVA",
+      "target": "男20～34才",
+      "population_thousand": 913
+    },
+    {
+      "area": "福岡",
+      "station_group": "FBS",
+      "target": "男20～34才",
+      "population_thousand": 492
+    },
+    {
+      "area": "福岡",
+      "station_group": "RKB",
+      "target": "男20～34才",
+      "population_thousand": 485
+    },
+    {
+      "area": "福岡",
+      "station_group": "TNC",
+      "target": "男20～34才",
+      "population_thousand": 541
+    },
+    {
+      "area": "福岡",
+      "station_group": "KBC",
+      "target": "男20～34才",
+      "population_thousand": 494
+    },
+    {
+      "area": "福岡",
+      "station_group": "TVQ",
+      "target": "男20～34才",
+      "population_thousand": 504
+    },
+    {
+      "area": "北海道",
+      "station_group": "STV・HBC・HTB",
+      "target": "男20～34才",
+      "population_thousand": 357
+    },
+    {
+      "area": "北海道",
+      "station_group": "UHB",
+      "target": "男20～34才",
+      "population_thousand": 357
+    },
+    {
+      "area": "北海道",
+      "station_group": "TVH",
+      "target": "男20～34才",
+      "population_thousand": 347
+    },
+    {
+      "area": "青森",
+      "station_group": "RAB・ATV・ABA",
+      "target": "男20～34才",
+      "population_thousand": 79
+    },
+    {
+      "area": "岩手",
+      "station_group": "IBC・IAT",
+      "target": "男20～34才",
+      "population_thousand": 96
+    },
+    {
+      "area": "岩手",
+      "station_group": "TVI",
+      "target": "男20～34才",
+      "population_thousand": 97
+    },
+    {
+      "area": "岩手",
+      "station_group": "MIT",
+      "target": "男20～34才",
+      "population_thousand": 109
+    },
+    {
+      "area": "秋田",
+      "station_group": "ABS・AKT・AAB",
+      "target": "男20～34才",
+      "population_thousand": 54
+    },
+    {
+      "area": "山形",
+      "station_group": "YBC・YTS・TUY・SAY",
+      "target": "男20～34才",
+      "population_thousand": 69
+    },
+    {
+      "area": "宮城",
+      "station_group": "TBC・OX・MMT・KHB",
+      "target": "男20～34才",
+      "population_thousand": 179
+    },
+    {
+      "area": "福島",
+      "station_group": "FTV・FCT・KFB・TUF",
+      "target": "男20～34才",
+      "population_thousand": 133
+    },
+    {
+      "area": "新潟",
+      "station_group": "BSN・NST・TeNY・UX",
+      "target": "男20～34才",
+      "population_thousand": 149
+    },
+    {
+      "area": "長野",
+      "station_group": "SBC・NBS・TSB・ABN",
+      "target": "男20～34才",
+      "population_thousand": 143
+    },
+    {
+      "area": "山梨",
+      "station_group": "YBS・UTY",
+      "target": "男20～34才",
+      "population_thousand": 61
+    },
+    {
+      "area": "静岡",
+      "station_group": "SBS・SUT・SATV・SDT",
+      "target": "男20～34才",
+      "population_thousand": 276
+    },
+    {
+      "area": "富山",
+      "station_group": "KNB・BBT・TUT",
+      "target": "男20～34才",
+      "population_thousand": 76
+    },
+    {
+      "area": "石川",
+      "station_group": "MRO",
+      "target": "男20～34才",
+      "population_thousand": 123
+    },
+    {
+      "area": "石川",
+      "station_group": "ITC・KTK",
+      "target": "男20～34才",
+      "population_thousand": 86
+    },
+    {
+      "area": "石川",
+      "station_group": "HAB",
+      "target": "男20～34才",
+      "population_thousand": 188
+    },
+    {
+      "area": "福井",
+      "station_group": "FBC・FTB",
+      "target": "男20～34才",
+      "population_thousand": 57
+    },
+    {
+      "area": "鳥取・島根",
+      "station_group": "BSS・NKT・TSK",
+      "target": "男20～34才",
+      "population_thousand": 80
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "RSK",
+      "target": "男20～34才",
+      "population_thousand": 214
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "OHK・RNC・KSB",
+      "target": "男20～34才",
+      "population_thousand": 213
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "TSC",
+      "target": "男20～34才",
+      "population_thousand": 215
+    },
+    {
+      "area": "広島",
+      "station_group": "RCC・HTV・TSS",
+      "target": "男20～34才",
+      "population_thousand": 225
+    },
+    {
+      "area": "広島",
+      "station_group": "HOME",
+      "target": "男20～34才",
+      "population_thousand": 228
+    },
+    {
+      "area": "山口",
+      "station_group": "KRY・TYS",
+      "target": "男20～34才",
+      "population_thousand": 89
+    },
+    {
+      "area": "山口",
+      "station_group": "YAB",
+      "target": "男20～34才",
+      "population_thousand": 90
+    },
+    {
+      "area": "徳島",
+      "station_group": "JRT",
+      "target": "男20～34才",
+      "population_thousand": 48
+    },
+    {
+      "area": "愛媛",
+      "station_group": "RNB・EBC・ITV",
+      "target": "男20～34才",
+      "population_thousand": 89
+    },
+    {
+      "area": "愛媛",
+      "station_group": "EAT",
+      "target": "男20～34才",
+      "population_thousand": 90
+    },
+    {
+      "area": "高知",
+      "station_group": "RKC・KUTV・KSS",
+      "target": "男20～34才",
+      "population_thousand": 43
+    },
+    {
+      "area": "長崎",
+      "station_group": "NBC・KTN・NCC・NIB",
+      "target": "男20～34才",
+      "population_thousand": 83
+    },
+    {
+      "area": "熊本",
+      "station_group": "RKK・KKT・KAB",
+      "target": "男20～34才",
+      "population_thousand": 118
+    },
+    {
+      "area": "熊本",
+      "station_group": "TKU",
+      "target": "男20～34才",
+      "population_thousand": 118
+    },
+    {
+      "area": "佐賀",
+      "station_group": "STS",
+      "target": "男20～34才",
+      "population_thousand": 117
+    },
+    {
+      "area": "大分",
+      "station_group": "OBS・TOS・OAB",
+      "target": "男20～34才",
+      "population_thousand": 77
+    },
+    {
+      "area": "宮崎",
+      "station_group": "MRT・UMK",
+      "target": "男20～34才",
+      "population_thousand": 70
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "MBC・KTS",
+      "target": "男20～34才",
+      "population_thousand": 112
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "KKB・KYT",
+      "target": "男20～34才",
+      "population_thousand": 113
+    },
+    {
+      "area": "沖縄",
+      "station_group": "RBC・OTV・QAB",
+      "target": "男20～34才",
+      "population_thousand": 121
+    },
+    {
+      "area": "東京",
+      "station_group": "MX",
+      "target": "男20～34才",
+      "population_thousand": 2861
+    },
+    {
+      "area": "群馬",
+      "station_group": "GTV",
+      "target": "男20～34才",
+      "population_thousand": 192
+    },
+    {
+      "area": "埼玉",
+      "station_group": "TVS",
+      "target": "男20～34才",
+      "population_thousand": 792
+    },
+    {
+      "area": "栃木",
+      "station_group": "GYT",
+      "target": "男20～34才",
+      "population_thousand": 158
+    },
+    {
+      "area": "千葉",
+      "station_group": "CTC",
+      "target": "男20～34才",
+      "population_thousand": 689
+    },
+    {
+      "area": "神奈川",
+      "station_group": "TVK",
+      "target": "男20～34才",
+      "population_thousand": 1030
+    },
+    {
+      "area": "岐阜",
+      "station_group": "GBS",
+      "target": "男20～34才",
+      "population_thousand": 195
+    },
+    {
+      "area": "三重",
+      "station_group": "MTV",
+      "target": "男20～34才",
+      "population_thousand": 454
+    },
+    {
+      "area": "滋賀",
+      "station_group": "BBC",
+      "target": "男20～34才",
+      "population_thousand": 123
+    },
+    {
+      "area": "京都",
+      "station_group": "KBS",
+      "target": "男20～34才",
+      "population_thousand": 623
+    },
+    {
+      "area": "兵庫",
+      "station_group": "SUN",
+      "target": "男20～34才",
+      "population_thousand": 1171
+    },
+    {
+      "area": "奈良",
+      "station_group": "TVN",
+      "target": "男20～34才",
+      "population_thousand": 102
+    },
+    {
+      "area": "和歌山",
+      "station_group": "WTV",
+      "target": "男20～34才",
+      "population_thousand": 63
+    },
+    {
+      "area": "関東",
+      "station_group": "NTV",
+      "target": "男35～49才",
+      "population_thousand": 4892
+    },
+    {
+      "area": "関東",
+      "station_group": "TBS",
+      "target": "男35～49才",
+      "population_thousand": 4895
+    },
+    {
+      "area": "関東",
+      "station_group": "CX",
+      "target": "男35～49才",
+      "population_thousand": 4918
+    },
+    {
+      "area": "関東",
+      "station_group": "EX",
+      "target": "男35～49才",
+      "population_thousand": 4918
+    },
+    {
+      "area": "関東",
+      "station_group": "TX",
+      "target": "男35～49才",
+      "population_thousand": 4920
+    },
+    {
+      "area": "関西",
+      "station_group": "YTV",
+      "target": "男35～49才",
+      "population_thousand": 2104
+    },
+    {
+      "area": "関西",
+      "station_group": "MBS",
+      "target": "男35～49才",
+      "population_thousand": 2125
+    },
+    {
+      "area": "関西",
+      "station_group": "KTV",
+      "target": "男35～49才",
+      "population_thousand": 2112
+    },
+    {
+      "area": "関西",
+      "station_group": "ABC",
+      "target": "男35～49才",
+      "population_thousand": 2124
+    },
+    {
+      "area": "関西",
+      "station_group": "TVO",
+      "target": "男35～49才",
+      "population_thousand": 1606
+    },
+    {
+      "area": "名古屋",
+      "station_group": "CTV・CBC・THK・NBN",
+      "target": "男35～49才",
+      "population_thousand": 1195
+    },
+    {
+      "area": "名古屋",
+      "station_group": "TVA",
+      "target": "男35～49才",
+      "population_thousand": 1137
+    },
+    {
+      "area": "福岡",
+      "station_group": "FBS",
+      "target": "男35～49才",
+      "population_thousand": 646
+    },
+    {
+      "area": "福岡",
+      "station_group": "RKB",
+      "target": "男35～49才",
+      "population_thousand": 637
+    },
+    {
+      "area": "福岡",
+      "station_group": "TNC",
+      "target": "男35～49才",
+      "population_thousand": 712
+    },
+    {
+      "area": "福岡",
+      "station_group": "KBC",
+      "target": "男35～49才",
+      "population_thousand": 649
+    },
+    {
+      "area": "福岡",
+      "station_group": "TVQ",
+      "target": "男35～49才",
+      "population_thousand": 662
+    },
+    {
+      "area": "北海道",
+      "station_group": "STV・HBC・HTB",
+      "target": "男35～49才",
+      "population_thousand": 500
+    },
+    {
+      "area": "北海道",
+      "station_group": "UHB",
+      "target": "男35～49才",
+      "population_thousand": 500
+    },
+    {
+      "area": "北海道",
+      "station_group": "TVH",
+      "target": "男35～49才",
+      "population_thousand": 486
+    },
+    {
+      "area": "青森",
+      "station_group": "RAB・ATV・ABA",
+      "target": "男35～49才",
+      "population_thousand": 117
+    },
+    {
+      "area": "岩手",
+      "station_group": "IBC・IAT",
+      "target": "男35～49才",
+      "population_thousand": 140
+    },
+    {
+      "area": "岩手",
+      "station_group": "TVI",
+      "target": "男35～49才",
+      "population_thousand": 141
+    },
+    {
+      "area": "岩手",
+      "station_group": "MIT",
+      "target": "男35～49才",
+      "population_thousand": 158
+    },
+    {
+      "area": "秋田",
+      "station_group": "ABS・AKT・AAB",
+      "target": "男35～49才",
+      "population_thousand": 87
+    },
+    {
+      "area": "山形",
+      "station_group": "YBC・YTS・TUY・SAY",
+      "target": "男35～49才",
+      "population_thousand": 98
+    },
+    {
+      "area": "宮城",
+      "station_group": "TBC・OX・MMT・KHB",
+      "target": "男35～49才",
+      "population_thousand": 241
+    },
+    {
+      "area": "福島",
+      "station_group": "FTV・FCT・KFB・TUF",
+      "target": "男35～49才",
+      "population_thousand": 179
+    },
+    {
+      "area": "新潟",
+      "station_group": "BSN・NST・TeNY・UX",
+      "target": "男35～49才",
+      "population_thousand": 212
+    },
+    {
+      "area": "長野",
+      "station_group": "SBC・NBS・TSB・ABN",
+      "target": "男35～49才",
+      "population_thousand": 198
+    },
+    {
+      "area": "山梨",
+      "station_group": "YBS・UTY",
+      "target": "男35～49才",
+      "population_thousand": 77
+    },
+    {
+      "area": "静岡",
+      "station_group": "SBS・SUT・SATV・SDT",
+      "target": "男35～49才",
+      "population_thousand": 370
+    },
+    {
+      "area": "富山",
+      "station_group": "KNB・BBT・TUT",
+      "target": "男35～49才",
+      "population_thousand": 103
+    },
+    {
+      "area": "石川",
+      "station_group": "MRO",
+      "target": "男35～49才",
+      "population_thousand": 159
+    },
+    {
+      "area": "石川",
+      "station_group": "ITC・KTK",
+      "target": "男35～49才",
+      "population_thousand": 112
+    },
+    {
+      "area": "石川",
+      "station_group": "HAB",
+      "target": "男35～49才",
+      "population_thousand": 248
+    },
+    {
+      "area": "福井",
+      "station_group": "FBC・FTB",
+      "target": "男35～49才",
+      "population_thousand": 74
+    },
+    {
+      "area": "鳥取・島根",
+      "station_group": "BSS・NKT・TSK",
+      "target": "男35～49才",
+      "population_thousand": 114
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "RSK",
+      "target": "男35～49才",
+      "population_thousand": 280
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "OHK・RNC・KSB",
+      "target": "男35～49才",
+      "population_thousand": 279
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "TSC",
+      "target": "男35～49才",
+      "population_thousand": 282
+    },
+    {
+      "area": "広島",
+      "station_group": "RCC・HTV・TSS",
+      "target": "男35～49才",
+      "population_thousand": 291
+    },
+    {
+      "area": "広島",
+      "station_group": "HOME",
+      "target": "男35～49才",
+      "population_thousand": 296
+    },
+    {
+      "area": "山口",
+      "station_group": "KRY・TYS",
+      "target": "男35～49才",
+      "population_thousand": 123
+    },
+    {
+      "area": "山口",
+      "station_group": "YAB",
+      "target": "男35～49才",
+      "population_thousand": 124
+    },
+    {
+      "area": "徳島",
+      "station_group": "JRT",
+      "target": "男35～49才",
+      "population_thousand": 68
+    },
+    {
+      "area": "愛媛",
+      "station_group": "RNB・EBC・ITV",
+      "target": "男35～49才",
+      "population_thousand": 126
+    },
+    {
+      "area": "愛媛",
+      "station_group": "EAT",
+      "target": "男35～49才",
+      "population_thousand": 127
+    },
+    {
+      "area": "高知",
+      "station_group": "RKC・KUTV・KSS",
+      "target": "男35～49才",
+      "population_thousand": 64
+    },
+    {
+      "area": "長崎",
+      "station_group": "NBC・KTN・NCC・NIB",
+      "target": "男35～49才",
+      "population_thousand": 115
+    },
+    {
+      "area": "熊本",
+      "station_group": "RKK・KKT・KAB",
+      "target": "男35～49才",
+      "population_thousand": 160
+    },
+    {
+      "area": "熊本",
+      "station_group": "TKU",
+      "target": "男35～49才",
+      "population_thousand": 160
+    },
+    {
+      "area": "佐賀",
+      "station_group": "STS",
+      "target": "男35～49才",
+      "population_thousand": 158
+    },
+    {
+      "area": "大分",
+      "station_group": "OBS・TOS・OAB",
+      "target": "男35～49才",
+      "population_thousand": 106
+    },
+    {
+      "area": "宮崎",
+      "station_group": "MRT・UMK",
+      "target": "男35～49才",
+      "population_thousand": 101
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "MBC・KTS",
+      "target": "男35～49才",
+      "population_thousand": 160
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "KKB・KYT",
+      "target": "男35～49才",
+      "population_thousand": 162
+    },
+    {
+      "area": "沖縄",
+      "station_group": "RBC・OTV・QAB",
+      "target": "男35～49才",
+      "population_thousand": 153
+    },
+    {
+      "area": "東京",
+      "station_group": "MX",
+      "target": "男35～49才",
+      "population_thousand": 3593
+    },
+    {
+      "area": "群馬",
+      "station_group": "GTV",
+      "target": "男35～49才",
+      "population_thousand": 251
+    },
+    {
+      "area": "埼玉",
+      "station_group": "TVS",
+      "target": "男35～49才",
+      "population_thousand": 1033
+    },
+    {
+      "area": "栃木",
+      "station_group": "GYT",
+      "target": "男35～49才",
+      "population_thousand": 215
+    },
+    {
+      "area": "千葉",
+      "station_group": "CTC",
+      "target": "男35～49才",
+      "population_thousand": 896
+    },
+    {
+      "area": "神奈川",
+      "station_group": "TVK",
+      "target": "男35～49才",
+      "population_thousand": 1318
+    },
+    {
+      "area": "岐阜",
+      "station_group": "GBS",
+      "target": "男35～49才",
+      "population_thousand": 260
+    },
+    {
+      "area": "三重",
+      "station_group": "MTV",
+      "target": "男35～49才",
+      "population_thousand": 549
+    },
+    {
+      "area": "滋賀",
+      "station_group": "BBC",
+      "target": "男35～49才",
+      "population_thousand": 157
+    },
+    {
+      "area": "京都",
+      "station_group": "KBS",
+      "target": "男35～49才",
+      "population_thousand": 790
+    },
+    {
+      "area": "兵庫",
+      "station_group": "SUN",
+      "target": "男35～49才",
+      "population_thousand": 1481
+    },
+    {
+      "area": "奈良",
+      "station_group": "TVN",
+      "target": "男35～49才",
+      "population_thousand": 140
+    },
+    {
+      "area": "和歌山",
+      "station_group": "WTV",
+      "target": "男35～49才",
+      "population_thousand": 85
+    },
+    {
+      "area": "関東",
+      "station_group": "NTV",
+      "target": "男50才～",
+      "population_thousand": 9627
+    },
+    {
+      "area": "関東",
+      "station_group": "TBS",
+      "target": "男50才～",
+      "population_thousand": 9635
+    },
+    {
+      "area": "関東",
+      "station_group": "CX",
+      "target": "男50才～",
+      "population_thousand": 9698
+    },
+    {
+      "area": "関東",
+      "station_group": "EX",
+      "target": "男50才～",
+      "population_thousand": 9698
+    },
+    {
+      "area": "関東",
+      "station_group": "TX",
+      "target": "男50才～",
+      "population_thousand": 9702
+    },
+    {
+      "area": "関西",
+      "station_group": "YTV",
+      "target": "男50才～",
+      "population_thousand": 4673
+    },
+    {
+      "area": "関西",
+      "station_group": "MBS",
+      "target": "男50才～",
+      "population_thousand": 4726
+    },
+    {
+      "area": "関西",
+      "station_group": "KTV",
+      "target": "男50才～",
+      "population_thousand": 4696
+    },
+    {
+      "area": "関西",
+      "station_group": "ABC",
+      "target": "男50才～",
+      "population_thousand": 4723
+    },
+    {
+      "area": "関西",
+      "station_group": "TVO",
+      "target": "男50才～",
+      "population_thousand": 3497
+    },
+    {
+      "area": "名古屋",
+      "station_group": "CTV・CBC・THK・NBN",
+      "target": "男50才～",
+      "population_thousand": 2457
+    },
+    {
+      "area": "名古屋",
+      "station_group": "TVA",
+      "target": "男50才～",
+      "population_thousand": 2300
+    },
+    {
+      "area": "福岡",
+      "station_group": "FBS",
+      "target": "男50才～",
+      "population_thousand": 1380
+    },
+    {
+      "area": "福岡",
+      "station_group": "RKB",
+      "target": "男50才～",
+      "population_thousand": 1353
+    },
+    {
+      "area": "福岡",
+      "station_group": "TNC",
+      "target": "男50才～",
+      "population_thousand": 1538
+    },
+    {
+      "area": "福岡",
+      "station_group": "KBC",
+      "target": "男50才～",
+      "population_thousand": 1386
+    },
+    {
+      "area": "福岡",
+      "station_group": "TVQ",
+      "target": "男50才～",
+      "population_thousand": 1419
+    },
+    {
+      "area": "北海道",
+      "station_group": "STV・HBC・HTB",
+      "target": "男50才～",
+      "population_thousand": 1206
+    },
+    {
+      "area": "北海道",
+      "station_group": "UHB",
+      "target": "男50才～",
+      "population_thousand": 1205
+    },
+    {
+      "area": "北海道",
+      "station_group": "TVH",
+      "target": "男50才～",
+      "population_thousand": 1171
+    },
+    {
+      "area": "青森",
+      "station_group": "RAB・ATV・ABA",
+      "target": "男50才～",
+      "population_thousand": 306
+    },
+    {
+      "area": "岩手",
+      "station_group": "IBC・IAT",
+      "target": "男50才～",
+      "population_thousand": 359
+    },
+    {
+      "area": "岩手",
+      "station_group": "TVI",
+      "target": "男50才～",
+      "population_thousand": 362
+    },
+    {
+      "area": "岩手",
+      "station_group": "MIT",
+      "target": "男50才～",
+      "population_thousand": 408
+    },
+    {
+      "area": "秋田",
+      "station_group": "ABS・AKT・AAB",
+      "target": "男50才～",
+      "population_thousand": 246
+    },
+    {
+      "area": "山形",
+      "station_group": "YBC・YTS・TUY・SAY",
+      "target": "男50才～",
+      "population_thousand": 259
+    },
+    {
+      "area": "宮城",
+      "station_group": "TBC・OX・MMT・KHB",
+      "target": "男50才～",
+      "population_thousand": 514
+    },
+    {
+      "area": "福島",
+      "station_group": "FTV・FCT・KFB・TUF",
+      "target": "男50才～",
+      "population_thousand": 443
+    },
+    {
+      "area": "新潟",
+      "station_group": "BSN・NST・TeNY・UX",
+      "target": "男50才～",
+      "population_thousand": 528
+    },
+    {
+      "area": "長野",
+      "station_group": "SBC・NBS・TSB・ABN",
+      "target": "男50才～",
+      "population_thousand": 491
+    },
+    {
+      "area": "山梨",
+      "station_group": "YBS・UTY",
+      "target": "男50才～",
+      "population_thousand": 196
+    },
+    {
+      "area": "静岡",
+      "station_group": "SBS・SUT・SATV・SDT",
+      "target": "男50才～",
+      "population_thousand": 857
+    },
+    {
+      "area": "富山",
+      "station_group": "KNB・BBT・TUT",
+      "target": "男50才～",
+      "population_thousand": 242
+    },
+    {
+      "area": "石川",
+      "station_group": "MRO",
+      "target": "男50才～",
+      "population_thousand": 357
+    },
+    {
+      "area": "石川",
+      "station_group": "ITC・KTK",
+      "target": "男50才～",
+      "population_thousand": 250
+    },
+    {
+      "area": "石川",
+      "station_group": "HAB",
+      "target": "男50才～",
+      "population_thousand": 568
+    },
+    {
+      "area": "福井",
+      "station_group": "FBC・FTB",
+      "target": "男50才～",
+      "population_thousand": 175
+    },
+    {
+      "area": "鳥取・島根",
+      "station_group": "BSS・NKT・TSK",
+      "target": "男50才～",
+      "population_thousand": 285
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "RSK",
+      "target": "男50才～",
+      "population_thousand": 643
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "OHK・RNC・KSB",
+      "target": "男50才～",
+      "population_thousand": 636
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "TSC",
+      "target": "男50才～",
+      "population_thousand": 647
+    },
+    {
+      "area": "広島",
+      "station_group": "RCC・HTV・TSS",
+      "target": "男50才～",
+      "population_thousand": 650
+    },
+    {
+      "area": "広島",
+      "station_group": "HOME",
+      "target": "男50才～",
+      "population_thousand": 668
+    },
+    {
+      "area": "山口",
+      "station_group": "KRY・TYS",
+      "target": "男50才～",
+      "population_thousand": 316
+    },
+    {
+      "area": "山口",
+      "station_group": "YAB",
+      "target": "男50才～",
+      "population_thousand": 318
+    },
+    {
+      "area": "徳島",
+      "station_group": "JRT",
+      "target": "男50才～",
+      "population_thousand": 174
+    },
+    {
+      "area": "愛媛",
+      "station_group": "RNB・EBC・ITV",
+      "target": "男50才～",
+      "population_thousand": 312
+    },
+    {
+      "area": "愛媛",
+      "station_group": "EAT",
+      "target": "男50才～",
+      "population_thousand": 317
+    },
+    {
+      "area": "高知",
+      "station_group": "RKC・KUTV・KSS",
+      "target": "男50才～",
+      "population_thousand": 167
+    },
+    {
+      "area": "長崎",
+      "station_group": "NBC・KTN・NCC・NIB",
+      "target": "男50才～",
+      "population_thousand": 310
+    },
+    {
+      "area": "熊本",
+      "station_group": "RKK・KKT・KAB",
+      "target": "男50才～",
+      "population_thousand": 394
+    },
+    {
+      "area": "熊本",
+      "station_group": "TKU",
+      "target": "男50才～",
+      "population_thousand": 393
+    },
+    {
+      "area": "佐賀",
+      "station_group": "STS",
+      "target": "男50才～",
+      "population_thousand": 371
+    },
+    {
+      "area": "大分",
+      "station_group": "OBS・TOS・OAB",
+      "target": "男50才～",
+      "population_thousand": 263
+    },
+    {
+      "area": "宮崎",
+      "station_group": "MRT・UMK",
+      "target": "男50才～",
+      "population_thousand": 257
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "MBC・KTS",
+      "target": "男50才～",
+      "population_thousand": 420
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "KKB・KYT",
+      "target": "男50才～",
+      "population_thousand": 425
+    },
+    {
+      "area": "沖縄",
+      "station_group": "RBC・OTV・QAB",
+      "target": "男50才～",
+      "population_thousand": 294
+    },
+    {
+      "area": "東京",
+      "station_group": "MX",
+      "target": "男50才～",
+      "population_thousand": 6640
+    },
+    {
+      "area": "群馬",
+      "station_group": "GTV",
+      "target": "男50才～",
+      "population_thousand": 579
+    },
+    {
+      "area": "埼玉",
+      "station_group": "TVS",
+      "target": "男50才～",
+      "population_thousand": 2070
+    },
+    {
+      "area": "栃木",
+      "station_group": "GYT",
+      "target": "男50才～",
+      "population_thousand": 468
+    },
+    {
+      "area": "千葉",
+      "station_group": "CTC",
+      "target": "男50才～",
+      "population_thousand": 1824
+    },
+    {
+      "area": "神奈川",
+      "station_group": "TVK",
+      "target": "男50才～",
+      "population_thousand": 2590
+    },
+    {
+      "area": "岐阜",
+      "station_group": "GBS",
+      "target": "男50才～",
+      "population_thousand": 602
+    },
+    {
+      "area": "三重",
+      "station_group": "MTV",
+      "target": "男50才～",
+      "population_thousand": 1116
+    },
+    {
+      "area": "滋賀",
+      "station_group": "BBC",
+      "target": "男50才～",
+      "population_thousand": 323
+    },
+    {
+      "area": "京都",
+      "station_group": "KBS",
+      "target": "男50才～",
+      "population_thousand": 1642
+    },
+    {
+      "area": "兵庫",
+      "station_group": "SUN",
+      "target": "男50才～",
+      "population_thousand": 3224
+    },
+    {
+      "area": "奈良",
+      "station_group": "TVN",
+      "target": "男50才～",
+      "population_thousand": 351
+    },
+    {
+      "area": "和歌山",
+      "station_group": "WTV",
+      "target": "男50才～",
+      "population_thousand": 224
+    },
+    {
+      "area": "関東",
+      "station_group": "NTV",
+      "target": "女20～34才",
+      "population_thousand": 3609
+    },
+    {
+      "area": "関東",
+      "station_group": "TBS",
+      "target": "女20～34才",
+      "population_thousand": 3611
+    },
+    {
+      "area": "関東",
+      "station_group": "CX",
+      "target": "女20～34才",
+      "population_thousand": 3627
+    },
+    {
+      "area": "関東",
+      "station_group": "EX",
+      "target": "女20～34才",
+      "population_thousand": 3627
+    },
+    {
+      "area": "関東",
+      "station_group": "TX",
+      "target": "女20～34才",
+      "population_thousand": 3628
+    },
+    {
+      "area": "関西",
+      "station_group": "YTV",
+      "target": "女20～34才",
+      "population_thousand": 1627
+    },
+    {
+      "area": "関西",
+      "station_group": "MBS",
+      "target": "女20～34才",
+      "population_thousand": 1640
+    },
+    {
+      "area": "関西",
+      "station_group": "KTV",
+      "target": "女20～34才",
+      "population_thousand": 1632
+    },
+    {
+      "area": "関西",
+      "station_group": "ABC",
+      "target": "女20～34才",
+      "population_thousand": 1640
+    },
+    {
+      "area": "関西",
+      "station_group": "TVO",
+      "target": "女20～34才",
+      "population_thousand": 1274
+    },
+    {
+      "area": "名古屋",
+      "station_group": "CTV・CBC・THK・NBN",
+      "target": "女20～34才",
+      "population_thousand": 856
+    },
+    {
+      "area": "名古屋",
+      "station_group": "TVA",
+      "target": "女20～34才",
+      "population_thousand": 819
+    },
+    {
+      "area": "福岡",
+      "station_group": "FBS",
+      "target": "女20～34才",
+      "population_thousand": 493
+    },
+    {
+      "area": "福岡",
+      "station_group": "RKB",
+      "target": "女20～34才",
+      "population_thousand": 487
+    },
+    {
+      "area": "福岡",
+      "station_group": "TNC",
+      "target": "女20～34才",
+      "population_thousand": 537
+    },
+    {
+      "area": "福岡",
+      "station_group": "KBC",
+      "target": "女20～34才",
+      "population_thousand": 495
+    },
+    {
+      "area": "福岡",
+      "station_group": "TVQ",
+      "target": "女20～34才",
+      "population_thousand": 503
+    },
+    {
+      "area": "北海道",
+      "station_group": "STV・HBC・HTB",
+      "target": "女20～34才",
+      "population_thousand": 344
+    },
+    {
+      "area": "北海道",
+      "station_group": "UHB",
+      "target": "女20～34才",
+      "population_thousand": 344
+    },
+    {
+      "area": "北海道",
+      "station_group": "TVH",
+      "target": "女20～34才",
+      "population_thousand": 336
+    },
+    {
+      "area": "青森",
+      "station_group": "RAB・ATV・ABA",
+      "target": "女20～34才",
+      "population_thousand": 72
+    },
+    {
+      "area": "岩手",
+      "station_group": "IBC・IAT",
+      "target": "女20～34才",
+      "population_thousand": 88
+    },
+    {
+      "area": "岩手",
+      "station_group": "TVI",
+      "target": "女20～34才",
+      "population_thousand": 88
+    },
+    {
+      "area": "岩手",
+      "station_group": "MIT",
+      "target": "女20～34才",
+      "population_thousand": 99
+    },
+    {
+      "area": "秋田",
+      "station_group": "ABS・AKT・AAB",
+      "target": "女20～34才",
+      "population_thousand": 49
+    },
+    {
+      "area": "山形",
+      "station_group": "YBC・YTS・TUY・SAY",
+      "target": "女20～34才",
+      "population_thousand": 63
+    },
+    {
+      "area": "宮城",
+      "station_group": "TBC・OX・MMT・KHB",
+      "target": "女20～34才",
+      "population_thousand": 170
+    },
+    {
+      "area": "福島",
+      "station_group": "FTV・FCT・KFB・TUF",
+      "target": "女20～34才",
+      "population_thousand": 118
+    },
+    {
+      "area": "新潟",
+      "station_group": "BSN・NST・TeNY・UX",
+      "target": "女20～34才",
+      "population_thousand": 137
+    },
+    {
+      "area": "長野",
+      "station_group": "SBC・NBS・TSB・ABN",
+      "target": "女20～34才",
+      "population_thousand": 130
+    },
+    {
+      "area": "山梨",
+      "station_group": "YBS・UTY",
+      "target": "女20～34才",
+      "population_thousand": 54
+    },
+    {
+      "area": "静岡",
+      "station_group": "SBS・SUT・SATV・SDT",
+      "target": "女20～34才",
+      "population_thousand": 244
+    },
+    {
+      "area": "富山",
+      "station_group": "KNB・BBT・TUT",
+      "target": "女20～34才",
+      "population_thousand": 66
+    },
+    {
+      "area": "石川",
+      "station_group": "MRO",
+      "target": "女20～34才",
+      "population_thousand": 113
+    },
+    {
+      "area": "石川",
+      "station_group": "ITC・KTK",
+      "target": "女20～34才",
+      "population_thousand": 79
+    },
+    {
+      "area": "石川",
+      "station_group": "HAB",
+      "target": "女20～34才",
+      "population_thousand": 169
+    },
+    {
+      "area": "福井",
+      "station_group": "FBC・FTB",
+      "target": "女20～34才",
+      "population_thousand": 52
+    },
+    {
+      "area": "鳥取・島根",
+      "station_group": "BSS・NKT・TSK",
+      "target": "女20～34才",
+      "population_thousand": 76
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "RSK",
+      "target": "女20～34才",
+      "population_thousand": 201
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "OHK・RNC・KSB",
+      "target": "女20～34才",
+      "population_thousand": 200
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "TSC",
+      "target": "女20～34才",
+      "population_thousand": 202
+    },
+    {
+      "area": "広島",
+      "station_group": "RCC・HTV・TSS",
+      "target": "女20～34才",
+      "population_thousand": 206
+    },
+    {
+      "area": "広島",
+      "station_group": "HOME",
+      "target": "女20～34才",
+      "population_thousand": 209
+    },
+    {
+      "area": "山口",
+      "station_group": "KRY・TYS",
+      "target": "女20～34才",
+      "population_thousand": 81
+    },
+    {
+      "area": "山口",
+      "station_group": "YAB",
+      "target": "女20～34才",
+      "population_thousand": 82
+    },
+    {
+      "area": "徳島",
+      "station_group": "JRT",
+      "target": "女20～34才",
+      "population_thousand": 45
+    },
+    {
+      "area": "愛媛",
+      "station_group": "RNB・EBC・ITV",
+      "target": "女20～34才",
+      "population_thousand": 85
+    },
+    {
+      "area": "愛媛",
+      "station_group": "EAT",
+      "target": "女20～34才",
+      "population_thousand": 85
+    },
+    {
+      "area": "高知",
+      "station_group": "RKC・KUTV・KSS",
+      "target": "女20～34才",
+      "population_thousand": 40
+    },
+    {
+      "area": "長崎",
+      "station_group": "NBC・KTN・NCC・NIB",
+      "target": "女20～34才",
+      "population_thousand": 81
+    },
+    {
+      "area": "熊本",
+      "station_group": "RKK・KKT・KAB",
+      "target": "女20～34才",
+      "population_thousand": 118
+    },
+    {
+      "area": "熊本",
+      "station_group": "TKU",
+      "target": "女20～34才",
+      "population_thousand": 118
+    },
+    {
+      "area": "佐賀",
+      "station_group": "STS",
+      "target": "女20～34才",
+      "population_thousand": 117
+    },
+    {
+      "area": "大分",
+      "station_group": "OBS・TOS・OAB",
+      "target": "女20～34才",
+      "population_thousand": 72
+    },
+    {
+      "area": "宮崎",
+      "station_group": "MRT・UMK",
+      "target": "女20～34才",
+      "population_thousand": 68
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "MBC・KTS",
+      "target": "女20～34才",
+      "population_thousand": 116
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "KKB・KYT",
+      "target": "女20～34才",
+      "population_thousand": 117
+    },
+    {
+      "area": "沖縄",
+      "station_group": "RBC・OTV・QAB",
+      "target": "女20～34才",
+      "population_thousand": 118
+    },
+    {
+      "area": "東京",
+      "station_group": "MX",
+      "target": "女20～34才",
+      "population_thousand": 2748
+    },
+    {
+      "area": "群馬",
+      "station_group": "GTV",
+      "target": "女20～34才",
+      "population_thousand": 167
+    },
+    {
+      "area": "埼玉",
+      "station_group": "TVS",
+      "target": "女20～34才",
+      "population_thousand": 749
+    },
+    {
+      "area": "栃木",
+      "station_group": "GYT",
+      "target": "女20～34才",
+      "population_thousand": 136
+    },
+    {
+      "area": "千葉",
+      "station_group": "CTC",
+      "target": "女20～34才",
+      "population_thousand": 633
+    },
+    {
+      "area": "神奈川",
+      "station_group": "TVK",
+      "target": "女20～34才",
+      "population_thousand": 975
+    },
+    {
+      "area": "岐阜",
+      "station_group": "GBS",
+      "target": "女20～34才",
+      "population_thousand": 183
+    },
+    {
+      "area": "三重",
+      "station_group": "MTV",
+      "target": "女20～34才",
+      "population_thousand": 402
+    },
+    {
+      "area": "滋賀",
+      "station_group": "BBC",
+      "target": "女20～34才",
+      "population_thousand": 110
+    },
+    {
+      "area": "京都",
+      "station_group": "KBS",
+      "target": "女20～34才",
+      "population_thousand": 617
+    },
+    {
+      "area": "兵庫",
+      "station_group": "SUN",
+      "target": "女20～34才",
+      "population_thousand": 1167
+    },
+    {
+      "area": "奈良",
+      "station_group": "TVN",
+      "target": "女20～34才",
+      "population_thousand": 104
+    },
+    {
+      "area": "和歌山",
+      "station_group": "WTV",
+      "target": "女20～34才",
+      "population_thousand": 60
+    },
+    {
+      "area": "関東",
+      "station_group": "NTV",
+      "target": "女35～49才",
+      "population_thousand": 4598
+    },
+    {
+      "area": "関東",
+      "station_group": "TBS",
+      "target": "女35～49才",
+      "population_thousand": 4601
+    },
+    {
+      "area": "関東",
+      "station_group": "CX",
+      "target": "女35～49才",
+      "population_thousand": 4623
+    },
+    {
+      "area": "関東",
+      "station_group": "EX",
+      "target": "女35～49才",
+      "population_thousand": 4623
+    },
+    {
+      "area": "関東",
+      "station_group": "TX",
+      "target": "女35～49才",
+      "population_thousand": 4624
+    },
+    {
+      "area": "関西",
+      "station_group": "YTV",
+      "target": "女35～49才",
+      "population_thousand": 2131
+    },
+    {
+      "area": "関西",
+      "station_group": "MBS",
+      "target": "女35～49才",
+      "population_thousand": 2151
+    },
+    {
+      "area": "関西",
+      "station_group": "KTV",
+      "target": "女35～49才",
+      "population_thousand": 2139
+    },
+    {
+      "area": "関西",
+      "station_group": "ABC",
+      "target": "女35～49才",
+      "population_thousand": 2150
+    },
+    {
+      "area": "関西",
+      "station_group": "TVO",
+      "target": "女35～49才",
+      "population_thousand": 1645
+    },
+    {
+      "area": "名古屋",
+      "station_group": "CTV・CBC・THK・NBN",
+      "target": "女35～49才",
+      "population_thousand": 1110
+    },
+    {
+      "area": "名古屋",
+      "station_group": "TVA",
+      "target": "女35～49才",
+      "population_thousand": 1056
+    },
+    {
+      "area": "福岡",
+      "station_group": "FBS",
+      "target": "女35～49才",
+      "population_thousand": 651
+    },
+    {
+      "area": "福岡",
+      "station_group": "RKB",
+      "target": "女35～49才",
+      "population_thousand": 643
+    },
+    {
+      "area": "福岡",
+      "station_group": "TNC",
+      "target": "女35～49才",
+      "population_thousand": 716
+    },
+    {
+      "area": "福岡",
+      "station_group": "KBC",
+      "target": "女35～49才",
+      "population_thousand": 655
+    },
+    {
+      "area": "福岡",
+      "station_group": "TVQ",
+      "target": "女35～49才",
+      "population_thousand": 667
+    },
+    {
+      "area": "北海道",
+      "station_group": "STV・HBC・HTB",
+      "target": "女35～49才",
+      "population_thousand": 504
+    },
+    {
+      "area": "北海道",
+      "station_group": "UHB",
+      "target": "女35～49才",
+      "population_thousand": 504
+    },
+    {
+      "area": "北海道",
+      "station_group": "TVH",
+      "target": "女35～49才",
+      "population_thousand": 491
+    },
+    {
+      "area": "青森",
+      "station_group": "RAB・ATV・ABA",
+      "target": "女35～49才",
+      "population_thousand": 114
+    },
+    {
+      "area": "岩手",
+      "station_group": "IBC・IAT",
+      "target": "女35～49才",
+      "population_thousand": 133
+    },
+    {
+      "area": "岩手",
+      "station_group": "TVI",
+      "target": "女35～49才",
+      "population_thousand": 134
+    },
+    {
+      "area": "岩手",
+      "station_group": "MIT",
+      "target": "女35～49才",
+      "population_thousand": 150
+    },
+    {
+      "area": "秋田",
+      "station_group": "ABS・AKT・AAB",
+      "target": "女35～49才",
+      "population_thousand": 82
+    },
+    {
+      "area": "山形",
+      "station_group": "YBC・YTS・TUY・SAY",
+      "target": "女35～49才",
+      "population_thousand": 94
+    },
+    {
+      "area": "宮城",
+      "station_group": "TBC・OX・MMT・KHB",
+      "target": "女35～49才",
+      "population_thousand": 233
+    },
+    {
+      "area": "福島",
+      "station_group": "FTV・FCT・KFB・TUF",
+      "target": "女35～49才",
+      "population_thousand": 164
+    },
+    {
+      "area": "新潟",
+      "station_group": "BSN・NST・TeNY・UX",
+      "target": "女35～49才",
+      "population_thousand": 201
+    },
+    {
+      "area": "長野",
+      "station_group": "SBC・NBS・TSB・ABN",
+      "target": "女35～49才",
+      "population_thousand": 189
+    },
+    {
+      "area": "山梨",
+      "station_group": "YBS・UTY",
+      "target": "女35～49才",
+      "population_thousand": 73
+    },
+    {
+      "area": "静岡",
+      "station_group": "SBS・SUT・SATV・SDT",
+      "target": "女35～49才",
+      "population_thousand": 345
+    },
+    {
+      "area": "富山",
+      "station_group": "KNB・BBT・TUT",
+      "target": "女35～49才",
+      "population_thousand": 96
+    },
+    {
+      "area": "石川",
+      "station_group": "MRO",
+      "target": "女35～49才",
+      "population_thousand": 153
+    },
+    {
+      "area": "石川",
+      "station_group": "ITC・KTK",
+      "target": "女35～49才",
+      "population_thousand": 108
+    },
+    {
+      "area": "石川",
+      "station_group": "HAB",
+      "target": "女35～49才",
+      "population_thousand": 236
+    },
+    {
+      "area": "福井",
+      "station_group": "FBC・FTB",
+      "target": "女35～49才",
+      "population_thousand": 71
+    },
+    {
+      "area": "鳥取・島根",
+      "station_group": "BSS・NKT・TSK",
+      "target": "女35～49才",
+      "population_thousand": 109
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "RSK",
+      "target": "女35～49才",
+      "population_thousand": 274
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "OHK・RNC・KSB",
+      "target": "女35～49才",
+      "population_thousand": 272
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "TSC",
+      "target": "女35～49才",
+      "population_thousand": 275
+    },
+    {
+      "area": "広島",
+      "station_group": "RCC・HTV・TSS",
+      "target": "女35～49才",
+      "population_thousand": 283
+    },
+    {
+      "area": "広島",
+      "station_group": "HOME",
+      "target": "女35～49才",
+      "population_thousand": 288
+    },
+    {
+      "area": "山口",
+      "station_group": "KRY・TYS",
+      "target": "女35～49才",
+      "population_thousand": 120
+    },
+    {
+      "area": "山口",
+      "station_group": "YAB",
+      "target": "女35～49才",
+      "population_thousand": 121
+    },
+    {
+      "area": "徳島",
+      "station_group": "JRT",
+      "target": "女35～49才",
+      "population_thousand": 67
+    },
+    {
+      "area": "愛媛",
+      "station_group": "RNB・EBC・ITV",
+      "target": "女35～49才",
+      "population_thousand": 125
+    },
+    {
+      "area": "愛媛",
+      "station_group": "EAT",
+      "target": "女35～49才",
+      "population_thousand": 126
+    },
+    {
+      "area": "高知",
+      "station_group": "RKC・KUTV・KSS",
+      "target": "女35～49才",
+      "population_thousand": 63
+    },
+    {
+      "area": "長崎",
+      "station_group": "NBC・KTN・NCC・NIB",
+      "target": "女35～49才",
+      "population_thousand": 118
+    },
+    {
+      "area": "熊本",
+      "station_group": "RKK・KKT・KAB",
+      "target": "女35～49才",
+      "population_thousand": 162
+    },
+    {
+      "area": "熊本",
+      "station_group": "TKU",
+      "target": "女35～49才",
+      "population_thousand": 162
+    },
+    {
+      "area": "佐賀",
+      "station_group": "STS",
+      "target": "女35～49才",
+      "population_thousand": 158
+    },
+    {
+      "area": "大分",
+      "station_group": "OBS・TOS・OAB",
+      "target": "女35～49才",
+      "population_thousand": 104
+    },
+    {
+      "area": "宮崎",
+      "station_group": "MRT・UMK",
+      "target": "女35～49才",
+      "population_thousand": 102
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "MBC・KTS",
+      "target": "女35～49才",
+      "population_thousand": 167
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "KKB・KYT",
+      "target": "女35～49才",
+      "population_thousand": 168
+    },
+    {
+      "area": "沖縄",
+      "station_group": "RBC・OTV・QAB",
+      "target": "女35～49才",
+      "population_thousand": 152
+    },
+    {
+      "area": "東京",
+      "station_group": "MX",
+      "target": "女35～49才",
+      "population_thousand": 3398
+    },
+    {
+      "area": "群馬",
+      "station_group": "GTV",
+      "target": "女35～49才",
+      "population_thousand": 231
+    },
+    {
+      "area": "埼玉",
+      "station_group": "TVS",
+      "target": "女35～49才",
+      "population_thousand": 950
+    },
+    {
+      "area": "栃木",
+      "station_group": "GYT",
+      "target": "女35～49才",
+      "population_thousand": 194
+    },
+    {
+      "area": "千葉",
+      "station_group": "CTC",
+      "target": "女35～49才",
+      "population_thousand": 827
+    },
+    {
+      "area": "神奈川",
+      "station_group": "TVK",
+      "target": "女35～49才",
+      "population_thousand": 1249
+    },
+    {
+      "area": "岐阜",
+      "station_group": "GBS",
+      "target": "女35～49才",
+      "population_thousand": 249
+    },
+    {
+      "area": "三重",
+      "station_group": "MTV",
+      "target": "女35～49才",
+      "population_thousand": 506
+    },
+    {
+      "area": "滋賀",
+      "station_group": "BBC",
+      "target": "女35～49才",
+      "population_thousand": 152
+    },
+    {
+      "area": "京都",
+      "station_group": "KBS",
+      "target": "女35～49才",
+      "population_thousand": 800
+    },
+    {
+      "area": "兵庫",
+      "station_group": "SUN",
+      "target": "女35～49才",
+      "population_thousand": 1503
+    },
+    {
+      "area": "奈良",
+      "station_group": "TVN",
+      "target": "女35～49才",
+      "population_thousand": 146
+    },
+    {
+      "area": "和歌山",
+      "station_group": "WTV",
+      "target": "女35～49才",
+      "population_thousand": 86
+    },
+    {
+      "area": "関東",
+      "station_group": "NTV",
+      "target": "女50才～",
+      "population_thousand": 10659
+    },
+    {
+      "area": "関東",
+      "station_group": "TBS",
+      "target": "女50才～",
+      "population_thousand": 10667
+    },
+    {
+      "area": "関東",
+      "station_group": "CX",
+      "target": "女50才～",
+      "population_thousand": 10738
+    },
+    {
+      "area": "関東",
+      "station_group": "EX",
+      "target": "女50才～",
+      "population_thousand": 10739
+    },
+    {
+      "area": "関東",
+      "station_group": "TX",
+      "target": "女50才～",
+      "population_thousand": 10744
+    },
+    {
+      "area": "関西",
+      "station_group": "YTV",
+      "target": "女50才～",
+      "population_thousand": 5586
+    },
+    {
+      "area": "関西",
+      "station_group": "MBS",
+      "target": "女50才～",
+      "population_thousand": 5648
+    },
+    {
+      "area": "関西",
+      "station_group": "KTV",
+      "target": "女50才～",
+      "population_thousand": 5614
+    },
+    {
+      "area": "関西",
+      "station_group": "ABC",
+      "target": "女50才～",
+      "population_thousand": 5645
+    },
+    {
+      "area": "関西",
+      "station_group": "TVO",
+      "target": "女50才～",
+      "population_thousand": 4184
+    },
+    {
+      "area": "名古屋",
+      "station_group": "CTV・CBC・THK・NBN",
+      "target": "女50才～",
+      "population_thousand": 2769
+    },
+    {
+      "area": "名古屋",
+      "station_group": "TVA",
+      "target": "女50才～",
+      "population_thousand": 2579
+    },
+    {
+      "area": "福岡",
+      "station_group": "FBS",
+      "target": "女50才～",
+      "population_thousand": 1717
+    },
+    {
+      "area": "福岡",
+      "station_group": "RKB",
+      "target": "女50才～",
+      "population_thousand": 1684
+    },
+    {
+      "area": "福岡",
+      "station_group": "TNC",
+      "target": "女50才～",
+      "population_thousand": 1913
+    },
+    {
+      "area": "福岡",
+      "station_group": "KBC",
+      "target": "女50才～",
+      "population_thousand": 1725
+    },
+    {
+      "area": "福岡",
+      "station_group": "TVQ",
+      "target": "女50才～",
+      "population_thousand": 1768
+    },
+    {
+      "area": "北海道",
+      "station_group": "STV・HBC・HTB",
+      "target": "女50才～",
+      "population_thousand": 1516
+    },
+    {
+      "area": "北海道",
+      "station_group": "UHB",
+      "target": "女50才～",
+      "population_thousand": 1514
+    },
+    {
+      "area": "北海道",
+      "station_group": "TVH",
+      "target": "女50才～",
+      "population_thousand": 1474
+    },
+    {
+      "area": "青森",
+      "station_group": "RAB・ATV・ABA",
+      "target": "女50才～",
+      "population_thousand": 386
+    },
+    {
+      "area": "岩手",
+      "station_group": "IBC・IAT",
+      "target": "女50才～",
+      "population_thousand": 433
+    },
+    {
+      "area": "岩手",
+      "station_group": "TVI",
+      "target": "女50才～",
+      "population_thousand": 436
+    },
+    {
+      "area": "岩手",
+      "station_group": "MIT",
+      "target": "女50才～",
+      "population_thousand": 492
+    },
+    {
+      "area": "秋田",
+      "station_group": "ABS・AKT・AAB",
+      "target": "女50才～",
+      "population_thousand": 310
+    },
+    {
+      "area": "山形",
+      "station_group": "YBC・YTS・TUY・SAY",
+      "target": "女50才～",
+      "population_thousand": 308
+    },
+    {
+      "area": "宮城",
+      "station_group": "TBC・OX・MMT・KHB",
+      "target": "女50才～",
+      "population_thousand": 597
+    },
+    {
+      "area": "福島",
+      "station_group": "FTV・FCT・KFB・TUF",
+      "target": "女50才～",
+      "population_thousand": 512
+    },
+    {
+      "area": "新潟",
+      "station_group": "BSN・NST・TeNY・UX",
+      "target": "女50才～",
+      "population_thousand": 621
+    },
+    {
+      "area": "長野",
+      "station_group": "SBC・NBS・TSB・ABN",
+      "target": "女50才～",
+      "population_thousand": 567
+    },
+    {
+      "area": "山梨",
+      "station_group": "YBS・UTY",
+      "target": "女50才～",
+      "population_thousand": 224
+    },
+    {
+      "area": "静岡",
+      "station_group": "SBS・SUT・SATV・SDT",
+      "target": "女50才～",
+      "population_thousand": 972
+    },
+    {
+      "area": "富山",
+      "station_group": "KNB・BBT・TUT",
+      "target": "女50才～",
+      "population_thousand": 292
+    },
+    {
+      "area": "石川",
+      "station_group": "MRO",
+      "target": "女50才～",
+      "population_thousand": 428
+    },
+    {
+      "area": "石川",
+      "station_group": "ITC・KTK",
+      "target": "女50才～",
+      "population_thousand": 300
+    },
+    {
+      "area": "石川",
+      "station_group": "HAB",
+      "target": "女50才～",
+      "population_thousand": 683
+    },
+    {
+      "area": "福井",
+      "station_group": "FBC・FTB",
+      "target": "女50才～",
+      "population_thousand": 207
+    },
+    {
+      "area": "鳥取・島根",
+      "station_group": "BSS・NKT・TSK",
+      "target": "女50才～",
+      "population_thousand": 348
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "RSK",
+      "target": "女50才～",
+      "population_thousand": 770
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "OHK・RNC・KSB",
+      "target": "女50才～",
+      "population_thousand": 761
+    },
+    {
+      "area": "岡山・香川",
+      "station_group": "TSC",
+      "target": "女50才～",
+      "population_thousand": 775
+    },
+    {
+      "area": "広島",
+      "station_group": "RCC・HTV・TSS",
+      "target": "女50才～",
+      "population_thousand": 776
+    },
+    {
+      "area": "広島",
+      "station_group": "HOME",
+      "target": "女50才～",
+      "population_thousand": 798
+    },
+    {
+      "area": "山口",
+      "station_group": "KRY・TYS",
+      "target": "女50才～",
+      "population_thousand": 398
+    },
+    {
+      "area": "山口",
+      "station_group": "YAB",
+      "target": "女50才～",
+      "population_thousand": 400
+    },
+    {
+      "area": "徳島",
+      "station_group": "JRT",
+      "target": "女50才～",
+      "population_thousand": 211
+    },
+    {
+      "area": "愛媛",
+      "station_group": "RNB・EBC・ITV",
+      "target": "女50才～",
+      "population_thousand": 390
+    },
+    {
+      "area": "愛媛",
+      "station_group": "EAT",
+      "target": "女50才～",
+      "population_thousand": 396
+    },
+    {
+      "area": "高知",
+      "station_group": "RKC・KUTV・KSS",
+      "target": "女50才～",
+      "population_thousand": 211
+    },
+    {
+      "area": "長崎",
+      "station_group": "NBC・KTN・NCC・NIB",
+      "target": "女50才～",
+      "population_thousand": 389
+    },
+    {
+      "area": "熊本",
+      "station_group": "RKK・KKT・KAB",
+      "target": "女50才～",
+      "population_thousand": 488
+    },
+    {
+      "area": "熊本",
+      "station_group": "TKU",
+      "target": "女50才～",
+      "population_thousand": 487
+    },
+    {
+      "area": "佐賀",
+      "station_group": "STS",
+      "target": "女50才～",
+      "population_thousand": 458
+    },
+    {
+      "area": "大分",
+      "station_group": "OBS・TOS・OAB",
+      "target": "女50才～",
+      "population_thousand": 328
+    },
+    {
+      "area": "宮崎",
+      "station_group": "MRT・UMK",
+      "target": "女50才～",
+      "population_thousand": 319
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "MBC・KTS",
+      "target": "女50才～",
+      "population_thousand": 515
+    },
+    {
+      "area": "鹿児島",
+      "station_group": "KKB・KYT",
+      "target": "女50才～",
+      "population_thousand": 521
+    },
+    {
+      "area": "沖縄",
+      "station_group": "RBC・OTV・QAB",
+      "target": "女50才～",
+      "population_thousand": 326
+    },
+    {
+      "area": "東京",
+      "station_group": "MX",
+      "target": "女50才～",
+      "population_thousand": 7336
+    },
+    {
+      "area": "群馬",
+      "station_group": "GTV",
+      "target": "女50才～",
+      "population_thousand": 651
+    },
+    {
+      "area": "埼玉",
+      "station_group": "TVS",
+      "target": "女50才～",
+      "population_thousand": 2263
+    },
+    {
+      "area": "栃木",
+      "station_group": "GYT",
+      "target": "女50才～",
+      "population_thousand": 519
+    },
+    {
+      "area": "千葉",
+      "station_group": "CTC",
+      "target": "女50才～",
+      "population_thousand": 1994
+    },
+    {
+      "area": "神奈川",
+      "station_group": "TVK",
+      "target": "女50才～",
+      "population_thousand": 2849
+    },
+    {
+      "area": "岐阜",
+      "station_group": "GBS",
+      "target": "女50才～",
+      "population_thousand": 700
+    },
+    {
+      "area": "三重",
+      "station_group": "MTV",
+      "target": "女50才～",
+      "population_thousand": 1252
+    },
+    {
+      "area": "滋賀",
+      "station_group": "BBC",
+      "target": "女50才～",
+      "population_thousand": 368
+    },
+    {
+      "area": "京都",
+      "station_group": "KBS",
+      "target": "女50才～",
+      "population_thousand": 1948
+    },
+    {
+      "area": "兵庫",
+      "station_group": "SUN",
+      "target": "女50才～",
+      "population_thousand": 3846
+    },
+    {
+      "area": "奈良",
+      "station_group": "TVN",
+      "target": "女50才～",
+      "population_thousand": 425
+    },
+    {
+      "area": "和歌山",
+      "station_group": "WTV",
+      "target": "女50才～",
+      "population_thousand": 280
+    }
+  ],
+  "station_population_master": [
+    {
+      "area": "関東",
+      "station": "NTV",
+      "household_thousand": 21611,
+      "person_total_thousand": 43040,
+      "kids_4_12": 3187,
+      "teens_13_19": 2636,
+      "m20_34": 3830,
+      "m35_49": 4892,
+      "m50plus": 9627,
+      "f20_34": 3609,
+      "f35_49": 4598,
+      "f50plus": 10659
+    },
+    {
+      "area": "関東",
+      "station": "TBS",
+      "household_thousand": 21624,
+      "person_total_thousand": 43068,
+      "kids_4_12": 3189,
+      "teens_13_19": 2638,
+      "m20_34": 3833,
+      "m35_49": 4895,
+      "m50plus": 9635,
+      "f20_34": 3611,
+      "f35_49": 4601,
+      "f50plus": 10667
+    },
+    {
+      "area": "関東",
+      "station": "CX",
+      "household_thousand": 21736,
+      "person_total_thousand": 43314,
+      "kids_4_12": 3206,
+      "teens_13_19": 2654,
+      "m20_34": 3850,
+      "m35_49": 4918,
+      "m50plus": 9698,
+      "f20_34": 3627,
+      "f35_49": 4623,
+      "f50plus": 10738
+    },
+    {
+      "area": "関東",
+      "station": "EX",
+      "household_thousand": 21737,
+      "person_total_thousand": 43316,
+      "kids_4_12": 3206,
+      "teens_13_19": 2654,
+      "m20_34": 3850,
+      "m35_49": 4918,
+      "m50plus": 9698,
+      "f20_34": 3627,
+      "f35_49": 4623,
+      "f50plus": 10739
+    },
+    {
+      "area": "関東",
+      "station": "TX",
+      "household_thousand": 21745,
+      "person_total_thousand": 43333,
+      "kids_4_12": 3208,
+      "teens_13_19": 2655,
+      "m20_34": 3852,
+      "m35_49": 4920,
+      "m50plus": 9702,
+      "f20_34": 3628,
+      "f35_49": 4624,
+      "f50plus": 10744
+    },
+    {
+      "area": "関西",
+      "station": "YTV",
+      "household_thousand": 10270,
+      "person_total_thousand": 20697,
+      "kids_4_12": 1576,
+      "teens_13_19": 1351,
+      "m20_34": 1649,
+      "m35_49": 2104,
+      "m50plus": 4673,
+      "f20_34": 1627,
+      "f35_49": 2131,
+      "f50plus": 5586
+    },
+    {
+      "area": "関西",
+      "station": "MBS",
+      "household_thousand": 10364,
+      "person_total_thousand": 20911,
+      "kids_4_12": 1592,
+      "teens_13_19": 1365,
+      "m20_34": 1665,
+      "m35_49": 2125,
+      "m50plus": 4726,
+      "f20_34": 1640,
+      "f35_49": 2151,
+      "f50plus": 5648
+    },
+    {
+      "area": "関西",
+      "station": "KTV",
+      "household_thousand": 10312,
+      "person_total_thousand": 20786,
+      "kids_4_12": 1582,
+      "teens_13_19": 1356,
+      "m20_34": 1655,
+      "m35_49": 2112,
+      "m50plus": 4696,
+      "f20_34": 1632,
+      "f35_49": 2139,
+      "f50plus": 5614
+    },
+    {
+      "area": "関西",
+      "station": "ABC",
+      "household_thousand": 10361,
+      "person_total_thousand": 20902,
+      "kids_4_12": 1591,
+      "teens_13_19": 1364,
+      "m20_34": 1664,
+      "m35_49": 2124,
+      "m50plus": 4723,
+      "f20_34": 1640,
+      "f35_49": 2150,
+      "f50plus": 5645
+    },
+    {
+      "area": "関西",
+      "station": "TVO",
+      "household_thousand": 7944,
+      "person_total_thousand": 15670,
+      "kids_4_12": 1186,
+      "teens_13_19": 1012,
+      "m20_34": 1266,
+      "m35_49": 1606,
+      "m50plus": 3497,
+      "f20_34": 1274,
+      "f35_49": 1645,
+      "f50plus": 4184
+    },
+    {
+      "area": "名古屋",
+      "station": "CTV・CBC・THK・NBN",
+      "household_thousand": 5032,
+      "person_total_thousand": 10978,
+      "kids_4_12": 889,
+      "teens_13_19": 746,
+      "m20_34": 955,
+      "m35_49": 1195,
+      "m50plus": 2457,
+      "f20_34": 856,
+      "f35_49": 1110,
+      "f50plus": 2769
+    },
+    {
+      "area": "名古屋",
+      "station": "TVA",
+      "household_thousand": 4756,
+      "person_total_thousand": 10356,
+      "kids_4_12": 845,
+      "teens_13_19": 707,
+      "m20_34": 913,
+      "m35_49": 1137,
+      "m50plus": 2300,
+      "f20_34": 819,
+      "f35_49": 1056,
+      "f50plus": 2579
+    },
+    {
+      "area": "福岡",
+      "station": "FBS",
+      "household_thousand": 3127,
+      "person_total_thousand": 6330,
+      "kids_4_12": 530,
+      "teens_13_19": 422,
+      "m20_34": 492,
+      "m35_49": 646,
+      "m50plus": 1380,
+      "f20_34": 493,
+      "f35_49": 651,
+      "f50plus": 1717
+    },
+    {
+      "area": "福岡",
+      "station": "RKB",
+      "household_thousand": 3077,
+      "person_total_thousand": 6228,
+      "kids_4_12": 523,
+      "teens_13_19": 416,
+      "m20_34": 485,
+      "m35_49": 637,
+      "m50plus": 1353,
+      "f20_34": 487,
+      "f35_49": 643,
+      "f50plus": 1684
+    },
+    {
+      "area": "福岡",
+      "station": "TNC",
+      "household_thousand": 3463,
+      "person_total_thousand": 7004,
+      "kids_4_12": 582,
+      "teens_13_19": 466,
+      "m20_34": 541,
+      "m35_49": 712,
+      "m50plus": 1538,
+      "f20_34": 537,
+      "f35_49": 716,
+      "f50plus": 1913
+    },
+    {
+      "area": "福岡",
+      "station": "KBC",
+      "household_thousand": 3142,
+      "person_total_thousand": 6362,
+      "kids_4_12": 533,
+      "teens_13_19": 424,
+      "m20_34": 494,
+      "m35_49": 649,
+      "m50plus": 1386,
+      "f20_34": 495,
+      "f35_49": 655,
+      "f50plus": 1725
+    },
+    {
+      "area": "福岡",
+      "station": "TVQ",
+      "household_thousand": 3212,
+      "person_total_thousand": 6499,
+      "kids_4_12": 542,
+      "teens_13_19": 432,
+      "m20_34": 504,
+      "m35_49": 662,
+      "m50plus": 1419,
+      "f20_34": 503,
+      "f35_49": 667,
+      "f50plus": 1768
+    },
+    {
+      "area": "北海道",
+      "station": "STV・HBC・HTB",
+      "household_thousand": 2801,
+      "person_total_thousand": 5070,
+      "kids_4_12": 343,
+      "teens_13_19": 300,
+      "m20_34": 357,
+      "m35_49": 500,
+      "m50plus": 1206,
+      "f20_34": 344,
+      "f35_49": 504,
+      "f50plus": 1516
+    },
+    {
+      "area": "北海道",
+      "station": "UHB",
+      "household_thousand": 2799,
+      "person_total_thousand": 5066,
+      "kids_4_12": 343,
+      "teens_13_19": 300,
+      "m20_34": 357,
+      "m35_49": 500,
+      "m50plus": 1205,
+      "f20_34": 344,
+      "f35_49": 504,
+      "f50plus": 1514
+    },
+    {
+      "area": "北海道",
+      "station": "TVH",
+      "household_thousand": 2728,
+      "person_total_thousand": 4929,
+      "kids_4_12": 333,
+      "teens_13_19": 291,
+      "m20_34": 347,
+      "m35_49": 486,
+      "m50plus": 1171,
+      "f20_34": 336,
+      "f35_49": 491,
+      "f50plus": 1474
+    },
+    {
+      "area": "青森",
+      "station": "RAB・ATV・ABA",
+      "household_thousand": 601,
+      "person_total_thousand": 1230,
+      "kids_4_12": 82,
+      "teens_13_19": 74,
+      "m20_34": 79,
+      "m35_49": 117,
+      "m50plus": 306,
+      "f20_34": 72,
+      "f35_49": 114,
+      "f50plus": 386
+    },
+    {
+      "area": "岩手",
+      "station": "IBC・IAT",
+      "household_thousand": 661,
+      "person_total_thousand": 1439,
+      "kids_4_12": 101,
+      "teens_13_19": 90,
+      "m20_34": 96,
+      "m35_49": 140,
+      "m50plus": 359,
+      "f20_34": 88,
+      "f35_49": 133,
+      "f50plus": 433
+    },
+    {
+      "area": "岩手",
+      "station": "TVI",
+      "household_thousand": 665,
+      "person_total_thousand": 1449,
+      "kids_4_12": 102,
+      "teens_13_19": 90,
+      "m20_34": 97,
+      "m35_49": 141,
+      "m50plus": 362,
+      "f20_34": 88,
+      "f35_49": 134,
+      "f50plus": 436
+    },
+    {
+      "area": "岩手",
+      "station": "MIT",
+      "household_thousand": 751,
+      "person_total_thousand": 1631,
+      "kids_4_12": 114,
+      "teens_13_19": 101,
+      "m20_34": 109,
+      "m35_49": 158,
+      "m50plus": 408,
+      "f20_34": 99,
+      "f35_49": 150,
+      "f50plus": 492
+    },
+    {
+      "area": "秋田",
+      "station": "ABS・AKT・AAB",
+      "household_thousand": 426,
+      "person_total_thousand": 938,
+      "kids_4_12": 57,
+      "teens_13_19": 53,
+      "m20_34": 54,
+      "m35_49": 87,
+      "m50plus": 246,
+      "f20_34": 49,
+      "f35_49": 82,
+      "f50plus": 310
+    },
+    {
+      "area": "山形",
+      "station": "YBC・YTS・TUY・SAY",
+      "household_thousand": 420,
+      "person_total_thousand": 1031,
+      "kids_4_12": 73,
+      "teens_13_19": 66,
+      "m20_34": 69,
+      "m35_49": 98,
+      "m50plus": 259,
+      "f20_34": 63,
+      "f35_49": 94,
+      "f50plus": 308
+    },
+    {
+      "area": "宮城",
+      "station": "TBC・OX・MMT・KHB",
+      "household_thousand": 1041,
+      "person_total_thousand": 2249,
+      "kids_4_12": 170,
+      "teens_13_19": 145,
+      "m20_34": 179,
+      "m35_49": 241,
+      "m50plus": 514,
+      "f20_34": 170,
+      "f35_49": 233,
+      "f50plus": 597
+    },
+    {
+      "area": "福島",
+      "station": "FTV・FCT・KFB・TUF",
+      "household_thousand": 794,
+      "person_total_thousand": 1795,
+      "kids_4_12": 129,
+      "teens_13_19": 116,
+      "m20_34": 133,
+      "m35_49": 179,
+      "m50plus": 443,
+      "f20_34": 118,
+      "f35_49": 164,
+      "f50plus": 512
+    },
+    {
+      "area": "新潟",
+      "station": "BSN・NST・TeNY・UX",
+      "household_thousand": 911,
+      "person_total_thousand": 2135,
+      "kids_4_12": 153,
+      "teens_13_19": 133,
+      "m20_34": 149,
+      "m35_49": 212,
+      "m50plus": 528,
+      "f20_34": 137,
+      "f35_49": 201,
+      "f50plus": 621
+    },
+    {
+      "area": "長野",
+      "station": "SBC・NBS・TSB・ABN",
+      "household_thousand": 884,
+      "person_total_thousand": 2003,
+      "kids_4_12": 151,
+      "teens_13_19": 133,
+      "m20_34": 143,
+      "m35_49": 198,
+      "m50plus": 491,
+      "f20_34": 130,
+      "f35_49": 189,
+      "f50plus": 567
+    },
+    {
+      "area": "山梨",
+      "station": "YBS・UTY",
+      "household_thousand": 368,
+      "person_total_thousand": 795,
+      "kids_4_12": 57,
+      "teens_13_19": 52,
+      "m20_34": 61,
+      "m35_49": 77,
+      "m50plus": 196,
+      "f20_34": 54,
+      "f35_49": 73,
+      "f50plus": 224
+    },
+    {
+      "area": "静岡",
+      "station": "SBS・SUT・SATV・SDT",
+      "household_thousand": 1622,
+      "person_total_thousand": 3570,
+      "kids_4_12": 272,
+      "teens_13_19": 234,
+      "m20_34": 276,
+      "m35_49": 370,
+      "m50plus": 857,
+      "f20_34": 244,
+      "f35_49": 345,
+      "f50plus": 972
+    },
+    {
+      "area": "富山",
+      "station": "KNB・BBT・TUT",
+      "household_thousand": 428,
+      "person_total_thousand": 1011,
+      "kids_4_12": 71,
+      "teens_13_19": 64,
+      "m20_34": 76,
+      "m35_49": 103,
+      "m50plus": 242,
+      "f20_34": 66,
+      "f35_49": 96,
+      "f50plus": 292
+    },
+    {
+      "area": "石川",
+      "station": "MRO",
+      "household_thousand": 681,
+      "person_total_thousand": 1559,
+      "kids_4_12": 121,
+      "teens_13_19": 106,
+      "m20_34": 123,
+      "m35_49": 159,
+      "m50plus": 357,
+      "f20_34": 113,
+      "f35_49": 153,
+      "f50plus": 428
+    },
+    {
+      "area": "石川",
+      "station": "ITC・KTK",
+      "household_thousand": 494,
+      "person_total_thousand": 1093,
+      "kids_4_12": 84,
+      "teens_13_19": 74,
+      "m20_34": 86,
+      "m35_49": 112,
+      "m50plus": 250,
+      "f20_34": 79,
+      "f35_49": 108,
+      "f50plus": 300
+    },
+    {
+      "area": "石川",
+      "station": "HAB",
+      "household_thousand": 1057,
+      "person_total_thousand": 2436,
+      "kids_4_12": 182,
+      "teens_13_19": 161,
+      "m20_34": 188,
+      "m35_49": 248,
+      "m50plus": 568,
+      "f20_34": 169,
+      "f35_49": 236,
+      "f50plus": 683
+    },
+    {
+      "area": "福井",
+      "station": "FBC・FTB",
+      "household_thousand": 300,
+      "person_total_thousand": 746,
+      "kids_4_12": 58,
+      "teens_13_19": 51,
+      "m20_34": 57,
+      "m35_49": 74,
+      "m50plus": 175,
+      "f20_34": 52,
+      "f35_49": 71,
+      "f50plus": 207
+    },
+    {
+      "area": "鳥取・島根",
+      "station": "BSS・NKT・TSK",
+      "household_thousand": 533,
+      "person_total_thousand": 1184,
+      "kids_4_12": 93,
+      "teens_13_19": 77,
+      "m20_34": 80,
+      "m35_49": 114,
+      "m50plus": 285,
+      "f20_34": 76,
+      "f35_49": 109,
+      "f50plus": 348
+    },
+    {
+      "area": "岡山・香川",
+      "station": "RSK",
+      "household_thousand": 1319,
+      "person_total_thousand": 2787,
+      "kids_4_12": 219,
+      "teens_13_19": 185,
+      "m20_34": 214,
+      "m35_49": 280,
+      "m50plus": 643,
+      "f20_34": 201,
+      "f35_49": 274,
+      "f50plus": 770
+    },
+    {
+      "area": "岡山・香川",
+      "station": "OHK・RNC・KSB",
+      "household_thousand": 1307,
+      "person_total_thousand": 2763,
+      "kids_4_12": 218,
+      "teens_13_19": 184,
+      "m20_34": 213,
+      "m35_49": 279,
+      "m50plus": 636,
+      "f20_34": 200,
+      "f35_49": 272,
+      "f50plus": 761
+    },
+    {
+      "area": "岡山・香川",
+      "station": "TSC",
+      "household_thousand": 1326,
+      "person_total_thousand": 2801,
+      "kids_4_12": 220,
+      "teens_13_19": 186,
+      "m20_34": 215,
+      "m35_49": 282,
+      "m50plus": 647,
+      "f20_34": 202,
+      "f35_49": 275,
+      "f50plus": 775
+    },
+    {
+      "area": "広島",
+      "station": "RCC・HTV・TSS",
+      "household_thousand": 1400,
+      "person_total_thousand": 2848,
+      "kids_4_12": 229,
+      "teens_13_19": 189,
+      "m20_34": 225,
+      "m35_49": 291,
+      "m50plus": 650,
+      "f20_34": 206,
+      "f35_49": 283,
+      "f50plus": 776
+    },
+    {
+      "area": "広島",
+      "station": "HOME",
+      "household_thousand": 1427,
+      "person_total_thousand": 2912,
+      "kids_4_12": 233,
+      "teens_13_19": 193,
+      "m20_34": 228,
+      "m35_49": 296,
+      "m50plus": 668,
+      "f20_34": 209,
+      "f35_49": 288,
+      "f50plus": 798
+    },
+    {
+      "area": "山口",
+      "station": "KRY・TYS",
+      "household_thousand": 659,
+      "person_total_thousand": 1306,
+      "kids_4_12": 96,
+      "teens_13_19": 83,
+      "m20_34": 89,
+      "m35_49": 123,
+      "m50plus": 316,
+      "f20_34": 81,
+      "f35_49": 120,
+      "f50plus": 398
+    },
+    {
+      "area": "山口",
+      "station": "YAB",
+      "household_thousand": 662,
+      "person_total_thousand": 1313,
+      "kids_4_12": 96,
+      "teens_13_19": 83,
+      "m20_34": 90,
+      "m35_49": 124,
+      "m50plus": 318,
+      "f20_34": 82,
+      "f35_49": 121,
+      "f50plus": 400
+    },
+    {
+      "area": "徳島",
+      "station": "JRT",
+      "household_thousand": 337,
+      "person_total_thousand": 708,
+      "kids_4_12": 51,
+      "teens_13_19": 43,
+      "m20_34": 48,
+      "m35_49": 68,
+      "m50plus": 174,
+      "f20_34": 45,
+      "f35_49": 67,
+      "f50plus": 211
+    },
+    {
+      "area": "愛媛",
+      "station": "RNB・EBC・ITV",
+      "household_thousand": 656,
+      "person_total_thousand": 1307,
+      "kids_4_12": 97,
+      "teens_13_19": 83,
+      "m20_34": 89,
+      "m35_49": 126,
+      "m50plus": 312,
+      "f20_34": 85,
+      "f35_49": 125,
+      "f50plus": 390
+    },
+    {
+      "area": "愛媛",
+      "station": "EAT",
+      "household_thousand": 664,
+      "person_total_thousand": 1323,
+      "kids_4_12": 98,
+      "teens_13_19": 84,
+      "m20_34": 90,
+      "m35_49": 127,
+      "m50plus": 317,
+      "f20_34": 85,
+      "f35_49": 126,
+      "f50plus": 396
+    },
+    {
+      "area": "高知",
+      "station": "RKC・KUTV・KSS",
+      "household_thousand": 351,
+      "person_total_thousand": 676,
+      "kids_4_12": 46,
+      "teens_13_19": 41,
+      "m20_34": 43,
+      "m35_49": 64,
+      "m50plus": 167,
+      "f20_34": 40,
+      "f35_49": 63,
+      "f50plus": 211
+    },
+    {
+      "area": "長崎",
+      "station": "NBC・KTN・NCC・NIB",
+      "household_thousand": 632,
+      "person_total_thousand": 1283,
+      "kids_4_12": 102,
+      "teens_13_19": 84,
+      "m20_34": 83,
+      "m35_49": 115,
+      "m50plus": 310,
+      "f20_34": 81,
+      "f35_49": 118,
+      "f50plus": 389
+    },
+    {
+      "area": "熊本",
+      "station": "RKK・KKT・KAB",
+      "household_thousand": 798,
+      "person_total_thousand": 1697,
+      "kids_4_12": 143,
+      "teens_13_19": 114,
+      "m20_34": 118,
+      "m35_49": 160,
+      "m50plus": 394,
+      "f20_34": 118,
+      "f35_49": 162,
+      "f50plus": 488
+    },
+    {
+      "area": "熊本",
+      "station": "TKU",
+      "household_thousand": 796,
+      "person_total_thousand": 1694,
+      "kids_4_12": 143,
+      "teens_13_19": 114,
+      "m20_34": 118,
+      "m35_49": 160,
+      "m50plus": 393,
+      "f20_34": 118,
+      "f35_49": 162,
+      "f50plus": 487
+    },
+    {
+      "area": "佐賀",
+      "station": "STS",
+      "household_thousand": 714,
+      "person_total_thousand": 1631,
+      "kids_4_12": 139,
+      "teens_13_19": 113,
+      "m20_34": 117,
+      "m35_49": 158,
+      "m50plus": 371,
+      "f20_34": 117,
+      "f35_49": 158,
+      "f50plus": 458
+    },
+    {
+      "area": "大分",
+      "station": "OBS・TOS・OAB",
+      "household_thousand": 545,
+      "person_total_thousand": 1108,
+      "kids_4_12": 86,
+      "teens_13_19": 71,
+      "m20_34": 77,
+      "m35_49": 106,
+      "m50plus": 263,
+      "f20_34": 72,
+      "f35_49": 104,
+      "f50plus": 328
+    },
+    {
+      "area": "宮崎",
+      "station": "MRT・UMK",
+      "household_thousand": 548,
+      "person_total_thousand": 1079,
+      "kids_4_12": 90,
+      "teens_13_19": 72,
+      "m20_34": 70,
+      "m35_49": 101,
+      "m50plus": 257,
+      "f20_34": 68,
+      "f35_49": 102,
+      "f50plus": 319
+    },
+    {
+      "area": "鹿児島",
+      "station": "MBC・KTS",
+      "household_thousand": 912,
+      "person_total_thousand": 1757,
+      "kids_4_12": 150,
+      "teens_13_19": 118,
+      "m20_34": 112,
+      "m35_49": 160,
+      "m50plus": 420,
+      "f20_34": 116,
+      "f35_49": 167,
+      "f50plus": 515
+    },
+    {
+      "area": "鹿児島",
+      "station": "KKB・KYT",
+      "household_thousand": 920,
+      "person_total_thousand": 1774,
+      "kids_4_12": 151,
+      "teens_13_19": 119,
+      "m20_34": 113,
+      "m35_49": 162,
+      "m50plus": 425,
+      "f20_34": 117,
+      "f35_49": 168,
+      "f50plus": 521
+    },
+    {
+      "area": "沖縄",
+      "station": "RBC・OTV・QAB",
+      "household_thousand": 687,
+      "person_total_thousand": 1432,
+      "kids_4_12": 154,
+      "teens_13_19": 115,
+      "m20_34": 121,
+      "m35_49": 153,
+      "m50plus": 294,
+      "f20_34": 118,
+      "f35_49": 152,
+      "f50plus": 326
+    },
+    {
+      "area": "東京",
+      "station": "MX",
+      "household_thousand": 15879,
+      "person_total_thousand": 30703,
+      "kids_4_12": 2289,
+      "teens_13_19": 1838,
+      "m20_34": 2861,
+      "m35_49": 3593,
+      "m50plus": 6640,
+      "f20_34": 2748,
+      "f35_49": 3398,
+      "f50plus": 7336
+    },
+    {
+      "area": "群馬",
+      "station": "GTV",
+      "household_thousand": 1104,
+      "person_total_thousand": 2406,
+      "kids_4_12": 174,
+      "teens_13_19": 160,
+      "m20_34": 192,
+      "m35_49": 251,
+      "m50plus": 579,
+      "f20_34": 167,
+      "f35_49": 231,
+      "f50plus": 651
+    },
+    {
+      "area": "埼玉",
+      "station": "TVS",
+      "household_thousand": 4427,
+      "person_total_thousand": 9107,
+      "kids_4_12": 681,
+      "teens_13_19": 570,
+      "m20_34": 792,
+      "m35_49": 1033,
+      "m50plus": 2070,
+      "f20_34": 749,
+      "f35_49": 950,
+      "f50plus": 2263
+    },
+    {
+      "area": "栃木",
+      "station": "GYT",
+      "household_thousand": 885,
+      "person_total_thousand": 1967,
+      "kids_4_12": 147,
+      "teens_13_19": 129,
+      "m20_34": 158,
+      "m35_49": 215,
+      "m50plus": 468,
+      "f20_34": 136,
+      "f35_49": 194,
+      "f50plus": 519
+    },
+    {
+      "area": "千葉",
+      "station": "CTC",
+      "household_thousand": 3868,
+      "person_total_thousand": 7977,
+      "kids_4_12": 604,
+      "teens_13_19": 511,
+      "m20_34": 689,
+      "m35_49": 896,
+      "m50plus": 1824,
+      "f20_34": 633,
+      "f35_49": 827,
+      "f50plus": 1994
+    },
+    {
+      "area": "神奈川",
+      "station": "TVK",
+      "household_thousand": 5873,
+      "person_total_thousand": 11591,
+      "kids_4_12": 866,
+      "teens_13_19": 715,
+      "m20_34": 1030,
+      "m35_49": 1318,
+      "m50plus": 2590,
+      "f20_34": 975,
+      "f35_49": 1249,
+      "f50plus": 2849
+    },
+    {
+      "area": "岐阜",
+      "station": "GBS",
+      "household_thousand": 1111,
+      "person_total_thousand": 2567,
+      "kids_4_12": 201,
+      "teens_13_19": 177,
+      "m20_34": 195,
+      "m35_49": 260,
+      "m50plus": 602,
+      "f20_34": 183,
+      "f35_49": 249,
+      "f50plus": 700
+    },
+    {
+      "area": "三重",
+      "station": "MTV",
+      "household_thousand": 2385,
+      "person_total_thousand": 5005,
+      "kids_4_12": 396,
+      "teens_13_19": 331,
+      "m20_34": 454,
+      "m35_49": 549,
+      "m50plus": 1116,
+      "f20_34": 402,
+      "f35_49": 506,
+      "f50plus": 1252
+    },
+    {
+      "area": "滋賀",
+      "station": "BBC",
+      "household_thousand": 643,
+      "person_total_thousand": 1466,
+      "kids_4_12": 128,
+      "teens_13_19": 106,
+      "m20_34": 123,
+      "m35_49": 157,
+      "m50plus": 323,
+      "f20_34": 110,
+      "f35_49": 152,
+      "f50plus": 368
+    },
+    {
+      "area": "京都",
+      "station": "KBS",
+      "household_thousand": 3739,
+      "person_total_thousand": 7501,
+      "kids_4_12": 589,
+      "teens_13_19": 492,
+      "m20_34": 623,
+      "m35_49": 790,
+      "m50plus": 1642,
+      "f20_34": 617,
+      "f35_49": 800,
+      "f50plus": 1948
+    },
+    {
+      "area": "兵庫",
+      "station": "SUN",
+      "household_thousand": 7271,
+      "person_total_thousand": 14417,
+      "kids_4_12": 1094,
+      "teens_13_19": 933,
+      "m20_34": 1171,
+      "m35_49": 1481,
+      "m50plus": 3224,
+      "f20_34": 1167,
+      "f35_49": 1503,
+      "f50plus": 3846
+    },
+    {
+      "area": "奈良",
+      "station": "TVN",
+      "household_thousand": 682,
+      "person_total_thousand": 1481,
+      "kids_4_12": 112,
+      "teens_13_19": 100,
+      "m20_34": 102,
+      "m35_49": 140,
+      "m50plus": 351,
+      "f20_34": 104,
+      "f35_49": 146,
+      "f50plus": 425
+    },
+    {
+      "area": "和歌山",
+      "station": "WTV",
+      "household_thousand": 448,
+      "person_total_thousand": 922,
+      "kids_4_12": 66,
+      "teens_13_19": 58,
+      "m20_34": 63,
+      "m35_49": 85,
+      "m50plus": 224,
+      "f20_34": 60,
+      "f35_49": 86,
+      "f50plus": 280
+    }
+  ],
+  "station_cost_master": [
+    {
+      "area": "エリア",
+      "station": "放送局",
+      "network": "系列",
+      "household_to_person_coefficient": "移行係数",
+      "household_cost": {
+        "全日": "全日",
+        "ヨの字": "ヨの字",
+        "コの字": "コの字",
+        "逆L": "逆Ｌ"
+      },
+      "person_cost": {
+        "全日": "全日",
+        "ヨの字": "ヨの字",
+        "コの字": "コの字",
+        "逆L": "逆Ｌ"
+      }
+    },
+    {
+      "area": "関東",
+      "station": "NTV",
+      "network": "N",
+      "household_to_person_coefficient": 1.9609,
+      "household_cost": {
+        "全日": 85000,
+        "ヨの字": 97750,
+        "コの字": 107950,
+        "逆L": 119000
+      },
+      "person_cost": {
+        "全日": 166676.5,
+        "ヨの字": 191677.975,
+        "コの字": 211679.155,
+        "逆L": 233347.1
+      }
+    },
+    {
+      "area": "関東",
+      "station": "TBS",
+      "network": "J",
+      "household_to_person_coefficient": 1.9635,
+      "household_cost": {
+        "全日": 77000,
+        "ヨの字": 92400,
+        "コの字": 103950,
+        "逆L": 115500
+      },
+      "person_cost": {
+        "全日": 151189.5,
+        "ヨの字": 181427.4,
+        "コの字": 204105.825,
+        "逆L": 226784.25
+      }
+    },
+    {
+      "area": "関東",
+      "station": "CXTV",
+      "network": "C",
+      "household_to_person_coefficient": 1.9123,
+      "household_cost": {
+        "全日": 90000,
+        "ヨの字": 99000,
+        "コの字": 108900,
+        "逆L": 120000
+      },
+      "person_cost": {
+        "全日": 172107,
+        "ヨの字": 189317.7,
+        "コの字": 208249.47,
+        "逆L": 229476
+      }
+    },
+    {
+      "area": "関東",
+      "station": "EX",
+      "network": "E",
+      "household_to_person_coefficient": 1.9984,
+      "household_cost": {
+        "全日": 75000,
+        "ヨの字": 97500,
+        "コの字": 105000,
+        "逆L": 112500
+      },
+      "person_cost": {
+        "全日": 149880,
+        "ヨの字": 194844,
+        "コの字": 209832,
+        "逆L": 224820
+      }
+    },
+    {
+      "area": "関東",
+      "station": "TX",
+      "network": "T",
+      "household_to_person_coefficient": 1.857,
+      "household_cost": {
+        "全日": 70000,
+        "ヨの字": 79800,
+        "コの字": 89600,
+        "逆L": 93800
+      },
+      "person_cost": {
+        "全日": 129990,
+        "ヨの字": 148188.6,
+        "コの字": 166387.2,
+        "逆L": 174186.6
+      }
+    },
+    {
+      "area": "関西",
+      "station": "YTV",
+      "network": "N",
+      "household_to_person_coefficient": 1.8422,
+      "household_cost": {
+        "全日": 25000,
+        "ヨの字": 28000,
+        "コの字": 32000,
+        "逆L": 35000
+      },
+      "person_cost": {
+        "全日": 46055,
+        "ヨの字": 51581.6,
+        "コの字": 58950.4,
+        "逆L": 64477
+      }
+    },
+    {
+      "area": "関西",
+      "station": "MBS",
+      "network": "J",
+      "household_to_person_coefficient": 1.8959,
+      "household_cost": {
+        "全日": 25000,
+        "ヨの字": 30000,
+        "コの字": 32500,
+        "逆L": 35000
+      },
+      "person_cost": {
+        "全日": 47397.5,
+        "ヨの字": 56877,
+        "コの字": 61616.75,
+        "逆L": 66356.5
+      }
+    },
+    {
+      "area": "関西",
+      "station": "KTV",
+      "network": "C",
+      "household_to_person_coefficient": 1.8501,
+      "household_cost": {
+        "全日": 27000,
+        "ヨの字": 32000,
+        "コの字": 38000,
+        "逆L": 42000
+      },
+      "person_cost": {
+        "全日": 49952.700000000004,
+        "ヨの字": 59203.200000000004,
+        "コの字": 70303.8,
+        "逆L": 77704.2
+      }
+    },
+    {
+      "area": "関西",
+      "station": "ABC",
+      "network": "E",
+      "household_to_person_coefficient": 1.8587,
+      "household_cost": {
+        "全日": 20000,
+        "ヨの字": 23000,
+        "コの字": 26000,
+        "逆L": 30000
+      },
+      "person_cost": {
+        "全日": 37174,
+        "ヨの字": 42750.1,
+        "コの字": 48326.2,
+        "逆L": 55761
+      }
+    },
+    {
+      "area": "関西",
+      "station": "TVO",
+      "network": "T",
+      "household_to_person_coefficient": 1.7901,
+      "household_cost": {
+        "全日": 20000,
+        "ヨの字": 26000,
+        "コの字": 29000,
+        "逆L": 32000
+      },
+      "person_cost": {
+        "全日": 35802,
+        "ヨの字": 46542.6,
+        "コの字": 51912.9,
+        "逆L": 57283.200000000004
+      }
+    },
+    {
+      "area": "名古屋",
+      "station": "CTV",
+      "network": "N",
+      "household_to_person_coefficient": 2.0094,
+      "household_cost": {
+        "全日": 15000,
+        "ヨの字": 19000,
+        "コの字": 22000,
+        "逆L": 25000
+      },
+      "person_cost": {
+        "全日": 30140.999999999996,
+        "ヨの字": 38178.6,
+        "コの字": 44206.799999999996,
+        "逆L": 50234.99999999999
+      }
+    },
+    {
+      "area": "名古屋",
+      "station": "CBC",
+      "network": "J",
+      "household_to_person_coefficient": 2.1106,
+      "household_cost": {
+        "全日": 15000,
+        "ヨの字": 18000,
+        "コの字": 20000,
+        "逆L": 22000
+      },
+      "person_cost": {
+        "全日": 31658.999999999996,
+        "ヨの字": 37990.799999999996,
+        "コの字": 42211.99999999999,
+        "逆L": 46433.2
+      }
+    },
+    {
+      "area": "名古屋",
+      "station": "THK",
+      "network": "C",
+      "household_to_person_coefficient": 2.0477,
+      "household_cost": {
+        "全日": 16000,
+        "ヨの字": 19200,
+        "コの字": 20000,
+        "逆L": 21600
+      },
+      "person_cost": {
+        "全日": 32763.199999999997,
+        "ヨの字": 39315.84,
+        "コの字": 40954,
+        "逆L": 44230.32
+      }
+    },
+    {
+      "area": "名古屋",
+      "station": "NBN",
+      "network": "E",
+      "household_to_person_coefficient": 2.0745,
+      "household_cost": {
+        "全日": 12000,
+        "ヨの字": 16000,
+        "コの字": 17000,
+        "逆L": 18000
+      },
+      "person_cost": {
+        "全日": 24894,
+        "ヨの字": 33192,
+        "コの字": 35266.5,
+        "逆L": 37341
+      }
+    },
+    {
+      "area": "名古屋",
+      "station": "TVA",
+      "network": "T",
+      "household_to_person_coefficient": 1.9862,
+      "household_cost": {
+        "全日": 11000,
+        "ヨの字": 12000,
+        "コの字": 13500,
+        "逆L": 15000
+      },
+      "person_cost": {
+        "全日": 21848.2,
+        "ヨの字": 23834.399999999998,
+        "コの字": 26813.7,
+        "逆L": 29793
+      }
+    },
+    {
+      "area": "福岡",
+      "station": "FBS",
+      "network": "N",
+      "household_to_person_coefficient": 1.7889,
+      "household_cost": {
+        "全日": 6000,
+        "ヨの字": 7000,
+        "コの字": 8000,
+        "逆L": 9000
+      },
+      "person_cost": {
+        "全日": 10733.4,
+        "ヨの字": 12522.3,
+        "コの字": 14311.199999999999,
+        "逆L": 16100.099999999999
+      }
+    },
+    {
+      "area": "福岡",
+      "station": "RKB",
+      "network": "J",
+      "household_to_person_coefficient": 1.8014,
+      "household_cost": {
+        "全日": 7000,
+        "ヨの字": 8000,
+        "コの字": 9000,
+        "逆L": 10000
+      },
+      "person_cost": {
+        "全日": 12609.8,
+        "ヨの字": 14411.199999999999,
+        "コの字": 16212.599999999999,
+        "逆L": 18014
+      }
+    },
+    {
+      "area": "福岡",
+      "station": "TNC",
+      "network": "C",
+      "household_to_person_coefficient": 1.7733,
+      "household_cost": {
+        "全日": 8000,
+        "ヨの字": 9000,
+        "コの字": 10000,
+        "逆L": 11000
+      },
+      "person_cost": {
+        "全日": 14186.400000000001,
+        "ヨの字": 15959.7,
+        "コの字": 17733,
+        "逆L": 19506.3
+      }
+    },
+    {
+      "area": "福岡",
+      "station": "KBC",
+      "network": "E",
+      "household_to_person_coefficient": 1.8021,
+      "household_cost": {
+        "全日": 8000,
+        "ヨの字": 10500,
+        "コの字": 11000,
+        "逆L": 12000
+      },
+      "person_cost": {
+        "全日": 14416.800000000001,
+        "ヨの字": 18922.05,
+        "コの字": 19823.100000000002,
+        "逆L": 21625.2
+      }
+    },
+    {
+      "area": "福岡",
+      "station": "TVQ",
+      "network": "T",
+      "household_to_person_coefficient": 1.7129,
+      "household_cost": {
+        "全日": 5000,
+        "ヨの字": 6000,
+        "コの字": 6500,
+        "逆L": 7000
+      },
+      "person_cost": {
+        "全日": 8564.5,
+        "ヨの字": 10277.4,
+        "コの字": 11133.85,
+        "逆L": 11990.300000000001
+      }
+    },
+    {
+      "area": "北海道",
+      "station": "STV",
+      "network": "N",
+      "household_to_person_coefficient": 1.678,
+      "household_cost": {
+        "全日": 6000,
+        "ヨの字": 7000,
+        "コの字": 8000,
+        "逆L": 9000
+      },
+      "person_cost": {
+        "全日": 10068,
+        "ヨの字": 11746,
+        "コの字": 13424,
+        "逆L": 15102
+      }
+    },
+    {
+      "area": "北海道",
+      "station": "HBC",
+      "network": "J",
+      "household_to_person_coefficient": 1.7279,
+      "household_cost": {
+        "全日": 6000,
+        "ヨの字": 7000,
+        "コの字": 8000,
+        "逆L": 9000
+      },
+      "person_cost": {
+        "全日": 10367.4,
+        "ヨの字": 12095.3,
+        "コの字": 13823.2,
+        "逆L": 15551.1
+      }
+    },
+    {
+      "area": "北海道",
+      "station": "UHB",
+      "network": "C",
+      "household_to_person_coefficient": 1.7146,
+      "household_cost": {
+        "全日": 6000,
+        "ヨの字": 7000,
+        "コの字": 8000,
+        "逆L": 9000
+      },
+      "person_cost": {
+        "全日": 10287.599999999999,
+        "ヨの字": 12002.199999999999,
+        "コの字": 13716.8,
+        "逆L": 15431.4
+      }
+    },
+    {
+      "area": "北海道",
+      "station": "HTB",
+      "network": "E",
+      "household_to_person_coefficient": 1.6911,
+      "household_cost": {
+        "全日": 6000,
+        "ヨの字": 7000,
+        "コの字": 8000,
+        "逆L": 9000
+      },
+      "person_cost": {
+        "全日": 10146.6,
+        "ヨの字": 11837.7,
+        "コの字": 13528.800000000001,
+        "逆L": 15219.9
+      }
+    },
+    {
+      "area": "北海道",
+      "station": "TVH",
+      "network": "T",
+      "household_to_person_coefficient": 1.6638,
+      "household_cost": {
+        "全日": 4000,
+        "ヨの字": 4300,
+        "コの字": 4800,
+        "逆L": 5000
+      },
+      "person_cost": {
+        "全日": 6655.2,
+        "ヨの字": 7154.34,
+        "コの字": 7986.24,
+        "逆L": 8319
+      }
+    },
+    {
+      "area": "仙台",
+      "station": "TBC",
+      "network": "J",
+      "household_to_person_coefficient": 1.7708,
+      "household_cost": {
+        "全日": 4000,
+        "ヨの字": 5000,
+        "コの字": 5500,
+        "逆L": 6000
+      },
+      "person_cost": {
+        "全日": 7083.2,
+        "ヨの字": 8854,
+        "コの字": 9739.4,
+        "逆L": 10624.8
+      }
+    },
+    {
+      "area": "仙台",
+      "station": "OXTV",
+      "network": "C",
+      "household_to_person_coefficient": 1.7926,
+      "household_cost": {
+        "全日": 4000,
+        "ヨの字": 4800,
+        "コの字": 5200,
+        "逆L": 5800
+      },
+      "person_cost": {
+        "全日": 7170.4,
+        "ヨの字": 8604.48,
+        "コの字": 9321.52,
+        "逆L": 10397.08
+      }
+    },
+    {
+      "area": "仙台",
+      "station": "MMT",
+      "network": "N",
+      "household_to_person_coefficient": 1.726,
+      "household_cost": {
+        "全日": 3600,
+        "ヨの字": 4500,
+        "コの字": 5000,
+        "逆L": 5500
+      },
+      "person_cost": {
+        "全日": 6213.6,
+        "ヨの字": 7767,
+        "コの字": 8630,
+        "逆L": 9493
+      }
+    },
+    {
+      "area": "仙台",
+      "station": "KHB",
+      "network": "E",
+      "household_to_person_coefficient": 1.7822,
+      "household_cost": {
+        "全日": 3000,
+        "ヨの字": 3300,
+        "コの字": 3700,
+        "逆L": 4100
+      },
+      "person_cost": {
+        "全日": 5346.6,
+        "ヨの字": 5881.26,
+        "コの字": 6594.14,
+        "逆L": 7307.02
+      }
+    },
+    {
+      "area": "広島",
+      "station": "RCC",
+      "network": "J",
+      "household_to_person_coefficient": 1.752,
+      "household_cost": {
+        "全日": 4000,
+        "ヨの字": 4800,
+        "コの字": 5300,
+        "逆L": 6000
+      },
+      "person_cost": {
+        "全日": 7008,
+        "ヨの字": 8409.6,
+        "コの字": 9285.6,
+        "逆L": 10512
+      }
+    },
+    {
+      "area": "広島",
+      "station": "HTV",
+      "network": "N",
+      "household_to_person_coefficient": 1.7034,
+      "household_cost": {
+        "全日": 4000,
+        "ヨの字": 4800,
+        "コの字": 5200,
+        "逆L": 5800
+      },
+      "person_cost": {
+        "全日": 6813.6,
+        "ヨの字": 8176.32,
+        "コの字": 8857.68,
+        "逆L": 9879.72
+      }
+    },
+    {
+      "area": "広島",
+      "station": "HOME",
+      "network": "E",
+      "household_to_person_coefficient": 1.7365,
+      "household_cost": {
+        "全日": 4000,
+        "ヨの字": 4600,
+        "コの字": 5100,
+        "逆L": 5800
+      },
+      "person_cost": {
+        "全日": 6946,
+        "ヨの字": 7987.9,
+        "コの字": 8856.15,
+        "逆L": 10071.699999999999
+      }
+    },
+    {
+      "area": "広島",
+      "station": "TSS",
+      "network": "C",
+      "household_to_person_coefficient": 1.7479,
+      "household_cost": {
+        "全日": 4000,
+        "ヨの字": 4800,
+        "コの字": 5200,
+        "逆L": 5800
+      },
+      "person_cost": {
+        "全日": 6991.6,
+        "ヨの字": 8389.92,
+        "コの字": 9089.08,
+        "逆L": 10137.82
+      }
+    },
+    {
+      "area": "青森",
+      "station": "RAB",
+      "network": "N",
+      "household_to_person_coefficient": 1.8455,
+      "household_cost": {
+        "全日": 2000,
+        "ヨの字": 2200,
+        "コの字": 2500,
+        "逆L": 2700
+      },
+      "person_cost": {
+        "全日": 3691,
+        "ヨの字": 4060.1,
+        "コの字": 4613.75,
+        "逆L": 4982.849999999999
+      }
+    },
+    {
+      "area": "青森",
+      "station": "ATV",
+      "network": "J",
+      "household_to_person_coefficient": 1.8631,
+      "household_cost": {
+        "全日": 1500,
+        "ヨの字": 1650,
+        "コの字": 1815,
+        "逆L": 1997
+      },
+      "person_cost": {
+        "全日": 2794.65,
+        "ヨの字": 3074.115,
+        "コの字": 3381.5265,
+        "逆L": 3720.6107
+      }
+    },
+    {
+      "area": "青森",
+      "station": "ABA",
+      "network": "E",
+      "household_to_person_coefficient": 1.8371,
+      "household_cost": {
+        "全日": 1250,
+        "ヨの字": 1400,
+        "コの字": 1500,
+        "逆L": 1700
+      },
+      "person_cost": {
+        "全日": 2296.375,
+        "ヨの字": 2571.94,
+        "コの字": 2755.65,
+        "逆L": 3123.0699999999997
+      }
+    },
+    {
+      "area": "岩手",
+      "station": "IBC",
+      "network": "J",
+      "household_to_person_coefficient": 1.9108,
+      "household_cost": {
+        "全日": 1200,
+        "ヨの字": 1400,
+        "コの字": 1500,
+        "逆L": 1600
+      },
+      "person_cost": {
+        "全日": 2292.96,
+        "ヨの字": 2675.12,
+        "コの字": 2866.2000000000003,
+        "逆L": 3057.28
+      }
+    },
+    {
+      "area": "岩手",
+      "station": "TVI",
+      "network": "N",
+      "household_to_person_coefficient": 1.8321,
+      "household_cost": {
+        "全日": 1600,
+        "ヨの字": 1800,
+        "コの字": 2000,
+        "逆L": 2200
+      },
+      "person_cost": {
+        "全日": 2931.36,
+        "ヨの字": 3297.78,
+        "コの字": 3664.2000000000003,
+        "逆L": 4030.6200000000003
+      }
+    },
+    {
+      "area": "岩手",
+      "station": "MIT",
+      "network": "C",
+      "household_to_person_coefficient": 1.9068,
+      "household_cost": {
+        "全日": 1500,
+        "ヨの字": 1650,
+        "コの字": 1815,
+        "逆L": 2000
+      },
+      "person_cost": {
+        "全日": 2860.2000000000003,
+        "ヨの字": 3146.2200000000003,
+        "コの字": 3460.842,
+        "逆L": 3813.6
+      }
+    },
+    {
+      "area": "岩手",
+      "station": "IAT",
+      "network": "E",
+      "household_to_person_coefficient": 1.9248,
+      "household_cost": {
+        "全日": 1200,
+        "ヨの字": 1300,
+        "コの字": 1450,
+        "逆L": 1600
+      },
+      "person_cost": {
+        "全日": 2309.76,
+        "ヨの字": 2502.2400000000002,
+        "コの字": 2790.96,
+        "逆L": 3079.6800000000003
+      }
+    },
+    {
+      "area": "秋田",
+      "station": "ABS",
+      "network": "N",
+      "household_to_person_coefficient": 1.7076,
+      "household_cost": {
+        "全日": 1500,
+        "ヨの字": 1800,
+        "コの字": 1950,
+        "逆L": 2100
+      },
+      "person_cost": {
+        "全日": 2561.4,
+        "ヨの字": 3073.68,
+        "コの字": 3329.82,
+        "逆L": 3585.96
+      }
+    },
+    {
+      "area": "秋田",
+      "station": "AKT",
+      "network": "C",
+      "household_to_person_coefficient": 1.769,
+      "household_cost": {
+        "全日": 1500,
+        "ヨの字": 1650,
+        "コの字": 1815,
+        "逆L": 2000
+      },
+      "person_cost": {
+        "全日": 2653.5,
+        "ヨの字": 2918.85,
+        "コの字": 3210.7349999999997,
+        "逆L": 3538
+      }
+    },
+    {
+      "area": "秋田",
+      "station": "AAB",
+      "network": "E",
+      "household_to_person_coefficient": 1.8059,
+      "household_cost": {
+        "全日": 1300,
+        "ヨの字": 1450,
+        "コの字": 1600,
+        "逆L": 1800
+      },
+      "person_cost": {
+        "全日": 2347.67,
+        "ヨの字": 2618.5550000000003,
+        "コの字": 2889.44,
+        "逆L": 3250.62
+      }
+    },
+    {
+      "area": "山形",
+      "station": "YBC",
+      "network": "N",
+      "household_to_person_coefficient": 2.029,
+      "household_cost": {
+        "全日": 1500,
+        "ヨの字": 1700,
+        "コの字": 1900,
+        "逆L": 2100
+      },
+      "person_cost": {
+        "全日": 3043.5,
+        "ヨの字": 3449.2999999999997,
+        "コの字": 3855.1,
+        "逆L": 4260.9
+      }
+    },
+    {
+      "area": "山形",
+      "station": "YTS",
+      "network": "E",
+      "household_to_person_coefficient": 2.0531,
+      "household_cost": {
+        "全日": 1700,
+        "ヨの字": 1900,
+        "コの字": 2200,
+        "逆L": 2400
+      },
+      "person_cost": {
+        "全日": 3490.2700000000004,
+        "ヨの字": 3900.8900000000003,
+        "コの字": 4516.820000000001,
+        "逆L": 4927.4400000000005
+      }
+    },
+    {
+      "area": "山形",
+      "station": "TUY",
+      "network": "J",
+      "household_to_person_coefficient": 2.0361,
+      "household_cost": {
+        "全日": 1000,
+        "ヨの字": 1200,
+        "コの字": 1300,
+        "逆L": 1500
+      },
+      "person_cost": {
+        "全日": 2036.1,
+        "ヨの字": 2443.3199999999997,
+        "コの字": 2646.93,
+        "逆L": 3054.1499999999996
+      }
+    },
+    {
+      "area": "山形",
+      "station": "SAY",
+      "network": "C",
+      "household_to_person_coefficient": 2.0774,
+      "household_cost": {
+        "全日": 1200,
+        "ヨの字": 1320,
+        "コの字": 1450,
+        "逆L": 1600
+      },
+      "person_cost": {
+        "全日": 2492.88,
+        "ヨの字": 2742.1679999999997,
+        "コの字": 3012.23,
+        "逆L": 3323.8399999999997
+      }
+    },
+    {
+      "area": "福島",
+      "station": "FTV",
+      "network": "C",
+      "household_to_person_coefficient": 1.8841,
+      "household_cost": {
+        "全日": 3000,
+        "ヨの字": 3400,
+        "コの字": 3700,
+        "逆L": 4200
+      },
+      "person_cost": {
+        "全日": 5652.3,
+        "ヨの字": 6405.9400000000005,
+        "コの字": 6971.17,
+        "逆L": 7913.22
+      }
+    },
+    {
+      "area": "福島",
+      "station": "FCT",
+      "network": "N",
+      "household_to_person_coefficient": 1.9065,
+      "household_cost": {
+        "全日": 3000,
+        "ヨの字": 3400,
+        "コの字": 3700,
+        "逆L": 4200
+      },
+      "person_cost": {
+        "全日": 5719.5,
+        "ヨの字": 6482.1,
+        "コの字": 7054.05,
+        "逆L": 8007.3
+      }
+    },
+    {
+      "area": "福島",
+      "station": "KFB",
+      "network": "E",
+      "household_to_person_coefficient": 1.8782,
+      "household_cost": {
+        "全日": 3000,
+        "ヨの字": 3400,
+        "コの字": 3740,
+        "逆L": 4110
+      },
+      "person_cost": {
+        "全日": 5634.6,
+        "ヨの字": 6385.88,
+        "コの字": 7024.468000000001,
+        "逆L": 7719.402
+      }
+    },
+    {
+      "area": "福島",
+      "station": "TUF",
+      "network": "J",
+      "household_to_person_coefficient": 1.9306,
+      "household_cost": {
+        "全日": 3000,
+        "ヨの字": 3500,
+        "コの字": 4000,
+        "逆L": 4500
+      },
+      "person_cost": {
+        "全日": 5791.8,
+        "ヨの字": 6757.1,
+        "コの字": 7722.400000000001,
+        "逆L": 8687.7
+      }
+    },
+    {
+      "area": "新潟",
+      "station": "BSN",
+      "network": "J",
+      "household_to_person_coefficient": 1.9518,
+      "household_cost": {
+        "全日": 3200,
+        "ヨの字": 3800,
+        "コの字": 4500,
+        "逆L": 5000
+      },
+      "person_cost": {
+        "全日": 6245.76,
+        "ヨの字": 7416.84,
+        "コの字": 8783.1,
+        "逆L": 9759
+      }
+    },
+    {
+      "area": "新潟",
+      "station": "NST",
+      "network": "C",
+      "household_to_person_coefficient": 1.942,
+      "household_cost": {
+        "全日": 3200,
+        "ヨの字": 3800,
+        "コの字": 4500,
+        "逆L": 5000
+      },
+      "person_cost": {
+        "全日": 6214.4,
+        "ヨの字": 7379.599999999999,
+        "コの字": 8739,
+        "逆L": 9710
+      }
+    },
+    {
+      "area": "新潟",
+      "station": "TNY",
+      "network": "N",
+      "household_to_person_coefficient": 1.8845,
+      "household_cost": {
+        "全日": 3200,
+        "ヨの字": 3800,
+        "コの字": 4500,
+        "逆L": 5000
+      },
+      "person_cost": {
+        "全日": 6030.400000000001,
+        "ヨの字": 7161.1,
+        "コの字": 8480.25,
+        "逆L": 9422.5
+      }
+    },
+    {
+      "area": "新潟",
+      "station": "UX",
+      "network": "E",
+      "household_to_person_coefficient": 1.9831,
+      "household_cost": {
+        "全日": 3000,
+        "ヨの字": 3600,
+        "コの字": 4300,
+        "逆L": 4700
+      },
+      "person_cost": {
+        "全日": 5949.3,
+        "ヨの字": 7139.16,
+        "コの字": 8527.33,
+        "逆L": 9320.57
+      }
+    },
+    {
+      "area": "長野",
+      "station": "SBC",
+      "network": "J",
+      "household_to_person_coefficient": 1.8448,
+      "household_cost": {
+        "全日": 2800,
+        "ヨの字": 3100,
+        "コの字": 3400,
+        "逆L": 3800
+      },
+      "person_cost": {
+        "全日": 5165.44,
+        "ヨの字": 5718.88,
+        "コの字": 6272.32,
+        "逆L": 7010.24
+      }
+    },
+    {
+      "area": "長野",
+      "station": "NBS",
+      "network": "C",
+      "household_to_person_coefficient": 1.8548,
+      "household_cost": {
+        "全日": 3000,
+        "ヨの字": 3300,
+        "コの字": 3700,
+        "逆L": 4100
+      },
+      "person_cost": {
+        "全日": 5564.4,
+        "ヨの字": 6120.84,
+        "コの字": 6862.76,
+        "逆L": 7604.68
+      }
+    },
+    {
+      "area": "長野",
+      "station": "TSB",
+      "network": "N",
+      "household_to_person_coefficient": 1.7935,
+      "household_cost": {
+        "全日": 2200,
+        "ヨの字": 2700,
+        "コの字": 3200,
+        "逆L": 3500
+      },
+      "person_cost": {
+        "全日": 3945.7000000000003,
+        "ヨの字": 4842.45,
+        "コの字": 5739.200000000001,
+        "逆L": 6277.25
+      }
+    },
+    {
+      "area": "長野",
+      "station": "ABN",
+      "network": "E",
+      "household_to_person_coefficient": 1.8699,
+      "household_cost": {
+        "全日": 2500,
+        "ヨの字": 2750,
+        "コの字": 3000,
+        "逆L": 3300
+      },
+      "person_cost": {
+        "全日": 4674.75,
+        "ヨの字": 5142.224999999999,
+        "コの字": 5609.7,
+        "逆L": 6170.67
+      }
+    },
+    {
+      "area": "山梨",
+      "station": "YBS",
+      "network": "N",
+      "household_to_person_coefficient": null,
+      "household_cost": {
+        "全日": 2100,
+        "ヨの字": 2400,
+        "コの字": 2600,
+        "逆L": 2800
+      },
+      "person_cost": {
+        "全日": 0,
+        "ヨの字": 0,
+        "コの字": 0,
+        "逆L": 0
+      }
+    },
+    {
+      "area": "山梨",
+      "station": "UTY",
+      "network": "J",
+      "household_to_person_coefficient": null,
+      "household_cost": {
+        "全日": 2000,
+        "ヨの字": 2200,
+        "コの字": 2420,
+        "逆L": 2662
+      },
+      "person_cost": {
+        "全日": 0,
+        "ヨの字": 0,
+        "コの字": 0,
+        "逆L": 0
+      }
+    },
+    {
+      "area": "静岡",
+      "station": "SBS",
+      "network": "J",
+      "household_to_person_coefficient": 2.0484,
+      "household_cost": {
+        "全日": 4000,
+        "ヨの字": 4500,
+        "コの字": 5000,
+        "逆L": 5500
+      },
+      "person_cost": {
+        "全日": 8193.6,
+        "ヨの字": 9217.8,
+        "コの字": 10242,
+        "逆L": 11266.2
+      }
+    },
+    {
+      "area": "静岡",
+      "station": "SUT",
+      "network": "C",
+      "household_to_person_coefficient": 2.0495,
+      "household_cost": {
+        "全日": 4000,
+        "ヨの字": 4800,
+        "コの字": 5200,
+        "逆L": 5800
+      },
+      "person_cost": {
+        "全日": 8198,
+        "ヨの字": 9837.6,
+        "コの字": 10657.4,
+        "逆L": 11887.1
+      }
+    },
+    {
+      "area": "静岡",
+      "station": "SAT",
+      "network": "E",
+      "household_to_person_coefficient": 2.0962,
+      "household_cost": {
+        "全日": 3600,
+        "ヨの字": 4320,
+        "コの字": 4750,
+        "逆L": 5220
+      },
+      "person_cost": {
+        "全日": 7546.320000000001,
+        "ヨの字": 9055.584,
+        "コの字": 9956.95,
+        "逆L": 10942.164
+      }
+    },
+    {
+      "area": "静岡",
+      "station": "SDT",
+      "network": "N",
+      "household_to_person_coefficient": 2.0345,
+      "household_cost": {
+        "全日": 3500,
+        "ヨの字": 4200,
+        "コの字": 4550,
+        "逆L": 5100
+      },
+      "person_cost": {
+        "全日": 7120.75,
+        "ヨの字": 8544.9,
+        "コの字": 9256.975,
+        "逆L": 10375.95
+      }
+    },
+    {
+      "area": "富山",
+      "station": "KNB",
+      "network": "N",
+      "household_to_person_coefficient": 2.0238,
+      "household_cost": {
+        "全日": 1500,
+        "ヨの字": 1700,
+        "コの字": 1900,
+        "逆L": 2100
+      },
+      "person_cost": {
+        "全日": 3035.7000000000003,
+        "ヨの字": 3440.46,
+        "コの字": 3845.2200000000003,
+        "逆L": 4249.9800000000005
+      }
+    },
+    {
+      "area": "富山",
+      "station": "BBT",
+      "network": "C",
+      "household_to_person_coefficient": 2.0724,
+      "household_cost": {
+        "全日": 1300,
+        "ヨの字": 1430,
+        "コの字": 1573,
+        "逆L": 1730
+      },
+      "person_cost": {
+        "全日": 2694.12,
+        "ヨの字": 2963.532,
+        "コの字": 3259.8852,
+        "逆L": 3585.252
+      }
+    },
+    {
+      "area": "富山",
+      "station": "TUT",
+      "network": "J",
+      "household_to_person_coefficient": 2.0315,
+      "household_cost": {
+        "全日": 1400,
+        "ヨの字": 1550,
+        "コの字": 1700,
+        "逆L": 1850
+      },
+      "person_cost": {
+        "全日": 2844.1,
+        "ヨの字": 3148.825,
+        "コの字": 3453.5499999999997,
+        "逆L": 3758.2749999999996
+      }
+    },
+    {
+      "area": "石川",
+      "station": "MRO",
+      "network": "J",
+      "household_to_person_coefficient": 1.9685,
+      "household_cost": {
+        "全日": 1800,
+        "ヨの字": 2000,
+        "コの字": 2200,
+        "逆L": 2400
+      },
+      "person_cost": {
+        "全日": 3543.2999999999997,
+        "ヨの字": 3937,
+        "コの字": 4330.7,
+        "逆L": 4724.4
+      }
+    },
+    {
+      "area": "石川",
+      "station": "ITC",
+      "network": "C",
+      "household_to_person_coefficient": 1.9606,
+      "household_cost": {
+        "全日": 1500,
+        "ヨの字": 1650,
+        "コの字": 1800,
+        "逆L": 2000
+      },
+      "person_cost": {
+        "全日": 2940.8999999999996,
+        "ヨの字": 3234.99,
+        "コの字": 3529.08,
+        "逆L": 3921.2
+      }
+    },
+    {
+      "area": "石川",
+      "station": "KTK",
+      "network": "N",
+      "household_to_person_coefficient": 1.9177,
+      "household_cost": {
+        "全日": 1350,
+        "ヨの字": 1550,
+        "コの字": 1650,
+        "逆L": 1830
+      },
+      "person_cost": {
+        "全日": 2588.895,
+        "ヨの字": 2972.435,
+        "コの字": 3164.205,
+        "逆L": 3509.391
+      }
+    },
+    {
+      "area": "石川",
+      "station": "HAB",
+      "network": "E",
+      "household_to_person_coefficient": 1.9371,
+      "household_cost": {
+        "全日": 1300,
+        "ヨの字": 1450,
+        "コの字": 1600,
+        "逆L": 1700
+      },
+      "person_cost": {
+        "全日": 2518.23,
+        "ヨの字": 2808.795,
+        "コの字": 3099.36,
+        "逆L": 3293.07
+      }
+    },
+    {
+      "area": "福井",
+      "station": "FBC",
+      "network": "N",
+      "household_to_person_coefficient": null,
+      "household_cost": {
+        "全日": 1700,
+        "ヨの字": 1900,
+        "コの字": 2100,
+        "逆L": 2300
+      },
+      "person_cost": {
+        "全日": 0,
+        "ヨの字": 0,
+        "コの字": 0,
+        "逆L": 0
+      }
+    },
+    {
+      "area": "福井",
+      "station": "FTB",
+      "network": "C",
+      "household_to_person_coefficient": null,
+      "household_cost": {
+        "全日": 1500,
+        "ヨの字": 1650,
+        "コの字": 1725,
+        "逆L": 1800
+      },
+      "person_cost": {
+        "全日": 0,
+        "ヨの字": 0,
+        "コの字": 0,
+        "逆L": 0
+      }
+    },
+    {
+      "area": "鳥取・島根",
+      "station": "BSS",
+      "network": "J",
+      "household_to_person_coefficient": 1.9036,
+      "household_cost": {
+        "全日": 1800,
+        "ヨの字": 1980,
+        "コの字": 2180,
+        "逆L": 2400
+      },
+      "person_cost": {
+        "全日": 3426.48,
+        "ヨの字": 3769.1279999999997,
+        "コの字": 4149.848,
+        "逆L": 4568.64
+      }
+    },
+    {
+      "area": "鳥取・島根",
+      "station": "NKT",
+      "network": "N",
+      "household_to_person_coefficient": 1.8685,
+      "household_cost": {
+        "全日": 2000,
+        "ヨの字": 2200,
+        "コの字": 2400,
+        "逆L": 2600
+      },
+      "person_cost": {
+        "全日": 3737,
+        "ヨの字": 4110.7,
+        "コの字": 4484.400000000001,
+        "逆L": 4858.1
+      }
+    },
+    {
+      "area": "鳥取・島根",
+      "station": "TSK",
+      "network": "C",
+      "household_to_person_coefficient": 1.8856,
+      "household_cost": {
+        "全日": 1800,
+        "ヨの字": 2000,
+        "コの字": 2200,
+        "逆L": 2500
+      },
+      "person_cost": {
+        "全日": 3394.08,
+        "ヨの字": 3771.2,
+        "コの字": 4148.32,
+        "逆L": 4714
+      }
+    },
+    {
+      "area": "山口",
+      "station": "KRY",
+      "network": "N",
+      "household_to_person_coefficient": 1.7193,
+      "household_cost": {
+        "全日": 2000,
+        "ヨの字": 2200,
+        "コの字": 2450,
+        "逆L": 2700
+      },
+      "person_cost": {
+        "全日": 3438.6,
+        "ヨの字": 3782.46,
+        "コの字": 4212.285,
+        "逆L": 4642.110000000001
+      }
+    },
+    {
+      "area": "山口",
+      "station": "TYS",
+      "network": "J",
+      "household_to_person_coefficient": 1.8171,
+      "household_cost": {
+        "全日": 2000,
+        "ヨの字": 2240,
+        "コの字": 2445,
+        "逆L": 2660
+      },
+      "person_cost": {
+        "全日": 3634.2,
+        "ヨの字": 4070.304,
+        "コの字": 4442.8095,
+        "逆L": 4833.486
+      }
+    },
+    {
+      "area": "山口",
+      "station": "YAB",
+      "network": "E",
+      "household_to_person_coefficient": 1.7986,
+      "household_cost": {
+        "全日": 1900,
+        "ヨの字": 2100,
+        "コの字": 2300,
+        "逆L": 2500
+      },
+      "person_cost": {
+        "全日": 3417.34,
+        "ヨの字": 3777.06,
+        "コの字": 4136.78,
+        "逆L": 4496.5
+      }
+    },
+    {
+      "area": "岡・高",
+      "station": "RSK",
+      "network": "J",
+      "household_to_person_coefficient": 1.9532,
+      "household_cost": {
+        "全日": 4000,
+        "ヨの字": 4500,
+        "コの字": 5000,
+        "逆L": 5500
+      },
+      "person_cost": {
+        "全日": 7812.8,
+        "ヨの字": 8789.4,
+        "コの字": 9766,
+        "逆L": 10742.6
+      }
+    },
+    {
+      "area": "岡・高",
+      "station": "OHK",
+      "network": "C",
+      "household_to_person_coefficient": 1.9097,
+      "household_cost": {
+        "全日": 3600,
+        "ヨの字": 4000,
+        "コの字": 4500,
+        "逆L": 5000
+      },
+      "person_cost": {
+        "全日": 6874.92,
+        "ヨの字": 7638.8,
+        "コの字": 8593.65,
+        "逆L": 9548.5
+      }
+    },
+    {
+      "area": "岡・高",
+      "station": "TSC",
+      "network": "T",
+      "household_to_person_coefficient": 1.8307,
+      "household_cost": {
+        "全日": 2500,
+        "ヨの字": 2800,
+        "コの字": 3500,
+        "逆L": 3800
+      },
+      "person_cost": {
+        "全日": 4576.75,
+        "ヨの字": 5125.96,
+        "コの字": 6407.45,
+        "逆L": 6956.66
+      }
+    },
+    {
+      "area": "岡・高",
+      "station": "RNC",
+      "network": "N",
+      "household_to_person_coefficient": 1.8735,
+      "household_cost": {
+        "全日": 3500,
+        "ヨの字": 4000,
+        "コの字": 4500,
+        "逆L": 5500
+      },
+      "person_cost": {
+        "全日": 6557.25,
+        "ヨの字": 7494,
+        "コの字": 8430.75,
+        "逆L": 10304.25
+      }
+    },
+    {
+      "area": "岡・高",
+      "station": "KSB",
+      "network": "E",
+      "household_to_person_coefficient": 1.8683,
+      "household_cost": {
+        "全日": 3000,
+        "ヨの字": 3300,
+        "コの字": 3700,
+        "逆L": 4100
+      },
+      "person_cost": {
+        "全日": 5604.900000000001,
+        "ヨの字": 6165.39,
+        "コの字": 6912.71,
+        "逆L": 7660.030000000001
+      }
+    },
+    {
+      "area": "徳島",
+      "station": "JRT",
+      "network": "N",
+      "household_to_person_coefficient": null,
+      "household_cost": {
+        "全日": 3000,
+        "ヨの字": 3300,
+        "コの字": 3700,
+        "逆L": 4000
+      },
+      "person_cost": {
+        "全日": 0,
+        "ヨの字": 0,
+        "コの字": 0,
+        "逆L": 0
+      }
+    },
+    {
+      "area": "愛媛",
+      "station": "RNB",
+      "network": "N",
+      "household_to_person_coefficient": 1.7425,
+      "household_cost": {
+        "全日": 2000,
+        "ヨの字": 2200,
+        "コの字": 2400,
+        "逆L": 2600
+      },
+      "person_cost": {
+        "全日": 3485,
+        "ヨの字": 3833.5,
+        "コの字": 4182,
+        "逆L": 4530.5
+      }
+    },
+    {
+      "area": "愛媛",
+      "station": "EBC",
+      "network": "C",
+      "household_to_person_coefficient": 1.7762,
+      "household_cost": {
+        "全日": 1800,
+        "ヨの字": 2000,
+        "コの字": 2200,
+        "逆L": 2400
+      },
+      "person_cost": {
+        "全日": 3197.16,
+        "ヨの字": 3552.4,
+        "コの字": 3907.64,
+        "逆L": 4262.88
+      }
+    },
+    {
+      "area": "愛媛",
+      "station": "ITV",
+      "network": "J",
+      "household_to_person_coefficient": 1.8024,
+      "household_cost": {
+        "全日": 1700,
+        "ヨの字": 1900,
+        "コの字": 2100,
+        "逆L": 2300
+      },
+      "person_cost": {
+        "全日": 3064.08,
+        "ヨの字": 3424.56,
+        "コの字": 3785.04,
+        "逆L": 4145.52
+      }
+    },
+    {
+      "area": "愛媛",
+      "station": "EAT",
+      "network": "E",
+      "household_to_person_coefficient": 1.8328,
+      "household_cost": {
+        "全日": 1400,
+        "ヨの字": 1600,
+        "コの字": 1700,
+        "逆L": 2000
+      },
+      "person_cost": {
+        "全日": 2565.92,
+        "ヨの字": 2932.48,
+        "コの字": 3115.7599999999998,
+        "逆L": 3665.6
+      }
+    },
+    {
+      "area": "高知",
+      "station": "RKC",
+      "network": "N",
+      "household_to_person_coefficient": 1.7712,
+      "household_cost": {
+        "全日": 2000,
+        "ヨの字": 2200,
+        "コの字": 2400,
+        "逆L": 2600
+      },
+      "person_cost": {
+        "全日": 3542.4,
+        "ヨの字": 3896.6400000000003,
+        "コの字": 4250.88,
+        "逆L": 4605.12
+      }
+    },
+    {
+      "area": "高知",
+      "station": "KUTV",
+      "network": "J",
+      "household_to_person_coefficient": 1.8002,
+      "household_cost": {
+        "全日": 1300,
+        "ヨの字": 1430,
+        "コの字": 1573,
+        "逆L": 1730
+      },
+      "person_cost": {
+        "全日": 2340.26,
+        "ヨの字": 2574.286,
+        "コの字": 2831.7146000000002,
+        "逆L": 3114.346
+      }
+    },
+    {
+      "area": "高知",
+      "station": "KSS",
+      "network": "C",
+      "household_to_person_coefficient": 1.7783,
+      "household_cost": {
+        "全日": 1300,
+        "ヨの字": 1430,
+        "コの字": 1573,
+        "逆L": 1730
+      },
+      "person_cost": {
+        "全日": 2311.79,
+        "ヨの字": 2542.969,
+        "コの字": 2797.2659,
+        "逆L": 3076.459
+      }
+    },
+    {
+      "area": "佐賀",
+      "station": "STS",
+      "network": "C",
+      "household_to_person_coefficient": null,
+      "household_cost": {
+        "全日": 1900,
+        "ヨの字": 2100,
+        "コの字": 2400,
+        "逆L": 2700
+      },
+      "person_cost": {
+        "全日": 0,
+        "ヨの字": 0,
+        "コの字": 0,
+        "逆L": 0
+      }
+    },
+    {
+      "area": "長崎",
+      "station": "NBC",
+      "network": "J",
+      "household_to_person_coefficient": 1.7625,
+      "household_cost": {
+        "全日": 1500,
+        "ヨの字": 1650,
+        "コの字": 1800,
+        "逆L": 2000
+      },
+      "person_cost": {
+        "全日": 2643.75,
+        "ヨの字": 2908.125,
+        "コの字": 3172.5,
+        "逆L": 3525
+      }
+    },
+    {
+      "area": "長崎",
+      "station": "KTN",
+      "network": "C",
+      "household_to_person_coefficient": 1.7577,
+      "household_cost": {
+        "全日": 1600,
+        "ヨの字": 1760,
+        "コの字": 1936,
+        "逆L": 2130
+      },
+      "person_cost": {
+        "全日": 2812.32,
+        "ヨの字": 3093.552,
+        "コの字": 3402.9072,
+        "逆L": 3743.9010000000003
+      }
+    },
+    {
+      "area": "長崎",
+      "station": "NCC",
+      "network": "E",
+      "household_to_person_coefficient": 1.7626,
+      "household_cost": {
+        "全日": 1500,
+        "ヨの字": 1650,
+        "コの字": 1800,
+        "逆L": 2000
+      },
+      "person_cost": {
+        "全日": 2643.9,
+        "ヨの字": 2908.29,
+        "コの字": 3172.68,
+        "逆L": 3525.2
+      }
+    },
+    {
+      "area": "長崎",
+      "station": "NIB",
+      "network": "N",
+      "household_to_person_coefficient": 1.7759,
+      "household_cost": {
+        "全日": 1600,
+        "ヨの字": 1760,
+        "コの字": 1936,
+        "逆L": 2130
+      },
+      "person_cost": {
+        "全日": 2841.44,
+        "ヨの字": 3125.584,
+        "コの字": 3438.1424,
+        "逆L": 3782.667
+      }
+    },
+    {
+      "area": "熊本",
+      "station": "RKK",
+      "network": "J",
+      "household_to_person_coefficient": 1.8578,
+      "household_cost": {
+        "全日": 1800,
+        "ヨの字": 2000,
+        "コの字": 2200,
+        "逆L": 2400
+      },
+      "person_cost": {
+        "全日": 3344.04,
+        "ヨの字": 3715.6,
+        "コの字": 4087.16,
+        "逆L": 4458.719999999999
+      }
+    },
+    {
+      "area": "熊本",
+      "station": "TKU",
+      "network": "C",
+      "household_to_person_coefficient": 1.8239,
+      "household_cost": {
+        "全日": 2200,
+        "ヨの字": 2420,
+        "コの字": 2662,
+        "逆L": 2928
+      },
+      "person_cost": {
+        "全日": 4012.5800000000004,
+        "ヨの字": 4413.838,
+        "コの字": 4855.2218,
+        "逆L": 5340.3792
+      }
+    },
+    {
+      "area": "熊本",
+      "station": "KKT",
+      "network": "N",
+      "household_to_person_coefficient": 1.8784,
+      "household_cost": {
+        "全日": 2000,
+        "ヨの字": 2200,
+        "コの字": 2400,
+        "逆L": 2600
+      },
+      "person_cost": {
+        "全日": 3756.8,
+        "ヨの字": 4132.4800000000005,
+        "コの字": 4508.16,
+        "逆L": 4883.84
+      }
+    },
+    {
+      "area": "熊本",
+      "station": "KAB",
+      "network": "E",
+      "household_to_person_coefficient": 1.8753,
+      "household_cost": {
+        "全日": 1900,
+        "ヨの字": 2200,
+        "コの字": 2500,
+        "逆L": 2800
+      },
+      "person_cost": {
+        "全日": 3563.07,
+        "ヨの字": 4125.66,
+        "コの字": 4688.25,
+        "逆L": 5250.84
+      }
+    },
+    {
+      "area": "大分",
+      "station": "OBS",
+      "network": "J",
+      "household_to_person_coefficient": 1.7977,
+      "household_cost": {
+        "全日": 1600,
+        "ヨの字": 1760,
+        "コの字": 1840,
+        "逆L": 1920
+      },
+      "person_cost": {
+        "全日": 2876.32,
+        "ヨの字": 3163.952,
+        "コの字": 3307.768,
+        "逆L": 3451.5840000000003
+      }
+    },
+    {
+      "area": "大分",
+      "station": "TOS",
+      "network": "C",
+      "household_to_person_coefficient": 1.7323,
+      "household_cost": {
+        "全日": 2000,
+        "ヨの字": 2200,
+        "コの字": 2400,
+        "逆L": 2700
+      },
+      "person_cost": {
+        "全日": 3464.6,
+        "ヨの字": 3811.06,
+        "コの字": 4157.5199999999995,
+        "逆L": 4677.21
+      }
+    },
+    {
+      "area": "大分",
+      "station": "OAB",
+      "network": "E",
+      "household_to_person_coefficient": 1.8313,
+      "household_cost": {
+        "全日": 1400,
+        "ヨの字": 1550,
+        "コの字": 1700,
+        "逆L": 1850
+      },
+      "person_cost": {
+        "全日": 2563.8199999999997,
+        "ヨの字": 2838.515,
+        "コの字": 3113.21,
+        "逆L": 3387.9049999999997
+      }
+    },
+    {
+      "area": "宮崎",
+      "station": "MRT",
+      "network": "J",
+      "household_to_person_coefficient": null,
+      "household_cost": {
+        "全日": 1800,
+        "ヨの字": 2000,
+        "コの字": 2200,
+        "逆L": 2500
+      },
+      "person_cost": {
+        "全日": 0,
+        "ヨの字": 0,
+        "コの字": 0,
+        "逆L": 0
+      }
+    },
+    {
+      "area": "宮崎",
+      "station": "UMK",
+      "network": "C",
+      "household_to_person_coefficient": null,
+      "household_cost": {
+        "全日": 2400,
+        "ヨの字": 2700,
+        "コの字": 3000,
+        "逆L": 3300
+      },
+      "person_cost": {
+        "全日": 0,
+        "ヨの字": 0,
+        "コの字": 0,
+        "逆L": 0
+      }
+    },
+    {
+      "area": "鹿児島",
+      "station": "MBC",
+      "network": "J",
+      "household_to_person_coefficient": 1.728,
+      "household_cost": {
+        "全日": 1800,
+        "ヨの字": 2000,
+        "コの字": 2200,
+        "逆L": 2400
+      },
+      "person_cost": {
+        "全日": 3110.4,
+        "ヨの字": 3456,
+        "コの字": 3801.6,
+        "逆L": 4147.2
+      }
+    },
+    {
+      "area": "鹿児島",
+      "station": "KTS",
+      "network": "C",
+      "household_to_person_coefficient": 1.7332,
+      "household_cost": {
+        "全日": 2000,
+        "ヨの字": 2200,
+        "コの字": 2400,
+        "逆L": 2700
+      },
+      "person_cost": {
+        "全日": 3466.4,
+        "ヨの字": 3813.04,
+        "コの字": 4159.68,
+        "逆L": 4679.64
+      }
+    },
+    {
+      "area": "鹿児島",
+      "station": "KKB",
+      "network": "E",
+      "household_to_person_coefficient": 1.6865,
+      "household_cost": {
+        "全日": 2000,
+        "ヨの字": 2200,
+        "コの字": 2420,
+        "逆L": 2662
+      },
+      "person_cost": {
+        "全日": 3373,
+        "ヨの字": 3710.3,
+        "コの字": 4081.3300000000004,
+        "逆L": 4489.463000000001
+      }
+    },
+    {
+      "area": "鹿児島",
+      "station": "KYT",
+      "network": "N",
+      "household_to_person_coefficient": 1.6497,
+      "household_cost": {
+        "全日": 2500,
+        "ヨの字": 2750,
+        "コの字": 3025,
+        "逆L": 3330
+      },
+      "person_cost": {
+        "全日": 4124.25,
+        "ヨの字": 4536.675,
+        "コの字": 4990.3425,
+        "逆L": 5493.501
+      }
+    },
+    {
+      "area": "沖縄",
+      "station": "RBC",
+      "network": "J",
+      "household_to_person_coefficient": 1.9031,
+      "household_cost": {
+        "全日": 1300,
+        "ヨの字": 1430,
+        "コの字": 1573,
+        "逆L": 1730
+      },
+      "person_cost": {
+        "全日": 2474.03,
+        "ヨの字": 2721.433,
+        "コの字": 2993.5763,
+        "逆L": 3292.363
+      }
+    },
+    {
+      "area": "沖縄",
+      "station": "OTV",
+      "network": "C",
+      "household_to_person_coefficient": 1.8988,
+      "household_cost": {
+        "全日": 1300,
+        "ヨの字": 1430,
+        "コの字": 1573,
+        "逆L": 1730
+      },
+      "person_cost": {
+        "全日": 2468.44,
+        "ヨの字": 2715.284,
+        "コの字": 2986.8124000000003,
+        "逆L": 3284.924
+      }
+    },
+    {
+      "area": "沖縄",
+      "station": "QAB",
+      "network": "E",
+      "household_to_person_coefficient": 1.9254,
+      "household_cost": {
+        "全日": 1300,
+        "ヨの字": 1450,
+        "コの字": 1600,
+        "逆L": 1700
+      },
+      "person_cost": {
+        "全日": 2503.02,
+        "ヨの字": 2791.83,
+        "コの字": 3080.64,
+        "逆L": 3273.18
+      }
+    }
+  ],
+  "industry_cm_coefficients": [
+    {
+      "industry": "消費財（食品・飲料）",
+      "coefficient_range": "0.005～0.02"
+    },
+    {
+      "industry": "耐久財（自動車・家電）",
+      "coefficient_range": "0.002～0.01"
+    },
+    {
+      "industry": "金融・保険",
+      "coefficient_range": "0.001～0.005"
+    },
+    {
+      "industry": "医薬品（OTC・健康食品）",
+      "coefficient_range": "0.003～0.01"
+    },
+    {
+      "industry": "エンタメ（映画・ゲーム）",
+      "coefficient_range": "0.01～0.03"
+    },
+    {
+      "industry": "小売（スーパー・EC）",
+      "coefficient_range": "0.005～0.02"
+    },
+    {
+      "industry": "不動産（分譲マンション・戸建て）",
+      "coefficient_range": "0.001～0.005"
+    },
+    {
+      "industry": "賃貸・不動産仲介（賃貸マンション・オフィス）",
+      "coefficient_range": "0.002～0.007"
+    },
+    {
+      "industry": "インフラ（電力・ガス・水道）",
+      "coefficient_range": "0.0005～0.003"
+    },
+    {
+      "industry": "通信（インターネット回線・携帯キャリア）",
+      "coefficient_range": "0.002～0.008"
+    },
+    {
+      "industry": "住宅設備（リフォーム・太陽光発電・給湯器）",
+      "coefficient_range": "0.002～0.006"
+    },
+    {
+      "industry": "認知度",
+      "coefficient_range": "CM効果係数(目安)"
+    },
+    {
+      "industry": "高：ヒット商品、人気キャラクター起用、成熟サービス",
+      "coefficient_range": "0.03〜0.05"
+    },
+    {
+      "industry": "中：新商品告知、キャンペーンなど",
+      "coefficient_range": "0.01〜0.03"
+    },
+    {
+      "industry": "低：特定層に訴求する商品・サービスなど",
+      "coefficient_range": "0.005〜0.01"
+    }
+  ],
+  "planning_benchmarks": {
+    "web_video_cpm_yen": {
+      "value": 2.3,
+      "source": "FSD v1.1 デフォルト（テレビとweb動画のコストパリティ比較）",
+      "quality": "B"
+    },
+    "station_inter_correlation_default": {
+      "value": 0.35,
+      "source": "FSD v1.1 保守的デフォルト（曜日時間区分未インポート時の局間相関）",
+      "quality": "C"
+    }
+  }
+}

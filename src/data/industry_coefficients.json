@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0",
+  "created": "2026-05-15",
+  "owner": "ICHICO",
+  "description": "テレビCMシミュレーター用 業界係数マスタ。アドストック減衰λ、認知変換率α、ポアソン到達係数kの業界別・商材別実証値。各係数にsource（出典）とquality（信頼度A/B/C）を付与し、営業が出典を即答できる設計。",
+
+  "model_definition": {
+    "adstock": "Adstock_t = alpha_conv * GRP_t + lambda * Adstock_(t-1)",
+    "awareness": "Awareness_t[%] = alpha_awareness * Adstock_t（線形近似、500-1500GRP帯で有効）",
+    "reach": "Reach = N_pop * (1 - POISSON(F-1, k * GRP, TRUE))",
+    "default_period": "weekly",
+    "alpha_conversion_default": {
+      "min": 0.2,
+      "typical": 0.3,
+      "max": 0.4,
+      "quality": "B",
+      "source": "FSD v1.1 採用（即時効果係数α、業界目安0.2-0.4）"
+    },
+    "half_life_formula": "t_half = ln(0.5) / ln(lambda)",
+    "period_conversion": {
+      "weekly_to_monthly": "lambda_m = lambda_w ^ 4.345",
+      "weekly_to_daily": "lambda_d = lambda_w ^ (1/7)"
+    }
+  },
+
+  "quality_legend": {
+    "A": "査読論文・大規模実証研究に基づく",
+    "B": "業界白書・ICHICO自社実証データに基づく",
+    "C": "理論推定・限定的根拠（業界購買サイクルからの推定）"
+  },
+
+  "industries": [
+    {
+      "code": "FMCG_FOOD",
+      "label": "消費財・食品飲料",
+      "lambda_weekly": { "min": 0.50, "typical": 0.58, "max": 0.65, "half_life_weeks": [1.0, 1.6], "quality": "A/B", "source": "Wikipedia adstock集約(FMCG平均2.5週); Sethuraman et al. 2011 JMR; Clarke 1976 JMR" },
+      "alpha_awareness": { "min": 0.05, "typical": 0.06, "max": 0.07, "unit": "%/GRP", "quality": "B", "source": "ビデオリサーチ クリエイティブカルテ 2,500素材Norm(2024)" },
+      "k_poisson": { "value": 0.0100, "quality": "A", "note": "個人全体GRP×個人全体母集団基準" },
+      "funnel_adjust_lambda": { "awareness": 1.15, "consideration": 1.00, "purchase": 0.85 }
+    },
+    {
+      "code": "FMCG_TOILETRY",
+      "label": "消費財・トイレタリー日用品",
+      "lambda_weekly": { "min": 0.55, "typical": 0.62, "max": 0.70, "half_life_weeks": [1.2, 1.9], "quality": "B", "source": "Nielsen Catalina(2016) CPGベンチ; 購買頻度高くFMCG準拠" },
+      "alpha_awareness": { "min": 0.05, "typical": 0.06, "max": 0.07, "unit": "%/GRP", "quality": "B", "source": "ビデオリサーチ クリエイティブカルテNorm" },
+      "k_poisson": { "value": 0.0100, "quality": "A" }
+    },
+    {
+      "code": "DURABLE_AUTO",
+      "label": "耐久財・自動車",
+      "lambda_weekly": { "min": 0.80, "typical": 0.85, "max": 0.90, "half_life_weeks": [3.1, 6.6], "quality": "A/B", "source": "Sethuraman 2011(durable>nondurable); Meta社公開'Tech&Durables長期効果76%'; Recast'car purchase cycles long'" },
+      "alpha_awareness": { "min": 0.04, "typical": 0.05, "max": 0.06, "unit": "%/GRP", "quality": "C", "source": "VR Norm補正（ストーリー型クリエイティブ多用）" },
+      "k_poisson": { "value": 0.0100, "quality": "A" },
+      "funnel_adjust_lambda": { "awareness": 1.20, "consideration": 1.00, "purchase": 0.85 }
+    },
+    {
+      "code": "DURABLE_HOMEAPPLIANCE",
+      "label": "耐久財・家電",
+      "lambda_weekly": { "min": 0.70, "typical": 0.78, "max": 0.85, "half_life_weeks": [1.9, 4.3], "quality": "B/C", "source": "Sethuraman 2011(耐久財一般); 業界実務集約" },
+      "alpha_awareness": { "min": 0.05, "typical": 0.06, "max": 0.07, "unit": "%/GRP", "quality": "B", "source": "VR Norm" },
+      "k_poisson": { "value": 0.0100, "quality": "A" }
+    },
+    {
+      "code": "FINANCE_BANK",
+      "label": "金融・銀行/カード",
+      "lambda_weekly": { "min": 0.75, "typical": 0.82, "max": 0.88, "half_life_weeks": [2.4, 5.4], "quality": "B/C", "source": "ICHICO七十七銀行案件2025; Sethuraman長期弾力性0.24準用" },
+      "alpha_awareness": { "min": 0.05, "typical": 0.07, "max": 0.08, "unit": "%/GRP", "quality": "B", "source": "ICHICO七十七銀行レポート: タレント継続72%/1000GRP, 非継続48%/1000GRP(関東,男女13-59,テレビコマーシャルカルテ)" },
+      "k_poisson": { "value": 0.0100, "quality": "A" },
+      "talent_continuity_multiplier": 1.5
+    },
+    {
+      "code": "FINANCE_LIFE_INS",
+      "label": "金融・生命保険（長期検討型）",
+      "lambda_weekly": { "min": 0.85, "typical": 0.88, "max": 0.92, "half_life_weeks": [4.3, 8.3], "quality": "C", "source": "Clarke 1976 6か月上限; Sethuraman長期弾力性0.24; 実証データ未確認・推定" },
+      "alpha_awareness": { "min": 0.05, "typical": 0.06, "max": 0.07, "unit": "%/GRP", "quality": "C", "source": "VR Norm準用" },
+      "k_poisson": { "value": 0.0100, "quality": "A" }
+    },
+    {
+      "code": "FINANCE_NONLIFE_INS",
+      "label": "金融・損害保険",
+      "lambda_weekly": { "min": 0.70, "typical": 0.78, "max": 0.85, "half_life_weeks": [1.9, 4.3], "quality": "C", "source": "更新タイミング集中型。FMCGより長く生保より短い中間レンジ・推定" },
+      "alpha_awareness": { "min": 0.05, "typical": 0.06, "max": 0.07, "unit": "%/GRP", "quality": "C", "source": "VR Norm準用" },
+      "k_poisson": { "value": 0.0100, "quality": "A" }
+    },
+    {
+      "code": "PHARMA_OTC",
+      "label": "医薬・OTC健康食品",
+      "lambda_weekly": { "min": 0.55, "typical": 0.65, "max": 0.75, "half_life_weeks": [1.2, 2.4], "quality": "B", "source": "Sethuraman実証研究にOTC含有; 体調トリガー即時購買" },
+      "alpha_awareness": { "min": 0.05, "typical": 0.06, "max": 0.07, "unit": "%/GRP", "quality": "B", "source": "VR Norm" },
+      "k_poisson": { "value": 0.0100, "quality": "A" }
+    },
+    {
+      "code": "ENTERTAIN_MOVIE_GAME",
+      "label": "エンタメ・映画/ゲーム",
+      "lambda_weekly": { "min": 0.30, "typical": 0.40, "max": 0.50, "half_life_weeks": [0.5, 1.0], "quality": "A", "source": "Hofmann et al. 2022 JAMS 'Marvelous advertising returns' エンタメ短期弾力性中央値0.15" },
+      "alpha_awareness": { "min": 0.06, "typical": 0.075, "max": 0.09, "unit": "%/GRP", "quality": "C", "source": "VR Norm補正（高関与・話題性）" },
+      "k_poisson": { "value": 0.0100, "quality": "A" }
+    },
+    {
+      "code": "RETAIL_SUPERMARKET",
+      "label": "小売・スーパー/ドラッグ",
+      "lambda_weekly": { "min": 0.45, "typical": 0.52, "max": 0.60, "half_life_weeks": [0.9, 1.4], "quality": "B", "source": "チラシ併用前提、業界実務集約" },
+      "alpha_awareness": { "min": 0.04, "typical": 0.05, "max": 0.06, "unit": "%/GRP", "quality": "C", "source": "VR Norm" },
+      "k_poisson": { "value": 0.0100, "quality": "A" }
+    },
+    {
+      "code": "RETAIL_EC",
+      "label": "小売・EC",
+      "lambda_weekly": { "min": 0.40, "typical": 0.48, "max": 0.55, "half_life_weeks": [0.8, 1.2], "quality": "B", "source": "デジタル即時反応支配; Recast'TV/brand video 2-6週'のうち短期側" },
+      "alpha_awareness": { "min": 0.04, "typical": 0.05, "max": 0.06, "unit": "%/GRP", "quality": "C", "source": "VR Norm" },
+      "k_poisson": { "value": 0.0100, "quality": "A" }
+    },
+    {
+      "code": "REAL_ESTATE_SALE",
+      "label": "不動産・分譲住宅（長期検討型）",
+      "lambda_weekly": { "min": 0.85, "typical": 0.88, "max": 0.92, "half_life_weeks": [4.3, 8.3], "quality": "C", "source": "検討期間6-12か月; 実証データなし・推定" },
+      "alpha_awareness": { "min": 0.04, "typical": 0.05, "max": 0.06, "unit": "%/GRP", "quality": "C", "source": "VR Norm準用" },
+      "k_poisson": { "value": 0.0100, "quality": "A" }
+    },
+    {
+      "code": "REAL_ESTATE_RENT",
+      "label": "不動産・賃貸",
+      "lambda_weekly": { "min": 0.55, "typical": 0.62, "max": 0.70, "half_life_weeks": [1.2, 1.9], "quality": "C", "source": "季節集中(1-3月); 実証データなし・推定" },
+      "alpha_awareness": { "min": 0.04, "typical": 0.05, "max": 0.06, "unit": "%/GRP", "quality": "C", "source": "VR Norm準用" },
+      "k_poisson": { "value": 0.0100, "quality": "A" }
+    },
+    {
+      "code": "INFRA_ELECTRIC_GAS",
+      "label": "インフラ・電力ガス水道",
+      "lambda_weekly": { "min": 0.70, "typical": 0.78, "max": 0.85, "half_life_weeks": [1.9, 4.3], "quality": "B", "source": "ICHICO東北発電工業案件2025-26実証: 5か月日次GRP×日次セッション相関r=0.94、月単位減衰小・日次反応支配" },
+      "alpha_awareness": { "min": 0.04, "typical": 0.05, "max": 0.06, "unit": "%/GRP", "quality": "B", "source": "ICHICO東北発電工業実証「企業認知の土台形成段階の自然反応」" },
+      "k_poisson": { "value": 0.0100, "quality": "A" },
+      "pulsing_strategy_note": "100-150GRP/日の集中山×2-3回が最効率（ICHICO実証）"
+    },
+    {
+      "code": "TELECOM",
+      "label": "通信キャリア",
+      "lambda_weekly": { "min": 0.65, "typical": 0.72, "max": 0.80, "half_life_weeks": [1.6, 3.1], "quality": "C", "source": "契約切替検討は中期; 実証データ未確認・推定" },
+      "alpha_awareness": { "min": 0.05, "typical": 0.06, "max": 0.07, "unit": "%/GRP", "quality": "B", "source": "VR Norm" },
+      "k_poisson": { "value": 0.0100, "quality": "A" }
+    },
+    {
+      "code": "HOME_FACILITY",
+      "label": "住宅設備・リフォーム",
+      "lambda_weekly": { "min": 0.80, "typical": 0.85, "max": 0.90, "half_life_weeks": [3.1, 6.6], "quality": "C", "source": "高関与・検討期間長い; 実証データなし・推定" },
+      "alpha_awareness": { "min": 0.04, "typical": 0.05, "max": 0.06, "unit": "%/GRP", "quality": "C", "source": "VR Norm準用" },
+      "k_poisson": { "value": 0.0100, "quality": "A" }
+    },
+    {
+      "code": "B2B_SAAS_SERVICE",
+      "label": "BtoBサービス・SaaS",
+      "lambda_weekly": { "min": 0.85, "typical": 0.88, "max": 0.92, "half_life_weeks": [4.3, 8.3], "quality": "C", "source": "ブランド→指名検索→商談化の遅延大; ノバセル等事例レベル; 学術的TV-MMM研究乏しい・Sethuraman長期0.24を上限ガイドとして推定" },
+      "alpha_awareness": { "min": 0.03, "typical": 0.04, "max": 0.05, "unit": "%/GRP", "quality": "C", "source": "視聴者関心領域外で認知効率低い; 実証データなし・推定" },
+      "k_poisson": { "value": 0.0080, "quality": "C", "note": "ビジネスパーソン偏重で個人全体GRPに対し下方補正" }
+    },
+    {
+      "code": "WEDDING",
+      "label": "長期検討型・結婚式場",
+      "lambda_weekly": { "min": 0.85, "typical": 0.88, "max": 0.92, "half_life_weeks": [4.3, 8.3], "quality": "C", "source": "検討期間6-12か月; 実証データなし・推定" },
+      "alpha_awareness": { "min": 0.04, "typical": 0.05, "max": 0.06, "unit": "%/GRP", "quality": "C", "source": "VR Norm準用" },
+      "k_poisson": { "value": 0.0080, "quality": "C", "note": "20-30代女性偏重" }
+    },
+    {
+      "code": "EDUCATION",
+      "label": "教育・塾/予備校/通信教育",
+      "lambda_weekly": { "min": 0.75, "typical": 0.82, "max": 0.88, "half_life_weeks": [2.4, 5.4], "quality": "C", "source": "入学タイミング集中; 実証データなし・推定" },
+      "alpha_awareness": { "min": 0.05, "typical": 0.06, "max": 0.07, "unit": "%/GRP", "quality": "C", "source": "VR Norm" },
+      "k_poisson": { "value": 0.0080, "quality": "C", "note": "学齢親・本人ターゲット偏重" }
+    }
+  ],
+
+  "funnel_multipliers_for_lambda": {
+    "awareness": 1.15,
+    "interest": 1.10,
+    "consideration": 1.00,
+    "intent": 0.92,
+    "purchase": 0.85,
+    "loyalty": 1.22,
+    "source": "Broadbent 1979; Joseph 2006 'Understanding Advertising Adstock Transformations'; Ehrenberg-Bass Institute研究と整合",
+    "quality": "B/C"
+  },
+
+  "creative_adjustments_for_alpha": {
+    "talent_continuity": { "value": 1.5, "source": "ICHICO七十七銀行案件（72/48=1.5）", "quality": "B" },
+    "high_creative_score_VR": { "value": 1.30, "source": "Nielsen+NCS 2017 (creative=sales liftの49%)", "quality": "A" },
+    "competitor_clutter_high": { "value": 0.85, "source": "Ostrowモデルのメディアファクター", "quality": "B" },
+    "duration_30sec_vs_15sec": { "value": 1.15, "source": "業界実務見解（学術実証なし）", "quality": "C" }
+  },
+
+  "global_caveats": [
+    "λ>0.90は推奨しない（半減期7週超でROI過大評価リスク）。Recast/Impression Digital共通見解",
+    "認知率αの線形近似は500-1500GRP帯のみ有効。それ以上はロジスティック飽和",
+    "kは数学的にGRPの定義に従う（k=0.01が原則）。業界差はターゲット母集団選定で吸収",
+    "海外メタ分析（Sethuraman等）は1960-2008データ。日本市場・現代環境ではテレビ離れにより短期弾力性は更に下方の可能性（Shapiro et al. 2020 NBER w27684で弾力性約0.06、67%が非有意）",
+    "クリエイティブ評価がsales liftの49%を占める（Nielsen+NCS 2017）。係数だけでなくクリエイティブ補正必須",
+    "長期検討型商材（不動産・生保・結婚式場・教育）およびBtoBは公開された大規模MMM実証研究が乏しく推定値中心。実データ蓄積による精度向上が必要"
+  ]
+}
