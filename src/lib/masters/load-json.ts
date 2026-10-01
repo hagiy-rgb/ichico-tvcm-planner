@@ -17,8 +17,13 @@ function sanitizeMasterData(raw: MasterData): MasterData {
   return { ...raw, station_cost_master };
 }
 
+let sanitizedMasterData: MasterData | null = null;
+
 export function getMasterData(): MasterData {
-  return sanitizeMasterData(masterDataJson as unknown as MasterData);
+  sanitizedMasterData ??= sanitizeMasterData(
+    masterDataJson as unknown as MasterData,
+  );
+  return sanitizedMasterData;
 }
 
 export function getIndustryCoefficients(): IndustryCoefficientsData {

@@ -23,6 +23,10 @@ const LABELS: Record<
 };
 
 export function PrecisionLabel({ level }: { level: PrecisionLevel }) {
+  // サマリーで「標準精度」はノイズになるため非表示。高精度・実勢値のみ表示
+  if (level === "standard") {
+    return null;
+  }
   const config = LABELS[level];
   return (
     <span

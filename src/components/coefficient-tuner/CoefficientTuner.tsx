@@ -8,11 +8,17 @@ import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
 import {
   getAlphaConversionRange,
+  getAwarenessSaturationRanges,
   getFunnelMultiplier,
   halfLifeWeeks,
   listFunnelStages,
   validateCoefficients,
 } from "@/lib/engines/coefficient-engine";
+import {
+  lambdaForGranularity,
+  periodImpactFactor,
+} from "@/lib/engines/awareness-engine";
+import { WEEKS_PER_MONTH } from "@/lib/engines/grp-schedule";
 import { getIndustryByCode } from "@/lib/masters/industry-master";
 import { useSimulationStore } from "@/lib/stores/simulation-store";
 import { CoefficientSliderField } from "./CoefficientSliderField";
@@ -35,7 +41,6 @@ export function CoefficientTuner() {
     }
     return validateCoefficients(input.coefficients, {
       lambda: industry.lambda_weekly,
-      alphaAwareness: industry.alpha_awareness,
     });
   }, [industry, input.coefficients]);
 
@@ -45,6 +50,7 @@ export function CoefficientTuner() {
 
   const halfLife = halfLifeWeeks(input.coefficients.lambdaWeekly);
   const alphaConversionRange = getAlphaConversionRange();
+  const saturationRanges = getAwarenessSaturationRanges();
 
   return (
     <Card>
@@ -106,22 +112,38 @@ export function CoefficientTuner() {
           value={input.coefficients.lambdaWeekly}
           range={industry.lambda_weekly}
           step={0.01}
-          extraNote={
-            halfLife != null
-              ? `半減期の目安: 約 ${halfLife.toFixed(1)} 週`
-              : undefined
-          }
+          extraNote={`${
+            halfLife != null ? `半減期の目安: 約 ${halfLife.toFixed(1)} 週／` : ""
+          }月次換算 λ_m = λ_w^${WEEKS_PER_MONTH} = ${lambdaForGranularity(
+            input.coefficients.lambdaWeekly,
+            "month",
+          ).toFixed(3)}（月内均等投下の当期効果 ×${periodImpactFactor(
+            input.coefficients.lambdaWeekly,
+            "month",
+          ).toFixed(2)}）`}
           onChange={(lambdaWeekly) => setCoefficients({ lambdaWeekly })}
         />
 
         <CoefficientSliderField
-          id="alpha-awareness"
-          label="認知変換率 α（% / GRP）"
-          value={input.coefficients.alphaAwareness}
-          range={industry.alpha_awareness}
-          step={0.005}
-          unit={industry.alpha_awareness.unit}
-          onChange={(alphaAwareness) => setCoefficients({ alphaAwareness })}
+          id="max-awareness"
+          label="最大到達認知率 MaxAwareness（%）"
+          value={input.coefficients.maxAwareness}
+          range={saturationRanges.max_awareness}
+          step={1}
+          unit={saturationRanges.max_awareness.unit}
+          onChange={(maxAwareness) => setCoefficients({ maxAwareness })}
+        />
+
+        <CoefficientSliderField
+          id="half-saturation-adstock"
+          label="半飽和点 K（Adstock）"
+          value={input.coefficients.halfSaturationAdstock}
+          range={saturationRanges.half_saturation_adstock}
+          step={1}
+          extraNote="Adstock が K のとき認知率は MaxAwareness の半分になります。"
+          onChange={(halfSaturationAdstock) =>
+            setCoefficients({ halfSaturationAdstock })
+          }
         />
 
         <div className="space-y-2 rounded-lg border border-slate-200 p-3">
@@ -177,8 +199,8 @@ export function CoefficientTuner() {
         )}
 
         <p className="text-xs text-slate-500">
-          認知率は Adstock の線形近似（α_awareness × Adstock）で算出します。500〜1500
-          GRP 帯以外では精度が低下する可能性があります。
+          認知率は飽和式 MaxAwareness × Adstock ÷ (Adstock + K) で算出します（FSD
+          §3.8）。GRPを積むほど MaxAwareness に漸近し、100%に張り付くことはありません。
         </p>
       </CardContent>
     </Card>

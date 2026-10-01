@@ -1,4 +1,8 @@
 import {
+  DAYPARTS_COEFFICIENT_MAX,
+  DAYPARTS_COEFFICIENT_MIN,
+} from "@/lib/constants/model-constants";
+import {
   expandBlocksToCellKeys,
   parseTimeToMinutes,
   resolveWeekdays,
@@ -145,7 +149,10 @@ export function computePatternCoefficientFromDayparts(
     overallAverage > 0 ? patternAverage / overallAverage : 1;
 
   return {
-    coefficient: Math.max(0.1, Math.min(3, coefficient)),
+    coefficient: Math.max(
+      DAYPARTS_COEFFICIENT_MIN,
+      Math.min(DAYPARTS_COEFFICIENT_MAX, coefficient),
+    ),
     patternAverage,
     overallAverage,
   };

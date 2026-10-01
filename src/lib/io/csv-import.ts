@@ -1,7 +1,12 @@
 import { z } from "zod";
-import { CSV_EXPORT_VERSION } from "@/types/plan";
+import { getAwarenessSaturationRanges } from "@/lib/engines/coefficient-engine";
+import { getPresetBlocks } from "@/lib/engines/creative-pattern-engine";
+import { normalizePlanningGranularity } from "@/lib/engines/grp-schedule";
+import { normalizeStationGrpAllocation } from "@/lib/engines/station-engine";
+import { CSV_SUPPORTED_VERSIONS } from "@/types/plan";
 import type { SimulationInput } from "@/types/simulation";
-import type { CsvRow } from "./export";
+import { decodeStationMap, type CsvRow } from "./export";
+import { decodePatternBlocks } from "./pattern-blocks-codec";
 
 const csvRowSchema = z.object({
   section: z.string(),
@@ -67,12 +72,21 @@ function parseNumber(value: string | undefined, fallback: number): number {
   return Number.isFinite(num) ? num : fallback;
 }
 
+/** "25|25|50" → [25, 25, 50]。空・不正なら null */
+function parseScheduleList(value: string | undefined): number[] | null {
+  if (!value) return null;
+  const list = value.split("|").map(Number);
+  return list.length > 0 && list.every((n) => Number.isFinite(n) && n >= 0)
+    ? list
+    : null;
+}
+
 /**
  * エクスポートCSVから SimulationInput を復元（結果は呼び出し側で再計算）
  */
 export function simulationInputFromCsvRows(rows: CsvRow[]): SimulationInput {
   const version = getValue(rows, "meta", "format_version");
-  if (version && version !== CSV_EXPORT_VERSION) {
+  if (version && !CSV_SUPPORTED_VERSIONS.includes(version)) {
     throw new Error(`未対応のCSVバージョンです: ${version}`);
   }
 
@@ -81,35 +95,76 @@ export function simulationInputFromCsvRows(rows: CsvRow[]): SimulationInput {
     ? stationsRaw.split("|").filter(Boolean)
     : [];
 
-  const grpAllocation = getValue(rows, "input", "grpAllocation");
-  const validAllocation =
-    grpAllocation === "lump_sum" || grpAllocation === "even_weekly"
-      ? grpAllocation
-      : "even_weekly";
+  const grpDistributionRaw =
+    getValue(rows, "input", "grpDistribution") ??
+    getValue(rows, "input", "grpAllocation");
+  const saturation = getAwarenessSaturationRanges();
+
+  const presetName =
+    (getValue(rows, "input", "patternPreset") as SimulationInput["creativePattern"]["presetName"]) ??
+    "ヨの字";
+  const patternBlocksRaw = getValue(rows, "input", "patternBlocks");
+  const decodedBlocks =
+    patternBlocksRaw != null ? decodePatternBlocks(patternBlocksRaw) : null;
+  // patternBlocks 行が無い旧CSVのカスタム絵柄は、枠が復元できないためヨの字で代替する
+  const blocks =
+    decodedBlocks ??
+    (presetName === "カスタム" ? getPresetBlocks("ヨの字") : []);
 
   return {
     area: getValue(rows, "input", "area") ?? "宮城",
     target: getValue(rows, "input", "target") ?? "個人全体",
     industryCode: getValue(rows, "input", "industryCode") ?? "FMCG_FOOD",
     creativePattern: {
-      presetName:
-        (getValue(rows, "input", "patternPreset") as SimulationInput["creativePattern"]["presetName"]) ??
-        "ヨの字",
-      blocks: [],
+      presetName,
+      blocks,
     },
     funnelStage:
       (getValue(rows, "input", "funnelStage") as SimulationInput["funnelStage"]) ??
       "awareness",
     grp: parseNumber(getValue(rows, "input", "grp"), 100),
+    planningGranularity: normalizePlanningGranularity(
+      getValue(rows, "input", "planningGranularity"),
+    ),
+    campaignPeriods: getValue(rows, "input", "campaignPeriods")
+      ? parseNumber(getValue(rows, "input", "campaignPeriods"), 4)
+      : undefined,
     campaignWeeks: parseNumber(getValue(rows, "input", "campaignWeeks"), 4),
-    grpAllocation: validAllocation,
+    manualGrpEnabled: getValue(rows, "input", "manualGrpEnabled") === "true",
+    customPeriodGrp: parseScheduleList(getValue(rows, "input", "customPeriodGrp")),
+    stationPerCosts: Object.fromEntries(
+      Object.entries(decodeStationMap(getValue(rows, "input", "stationPerCosts")))
+        .map(([station, value]) => [station, Number(value)] as const)
+        .filter(([, value]) => Number.isFinite(value) && value > 0),
+    ),
+    stationDisplayNames: decodeStationMap(
+      getValue(rows, "input", "stationDisplayNames"),
+    ),
+    grpDistribution:
+      grpDistributionRaw === "front_heavy" ||
+      grpDistributionRaw === "back_heavy" ||
+      grpDistributionRaw === "even"
+        ? grpDistributionRaw
+        : grpDistributionRaw === "lump_sum"
+          ? "front_heavy"
+          : "even",
     selectedStations,
+    stationGrpAllocation: normalizeStationGrpAllocation(
+      getValue(rows, "input", "stationGrpAllocation"),
+    ),
     cmLength: parseNumber(getValue(rows, "input", "cmLength"), 30) as 15 | 30 | 60,
     daypartsId: getValue(rows, "input", "daypartsId") || null,
     coefficients: {
       lambdaWeekly: parseNumber(getValue(rows, "coeff", "lambdaWeekly"), 0.58),
       alphaConversion: parseNumber(getValue(rows, "coeff", "alphaConversion"), 0.3),
-      alphaAwareness: parseNumber(getValue(rows, "coeff", "alphaAwareness"), 0.06),
+      maxAwareness: parseNumber(
+        getValue(rows, "coeff", "maxAwareness"),
+        saturation.max_awareness.typical,
+      ),
+      halfSaturationAdstock: parseNumber(
+        getValue(rows, "coeff", "halfSaturationAdstock"),
+        saturation.half_saturation_adstock.typical,
+      ),
       kPoisson: parseNumber(getValue(rows, "coeff", "kPoisson"), 0.01),
       effectiveFrequency: parseNumber(
         getValue(rows, "coeff", "effectiveFrequency"),

@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useState } from "react";
 import { LogicExplanationDialog } from "@/components/dialogs/LogicExplanationDialog";
 import { HelpButton } from "@/components/ui/help-button";
@@ -15,8 +16,8 @@ export function KpiCard({
   precision = "standard",
 }: {
   label: string;
-  value: string;
-  sub?: string;
+  value: ReactNode;
+  sub?: ReactNode;
   termId?: string;
   logicId?: string;
   precision?: PrecisionLevel;
@@ -32,10 +33,10 @@ export function KpiCard({
         </div>
         <PrecisionLabel level={precision} />
       </div>
-      <p className="mt-2 text-2xl font-bold tabular-nums text-slate-900">
+      <div className="mt-2 text-2xl font-bold tabular-nums text-slate-900">
         {value}
-      </p>
-      {sub ? <p className="mt-1 text-xs text-slate-500">{sub}</p> : null}
+      </div>
+      {sub ? <div className="mt-1 text-xs text-slate-500">{sub}</div> : null}
       {logicId ? (
         <>
           <button

@@ -1,3 +1,4 @@
+import { PRESET_JACCARD_THRESHOLD } from "@/lib/constants/model-constants";
 import { getPatternDefinitions } from "@/lib/masters/load-json";
 import type { PatternBlock, PatternPreset } from "@/types/master";
 import type { PatternPresetName } from "@/types/creative-pattern";
@@ -102,7 +103,34 @@ export function detectPresetFromBlocks(blocks: PatternBlock[]): PatternPresetNam
       return key;
     }
     const presetCells = expandBlocksToCellKeys(preset.default_blocks);
-    if (jaccardSimilarity(current, presetCells) > 0.98) {
+    if (jaccardSimilarity(current, presetCells) > PRESET_JACCARD_THRESHOLD) {
+      return key;
+    }
+  }
+
+  return "カスタム";
+}
+
+/**
+ * マトリクス編集後のプリセット名。30分セル集合がマスタと完全一致すればそのプリセット、
+ * 1セルでも違えばカスタム（ブロックの表現形式＝曜日グループか曜日別かは問わない）。
+ */
+export function detectPresetNameFromBlocks(
+  blocks: PatternBlock[],
+): PatternPresetName {
+  const { patterns } = getPatternDefinitions();
+  const current = expandBlocksToCellKeys(blocks);
+
+  for (const key of ["全日", "ヨの字", "コの字", "逆L", "一の字"] as const) {
+    const preset = patterns[key];
+    if (!preset) {
+      continue;
+    }
+    const presetCells = expandBlocksToCellKeys(preset.default_blocks);
+    if (
+      presetCells.size === current.size &&
+      [...presetCells].every((cell) => current.has(cell))
+    ) {
       return key;
     }
   }

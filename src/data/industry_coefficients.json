@@ -6,7 +6,7 @@
 
   "model_definition": {
     "adstock": "Adstock_t = alpha_conv * GRP_t + lambda * Adstock_(t-1)",
-    "awareness": "Awareness_t[%] = alpha_awareness * Adstock_t（線形近似、500-1500GRP帯で有効）",
+    "awareness": "Awareness_t[%] = max_awareness * Adstock_t / (Adstock_t + half_saturation_adstock)（Michaelis-Menten型飽和、FSD v1.1 §3.8）",
     "reach": "Reach = N_pop * (1 - POISSON(F-1, k * GRP, TRUE))",
     "default_period": "weekly",
     "alpha_conversion_default": {
@@ -16,6 +16,24 @@
       "quality": "B",
       "source": "FSD v1.1 採用（即時効果係数α、業界目安0.2-0.4）"
     },
+    "awareness_saturation_default": {
+      "max_awareness": {
+        "min": 5,
+        "typical": 30,
+        "max": 100,
+        "unit": "%",
+        "quality": "C",
+        "source": "FSD v1.1 §3.8（最大到達認知率 MaxAwareness。商材により可変）"
+      },
+      "half_saturation_adstock": {
+        "min": 10,
+        "typical": 50,
+        "max": 300,
+        "quality": "C",
+        "source": "FSD v1.1 §3.8（認知率の半飽和点 K。要キャリブレーション）"
+      }
+    },
+    "alpha_awareness_note": "業界別 alpha_awareness（%/GRP）は旧線形モデルの参考値。飽和式のキャリブレーション時の参照用で、計算には使用しない",
     "half_life_formula": "t_half = ln(0.5) / ln(lambda)",
     "period_conversion": {
       "weekly_to_monthly": "lambda_m = lambda_w ^ 4.345",
@@ -189,7 +207,7 @@
 
   "global_caveats": [
     "λ>0.90は推奨しない（半減期7週超でROI過大評価リスク）。Recast/Impression Digital共通見解",
-    "認知率αの線形近似は500-1500GRP帯のみ有効。それ以上はロジスティック飽和",
+    "認知率は飽和式 MaxAwareness×Adstock/(Adstock+K)。MaxAwareness・K は商材別に実測認知データでのキャリブレーションが必要",
     "kは数学的にGRPの定義に従う（k=0.01が原則）。業界差はターゲット母集団選定で吸収",
     "海外メタ分析（Sethuraman等）は1960-2008データ。日本市場・現代環境ではテレビ離れにより短期弾力性は更に下方の可能性（Shapiro et al. 2020 NBER w27684で弾力性約0.06、67%が非有意）",
     "クリエイティブ評価がsales liftの49%を占める（Nielsen+NCS 2017）。係数だけでなくクリエイティブ補正必須",

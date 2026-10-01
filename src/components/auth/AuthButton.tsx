@@ -12,6 +12,21 @@ export function AuthButton() {
     );
   }
 
+  if (session?.error === "RefreshAccessTokenError") {
+    return (
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-rose-700">Google連携の期限が切れました</span>
+        <Button
+          size="sm"
+          variant="outline"
+          onClick={() => signIn("google", { callbackUrl: "/simulate" })}
+        >
+          再ログイン
+        </Button>
+      </div>
+    );
+  }
+
   if (session?.user) {
     return (
       <div className="flex items-center gap-2">

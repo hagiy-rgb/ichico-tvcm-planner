@@ -17,7 +17,19 @@ export function GoogleAuthCard() {
           Google Drive 保存には <code className="text-xs">drive.file</code>{" "}
           スコープのみを使用します（アプリが作成したファイルのみアクセス）。
         </p>
-        {status === "authenticated" && session?.user ? (
+        {session?.error === "RefreshAccessTokenError" ? (
+          <div className="space-y-2">
+            <p className="text-rose-800">
+              アクセストークンの更新に失敗しました。再ログインしてください。
+            </p>
+            <Button
+              size="sm"
+              onClick={() => signIn("google", { callbackUrl: "/settings" })}
+            >
+              再ログイン
+            </Button>
+          </div>
+        ) : status === "authenticated" && session?.user ? (
           <p className="text-emerald-800">
             ログイン中: {session.user.email}
           </p>
@@ -37,7 +49,13 @@ export function GoogleAuthCard() {
           <li>
             リダイレクト URI（Vercel）: https://（あなたのドメイン）/api/auth/callback/google
           </li>
-          <li>.env.local または Vercel の Environment Variables に設定</li>
+          <li>
+            .env.local または Vercel に{" "}
+            <code className="text-xs">GOOGLE_CLIENT_ID</code> /{" "}
+            <code className="text-xs">GOOGLE_CLIENT_SECRET</code> /{" "}
+            <code className="text-xs">AUTH_SECRET</code>（または{" "}
+            <code className="text-xs">NEXTAUTH_SECRET</code>）を設定
+          </li>
         </ul>
       </CardContent>
     </Card>

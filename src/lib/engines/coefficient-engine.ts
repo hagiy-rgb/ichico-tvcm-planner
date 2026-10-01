@@ -1,6 +1,7 @@
 import { getIndustryByCode } from "@/lib/masters/industry-master";
 import { getIndustryCoefficients } from "@/lib/masters/load-json";
 import type {
+  AwarenessSaturationDefaults,
   IndustryCoefficientRange,
   ModelDefinition,
 } from "@/types/master";
@@ -16,22 +17,38 @@ export type FunnelStage =
 export type SimulationCoefficients = {
   lambdaWeekly: number;
   alphaConversion: number;
-  alphaAwareness: number;
+  /** 最大到達認知率 MaxAwareness（%、0–100） */
+  maxAwareness: number;
+  /** 認知率の半飽和点 K（認知率が MaxAwareness の半分になる Adstock） */
+  halfSaturationAdstock: number;
   kPoisson: number;
   effectiveFrequency: number;
 };
 
-export function getAlphaConversionRange(): IndustryCoefficientRange {
-  const model = getIndustryCoefficients().model_definition as
+function getModelDefinition(): ModelDefinition | undefined {
+  return getIndustryCoefficients().model_definition as
     | ModelDefinition
     | undefined;
-  const range = model?.alpha_conversion_default;
+}
+
+export function getAlphaConversionRange(): IndustryCoefficientRange {
+  const range = getModelDefinition()?.alpha_conversion_default;
   if (!range) {
     throw new Error(
       "alpha_conversion_default が industry_coefficients.json に見つかりません",
     );
   }
   return range;
+}
+
+export function getAwarenessSaturationRanges(): AwarenessSaturationDefaults {
+  const ranges = getModelDefinition()?.awareness_saturation_default;
+  if (!ranges) {
+    throw new Error(
+      "awareness_saturation_default が industry_coefficients.json に見つかりません",
+    );
+  }
+  return ranges;
 }
 
 export type CoefficientWarning = {
@@ -94,11 +111,13 @@ export function buildRecommendedCoefficients(
   const lambdaWeekly = industry.lambda_weekly.typical * funnel.multiplier;
 
   const alphaConversion = getAlphaConversionRange().typical;
+  const saturation = getAwarenessSaturationRanges();
 
   return {
     lambdaWeekly,
     alphaConversion,
-    alphaAwareness: industry.alpha_awareness.typical,
+    maxAwareness: saturation.max_awareness.typical,
+    halfSaturationAdstock: saturation.half_saturation_adstock.typical,
     kPoisson: industry.k_poisson.value,
     effectiveFrequency: 6,
   };
@@ -108,7 +127,6 @@ export function validateCoefficients(
   coefficients: SimulationCoefficients,
   ranges: {
     lambda: IndustryCoefficientRange;
-    alphaAwareness: IndustryCoefficientRange;
   },
 ): CoefficientWarning[] {
   const warnings: CoefficientWarning[] = [];
@@ -129,13 +147,33 @@ export function validateCoefficients(
       message: `λは業界目安 ${ranges.lambda.min}〜${ranges.lambda.max} の範囲外です。`,
     });
   }
-  if (
-    coefficients.alphaAwareness < ranges.alphaAwareness.min ||
-    coefficients.alphaAwareness > ranges.alphaAwareness.max
+  const saturation = getAwarenessSaturationRanges();
+  if (coefficients.maxAwareness <= 0 || coefficients.maxAwareness > 100) {
+    warnings.push({
+      field: "maxAwareness",
+      message: "最大到達認知率 MaxAwareness は 0% より大きく 100% 以下にしてください。",
+    });
+  } else if (
+    coefficients.maxAwareness < saturation.max_awareness.min ||
+    coefficients.maxAwareness > saturation.max_awareness.max
   ) {
     warnings.push({
-      field: "alphaAwareness",
-      message: `認知変換率αは業界目安 ${ranges.alphaAwareness.min}〜${ranges.alphaAwareness.max} の範囲外です。`,
+      field: "maxAwareness",
+      message: `MaxAwareness は目安 ${saturation.max_awareness.min}〜${saturation.max_awareness.max}% の範囲外です。`,
+    });
+  }
+  if (coefficients.halfSaturationAdstock <= 0) {
+    warnings.push({
+      field: "halfSaturationAdstock",
+      message: "半飽和点 K は 0 より大きい値にしてください。",
+    });
+  } else if (
+    coefficients.halfSaturationAdstock < saturation.half_saturation_adstock.min ||
+    coefficients.halfSaturationAdstock > saturation.half_saturation_adstock.max
+  ) {
+    warnings.push({
+      field: "halfSaturationAdstock",
+      message: `半飽和点 K は目安 ${saturation.half_saturation_adstock.min}〜${saturation.half_saturation_adstock.max} の範囲外です。`,
     });
   }
   if (coefficients.effectiveFrequency < 1) {

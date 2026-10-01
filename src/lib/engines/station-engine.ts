@@ -1,30 +1,77 @@
 import { getPopulation } from "@/lib/masters/area-master";
 import { getMasterData } from "@/lib/masters/load-json";
 import {
-  getStationPerCost,
   listStationsForArea,
+  resolveStationPerCost,
 } from "@/lib/masters/station-master";
 import { calculateReach } from "./reach-engine";
+
+/**
+ * 局へのGRP按分方式
+ * - equal: 選択局へ均等
+ * - cost_weighted: 局パーコストの逆数に比例（単価の安い局ほど同じ金額でGRPが取れるため厚く配分）
+ * - manual: ユーザー指定の配分比率
+ */
+export type StationGrpAllocation = "equal" | "cost_weighted" | "manual";
+
+export const DEFAULT_STATION_GRP_ALLOCATION: StationGrpAllocation =
+  "cost_weighted";
+
+export function normalizeStationGrpAllocation(
+  value: string | null | undefined,
+): StationGrpAllocation {
+  if (value === "equal" || value === "manual") return value;
+  return DEFAULT_STATION_GRP_ALLOCATION;
+}
 
 export type StationReachRow = {
   station: string;
   population: number;
+  /** 局へ按分したGRP（リーチ計算に渡した値。CM秒数の実効GRP換算後） */
   grp: number;
+  /** 総GRPに占める配分比率（0–1） */
+  grpShare: number;
   perCost: number;
   reachRate: number;
   reachCount: number;
   correlation: number;
 };
 
-export type StationReachInput = {
+export type StationReachModelInput = {
   area: string;
   target: string;
   selectedStations: string[];
-  totalGrp: number;
   patternCostKey: string;
   effectiveFrequency: number;
   kEffective: number;
   correlationRho?: number;
+  stationPerCosts?: Record<string, number>;
+  allocation?: StationGrpAllocation;
+  /** allocation=manual のとき局コード→配分重み（合計で正規化） */
+  manualGrpShares?: Record<string, number>;
+};
+
+export type StationReachInput = StationReachModelInput & {
+  totalGrp: number;
+};
+
+type StationModelEntry = {
+  station: string;
+  population: number;
+  perCost: number;
+  grpShare: number;
+};
+
+/** GRPに依存しない局別の前提（人口・単価・配分比率）を一度だけ解決したもの */
+export type StationReachModel = {
+  entries: StationModelEntry[];
+  rho: number;
+  areaPopulation: number;
+  effectiveFrequency: number;
+  kEffective: number;
+  allocation: StationGrpAllocation;
+  /** GRP配分で加重した平均パーコスト Σ(配分比率 × 局パーコスト)（円/GRP、CM秒数補正前） */
+  weightedPerCost: number;
 };
 
 export type StationReachResult = {
@@ -67,6 +114,43 @@ function resolveStationPopulation(
 }
 
 /**
+ * 局別のGRP配分比率（合計1）。
+ * cost_weighted はパーコストの逆数比例（安い局に厚く）。単価が全局0なら均等へフォールバック。
+ * manual は manualWeights を正規化（不正時は均等）。
+ */
+export function stationGrpShares(
+  perCosts: number[],
+  allocation: StationGrpAllocation,
+  manualWeights?: number[],
+): number[] {
+  const count = perCosts.length;
+  if (count === 0) {
+    return [];
+  }
+  const equal = perCosts.map(() => 1 / count);
+  if (allocation === "equal") {
+    return equal;
+  }
+  if (allocation === "manual") {
+    const weights = (manualWeights ?? []).slice(0, count);
+    while (weights.length < count) weights.push(0);
+    const normalized = weights.map((w) =>
+      Number.isFinite(w) && w > 0 ? w : 0,
+    );
+    const sum = normalized.reduce((a, b) => a + b, 0);
+    if (sum <= 0) return equal;
+    return normalized.map((w) => w / sum);
+  }
+  // cost_weighted: 安い局ほど GRP を厚く（1/perCost）
+  const weights = perCosts.map((c) => (Number.isFinite(c) && c > 0 ? 1 / c : 0));
+  const sum = weights.reduce((a, b) => a + b, 0);
+  if (sum <= 0) {
+    return equal;
+  }
+  return weights.map((w) => w / sum);
+}
+
+/**
  * Sainsbury式局合成: Reach = 1 − ∏(1 − Reach_i × √(1−ρ))
  */
 export function combineStationReachRate(
@@ -84,9 +168,9 @@ export function combineStationReachRate(
   return 1 - product;
 }
 
-export function calculateStationReach(
-  input: StationReachInput,
-): StationReachResult {
+export function buildStationReachModel(
+  input: StationReachModelInput,
+): StationReachModel {
   const stations =
     input.selectedStations.length > 0
       ? input.selectedStations
@@ -96,53 +180,106 @@ export function calculateStationReach(
     throw new Error(`放送局マスタが見つかりません: ${input.area}`);
   }
 
-  const rho = input.correlationRho ?? getDefaultStationCorrelation();
-  const grpPerStation = input.totalGrp / stations.length;
-
-  const rows: StationReachRow[] = stations.map((station) => {
-    const population = resolveStationPopulation(
-      input.area,
-      station,
-      input.target,
-      stations.length,
-    );
-    const perCost = getStationPerCost(
+  const allocation = input.allocation ?? DEFAULT_STATION_GRP_ALLOCATION;
+  const perCosts = stations.map((station) =>
+    resolveStationPerCost(
       input.area,
       station,
       input.patternCostKey,
       input.target,
-    );
-    const reach = calculateReach({
-      population,
-      grp: grpPerStation,
-      effectiveFrequency: input.effectiveFrequency,
-      cmCoefficient: input.kEffective,
-    });
+      input.stationPerCosts,
+    ),
+  );
+  const manualWeights = stations.map(
+    (station) => input.manualGrpShares?.[station] ?? 0,
+  );
+  const shares = stationGrpShares(perCosts, allocation, manualWeights);
 
-    return {
+  const entries: StationModelEntry[] = stations.map((station, index) => ({
+    station,
+    population: resolveStationPopulation(
+      input.area,
       station,
-      population,
-      grp: grpPerStation,
-      perCost,
+      input.target,
+      stations.length,
+    ),
+    perCost: perCosts[index],
+    grpShare: shares[index],
+  }));
+
+  return {
+    entries,
+    rho: input.correlationRho ?? getDefaultStationCorrelation(),
+    areaPopulation: getPopulation(input.area, input.target),
+    effectiveFrequency: input.effectiveFrequency,
+    kEffective: input.kEffective,
+    allocation,
+    weightedPerCost: entries.reduce(
+      (sum, entry) => sum + entry.grpShare * entry.perCost,
+      0,
+    ),
+  };
+}
+
+function stationReachAt(
+  model: StationReachModel,
+  entry: StationModelEntry,
+  totalGrp: number,
+) {
+  return calculateReach({
+    population: entry.population,
+    grp: totalGrp * entry.grpShare,
+    effectiveFrequency: model.effectiveFrequency,
+    cmCoefficient: model.kEffective,
+  });
+}
+
+/** 局合成リーチ率のみを返す軽量版（最適GRP探索など多数回評価する用途） */
+export function combinedReachRateAt(
+  model: StationReachModel,
+  totalGrp: number,
+): number {
+  return combineStationReachRate(
+    model.entries.map((entry) => stationReachAt(model, entry, totalGrp).reachRate),
+    model.rho,
+  );
+}
+
+export function evaluateStationReach(
+  model: StationReachModel,
+  totalGrp: number,
+): StationReachResult {
+  const rows: StationReachRow[] = model.entries.map((entry) => {
+    const reach = stationReachAt(model, entry, totalGrp);
+    return {
+      station: entry.station,
+      population: entry.population,
+      grp: totalGrp * entry.grpShare,
+      grpShare: entry.grpShare,
+      perCost: entry.perCost,
       reachRate: reach.reachRate,
       reachCount: reach.reachCount,
-      correlation: rho,
+      correlation: model.rho,
     };
   });
 
   const combinedReachRate = combineStationReachRate(
     rows.map((row) => row.reachRate),
-    rho,
+    model.rho,
   );
-  const areaPopulation = getPopulation(input.area, input.target);
-  const averageReachRate =
-    rows.reduce((sum, row) => sum + row.reachRate, 0) / rows.length;
 
   return {
     rows,
     combinedReachRate,
-    combinedReachCount: Math.round(areaPopulation * combinedReachRate),
-    averageReachRate,
-    usedStationCount: stations.length,
+    combinedReachCount: Math.round(model.areaPopulation * combinedReachRate),
+    averageReachRate:
+      rows.reduce((sum, row) => sum + row.reachRate, 0) / rows.length,
+    usedStationCount: rows.length,
   };
+}
+
+export function calculateStationReach(
+  input: StationReachInput,
+): StationReachResult {
+  return evaluateStationReach(buildStationReachModel(input), input.totalGrp);
 }

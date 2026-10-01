@@ -5,9 +5,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { usePlanStore } from "@/lib/stores/plan-store";
-import { useSimulationStore } from "@/lib/stores/simulation-store";
+import { recalculatePlanResults, usePlanStore } from "@/lib/stores/plan-store";
+import {
+  normalizeSimulationInput,
+  useSimulationStore,
+} from "@/lib/stores/simulation-store";
 import { serializeSimulationCsv, sanitizeFilename } from "@/lib/io/export";
+import type { SimulationResults } from "@/types/simulation";
 import { downloadText } from "@/lib/utils/download";
 import {
   formatPercent,
@@ -28,6 +32,15 @@ export function PlansList() {
   useEffect(() => {
     void hydrate();
   }, [hydrate]);
+
+  // 保存時のresultsスナップショットではなく、現在のエンジンで再計算した値を表示する
+  const recalculated = useMemo(() => {
+    const map = new Map<string, SimulationResults | null>();
+    for (const p of plans) {
+      map.set(p.id, recalculatePlanResults(normalizeSimulationInput(p.input)));
+    }
+    return map;
+  }, [plans]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -78,7 +91,14 @@ export function PlansList() {
         </Card>
       ) : (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {filtered.map((plan) => (
+          {filtered.map((plan) => {
+            const current = recalculated.get(plan.id) ?? null;
+            const shown = current ?? plan.results;
+            const differs =
+              current != null &&
+              (Math.abs(current.reachRate - plan.results.reachRate) > 0.0005 ||
+                Math.abs(current.totalBudget - plan.results.totalBudget) >= 1);
+            return (
             <Card key={plan.id}>
               <CardHeader className="pb-2">
                 <CardTitle className="text-base">{plan.meta.name}</CardTitle>
@@ -92,9 +112,21 @@ export function PlansList() {
               </CardHeader>
               <CardContent className="space-y-3 text-sm">
                 <p>
-                  リーチ {formatPercent(plan.results.reachRate * 100, 1)} ·{" "}
-                  {formatYen(plan.results.totalBudget)}
+                  リーチ {formatPercent(shown.reachRate * 100, 1)} ·{" "}
+                  {formatYen(shown.totalBudget)}
+                  {current != null && (
+                    <span className="ml-1 text-[10px] text-slate-400">
+                      （現在のエンジンで再計算）
+                    </span>
+                  )}
                 </p>
+                {differs && (
+                  <p className="text-xs text-amber-700">
+                    保存時: リーチ {formatPercent(plan.results.reachRate * 100, 1)} ·{" "}
+                    {formatYen(plan.results.totalBudget)}
+                    （エンジン更新により差異があります）
+                  </p>
+                )}
                 <p className="text-xs text-slate-500">
                   {plan.input.area} · GRP {plan.input.grp} ·{" "}
                   {plan.input.selectedStations.length}局
@@ -130,7 +162,7 @@ export function PlansList() {
                     onClick={() => {
                       const csv = serializeSimulationCsv(
                         plan.input,
-                        plan.results,
+                        shown,
                         { planName: plan.meta.name },
                       );
                       downloadText(
@@ -152,7 +184,8 @@ export function PlansList() {
                 </div>
               </CardContent>
             </Card>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>

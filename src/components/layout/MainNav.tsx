@@ -12,8 +12,13 @@ const NAV_ITEMS = [
   { href: "/settings", label: "設定" },
 ];
 
+function isSimulatePath(pathname: string): boolean {
+  return pathname === "/simulate" || pathname.startsWith("/simulate/");
+}
+
 export function MainNav() {
   const pathname = usePathname();
+  const showAuth = !isSimulatePath(pathname);
 
   return (
     <header className="border-b border-slate-200 bg-white">
@@ -22,23 +27,23 @@ export function MainNav() {
           ICHICO TVCM Planner
         </Link>
         <div className="flex flex-wrap items-center gap-3">
-        <nav className="flex flex-wrap gap-1">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                pathname === item.href
-                  ? "bg-slate-900 text-white"
-                  : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
-              )}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-        <AuthButton />
+          <nav className="flex flex-wrap gap-1">
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                  pathname === item.href
+                    ? "bg-slate-900 text-white"
+                    : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
+                )}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          {showAuth ? <AuthButton /> : null}
         </div>
       </div>
     </header>

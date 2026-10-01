@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AuthProvider } from "@/components/providers/AuthProvider";
 import { MainNav } from "@/components/layout/MainNav";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,8 +18,10 @@ export default function RootLayout({
     <html lang="ja">
       <body className="min-h-screen bg-slate-50 text-slate-900 antialiased">
         <AuthProvider>
-          <MainNav />
-          {children}
+          <TooltipProvider delayDuration={200}>
+            <MainNav />
+            {children}
+          </TooltipProvider>
         </AuthProvider>
       </body>
     </html>

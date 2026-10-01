@@ -1,85 +1,145 @@
 "use client";
 
+import { useId, useMemo } from "react";
 import {
+  Area,
+  Bar,
   CartesianGrid,
+  ComposedChart,
   Legend,
-  Line,
-  LineChart,
-  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
+import { ChartExportButtons } from "@/components/charts/ChartExportButtons";
+import { ChartShell } from "@/components/charts/ChartShell";
+import {
+  CHART_GRID_PROPS,
+  csvEscape,
+} from "@/components/charts/shared/chart-utils";
 import type { AwarenessCurvePoint } from "@/lib/engines/awareness-engine";
+import type { PlanningGranularity } from "@/lib/engines/grp-schedule";
 
-export function AwarenessCurveChart({ data }: { data: AwarenessCurvePoint[] }) {
+export function AwarenessCurveChart({
+  data,
+  granularity = "week",
+}: {
+  data: AwarenessCurvePoint[];
+  granularity?: PlanningGranularity;
+}) {
+  const chartId = useId().replace(/:/g, "");
+  const unit = granularity === "month" ? "月" : "週";
+  const csv = useMemo(() => {
+    const rows = [
+      [
+        "period",
+        "periodLabel",
+        "grp",
+        "effectiveGrp",
+        "adstock",
+        "awarenessRatePercent",
+      ],
+    ];
+    for (const point of data ?? []) {
+      rows.push([
+        String(point.period),
+        point.periodLabel,
+        String(point.grp),
+        String(point.effectiveGrp),
+        String(point.adstock),
+        String(point.awarenessRate),
+      ]);
+    }
+    return rows.map((row) => row.map(csvEscape).join(",")).join("\n");
+  }, [data]);
+
+  if (!data?.length) {
+    return (
+      <p className="py-8 text-center text-sm text-slate-500">
+        認知率推移データがありません。
+      </p>
+    );
+  }
+
   return (
-    <div className="h-72 w-full">
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data} margin={{ top: 8, right: 16, left: 0, bottom: 8 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+    <div className="space-y-2">
+      <div className="flex justify-end">
+        <ChartExportButtons
+          elementId={chartId}
+          filename="awareness_curve"
+          csv={csv}
+        />
+      </div>
+      <div id={chartId}>
+      <ChartShell>
+        <ComposedChart
+          data={data}
+          margin={{ top: 8, right: 16, left: 0, bottom: 8 }}
+        >
+          <CartesianGrid {...CHART_GRID_PROPS} />
           <XAxis
-            dataKey="week"
-            tick={{ fontSize: 12 }}
-            label={{ value: "週", position: "insideBottom", offset: -4 }}
+            dataKey="periodLabel"
+            tick={{ fontSize: 11 }}
+            minTickGap={8}
+            label={{ value: unit, position: "insideBottom", offset: -4 }}
           />
           <YAxis
             yAxisId="awareness"
             tick={{ fontSize: 12 }}
             unit="%"
             label={{
-              value: "認知率",
+              value: "認知率（%）",
               angle: -90,
               position: "insideLeft",
             }}
           />
           <YAxis
-            yAxisId="adstock"
+            yAxisId="grp"
             orientation="right"
             tick={{ fontSize: 12 }}
             label={{
-              value: "Adstock",
+              value: "GRP",
               angle: 90,
               position: "insideRight",
             }}
           />
           <Tooltip
-            formatter={(value: number, name: string) => {
-              if (name === "awarenessRate") {
-                return [`${value.toFixed(2)}%`, "認知率"];
+            formatter={(value: number, name: string, item) => {
+              if (item?.dataKey === "awarenessRate") {
+                return [`${value.toFixed(2)}%`, "認知率（%）"];
               }
-              if (name === "adstock") {
-                return [value.toFixed(1), "Adstock"];
-              }
-              if (name === "grp") {
-                return [value.toFixed(1), "週GRP"];
+              if (item?.dataKey === "grp") {
+                return [value.toFixed(1), `GRP（${unit}の投下量）`];
               }
               return [value, name];
             }}
-            labelFormatter={(week) => `第${week}週`}
+            labelFormatter={(label) => String(label)}
           />
           <Legend />
-          <Line
+          <Area
             yAxisId="awareness"
             type="monotone"
             dataKey="awarenessRate"
-            name="認知率"
+            name="認知率（%）"
             stroke="#0369a1"
             strokeWidth={2}
-            dot={{ r: 3 }}
+            fill="#0369a1"
+            fillOpacity={0.18}
+            dot={{ r: 2, fill: "#0369a1", strokeWidth: 0 }}
+            activeDot={{ r: 4 }}
           />
-          <Line
-            yAxisId="adstock"
-            type="monotone"
-            dataKey="adstock"
-            name="Adstock"
-            stroke="#94a3b8"
-            strokeWidth={1.5}
-            strokeDasharray="4 4"
-            dot={false}
+          <Bar
+            yAxisId="grp"
+            dataKey="grp"
+            name="GRP"
+            fill="#64748b"
+            opacity={0.55}
+            maxBarSize={20}
+            radius={[2, 2, 0, 0]}
           />
-        </LineChart>
-      </ResponsiveContainer>
+        </ComposedChart>
+      </ChartShell>
+      </div>
     </div>
   );
 }

@@ -7,7 +7,6 @@ import { listPatternPresets } from "@/lib/masters/pattern-master";
 import { resolvePatternCoefficient } from "@/lib/engines/creative-pattern-engine";
 import { useSimulationStore } from "@/lib/stores/simulation-store";
 import type { PatternPresetName } from "@/types/creative-pattern";
-import { PatternBlockList } from "./PatternBlockList";
 import { PatternMatrixGrid } from "./PatternMatrixGrid";
 
 const PRESET_KEYS: PatternPresetName[] = [
@@ -41,7 +40,7 @@ export function PatternEditor() {
           <HelpButton termId="pattern" />
         </div>
         <p className="text-sm text-slate-600">
-          プリセットを選ぶか、曜日グループごとに時間帯を編集できます。編集すると自動で「カスタム」になります。
+          プリセットを選ぶか、マトリクスで曜日×時間帯を編集できます。編集結果がどのプリセットとも一致しなければ「カスタム」になります。
         </p>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -58,6 +57,11 @@ export function PatternEditor() {
               {presets.find((p) => p.key === key)?.preset.label ?? key}
             </Button>
           ))}
+          {creativePattern.presetName === "カスタム" ? (
+            <Button size="sm" variant="default" disabled>
+              カスタム
+            </Button>
+          ) : null}
         </div>
 
         <div className="flex flex-wrap items-center gap-2 text-sm">
@@ -78,13 +82,11 @@ export function PatternEditor() {
 
         <div>
           <p className="mb-2 text-sm font-medium text-slate-700">絵柄マトリクス</p>
-          <PatternMatrixGrid blocks={creativePattern.blocks} />
+          <PatternMatrixGrid
+            blocks={creativePattern.blocks}
+            onChange={setCreativeBlocks}
+          />
         </div>
-
-        <PatternBlockList
-          blocks={creativePattern.blocks}
-          onChange={setCreativeBlocks}
-        />
       </CardContent>
     </Card>
   );

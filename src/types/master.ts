@@ -85,12 +85,18 @@ export type FunnelMultipliersForLambda = {
   quality: string;
 };
 
+export type AwarenessSaturationDefaults = {
+  max_awareness: IndustryCoefficientRange;
+  half_saturation_adstock: IndustryCoefficientRange;
+};
+
 export type ModelDefinition = {
   adstock?: string;
   awareness?: string;
   reach?: string;
   default_period?: string;
   alpha_conversion_default?: IndustryCoefficientRange;
+  awareness_saturation_default?: AwarenessSaturationDefaults;
   half_life_formula?: string;
   period_conversion?: Record<string, string>;
 };

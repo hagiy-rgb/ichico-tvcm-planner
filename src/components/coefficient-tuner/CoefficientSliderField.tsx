@@ -61,7 +61,7 @@ export function CoefficientSliderField({
       </p>
       {showCWarning && (
         <p className="text-xs text-amber-800">
-          業界購買サイクルからの推定値です。出稿後の実データで校正を推奨します。
+          根拠が限定的な推定値です（信頼度C）。出稿後の実データで校正を推奨します。
         </p>
       )}
       {extraNote && <p className="text-xs text-slate-500">{extraNote}</p>}

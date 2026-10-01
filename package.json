@@ -11,15 +11,14 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@radix-ui/react-tooltip": "^1.2.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dexie": "^4.0.11",
     "html-to-image": "^1.11.13",
     "lucide-react": "^0.511.0",
-    "mathjs": "^14.4.0",
     "next": "14.2.35",
     "next-auth": "^5.0.0-beta.25",
-    "papaparse": "^5.5.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "recharts": "^2.15.3",
@@ -30,7 +29,6 @@
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/papaparse": "^5.3.16",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.21",
