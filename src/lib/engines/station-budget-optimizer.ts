@@ -3,12 +3,8 @@ import {
   perCostForCmLength,
 } from "@/lib/engines/cm-length";
 import { resolvePatternCoefficient, resolveCostPatternKey } from "@/lib/engines/creative-pattern-engine";
-import {
-  buildStationReachModel,
-  evaluateStationReach,
-  type StationGrpAllocation,
-  type StationReachModel,
-} from "@/lib/engines/station-engine";
+import { calculateReach } from "@/lib/engines/reach-engine";
+import { buildStationReachModel } from "@/lib/engines/station-engine";
 import type { SimulationInput } from "@/types/simulation";
 
 /** 理論最大＝制約なし貪欲 / 実務寄り＝最低・最大シェア制約付き */
@@ -21,7 +17,7 @@ export type ReachMaxAllocationResult = {
   budgets: Record<string, number>;
   /** 最適化後の合計GRP（入力GRP単位） */
   totalGrp: number;
-  /** 最適化後のリーチ人数 */
+  /** 最適化後の主リーチ人数（合計GRP×単一母集団） */
   reachCount: number;
   /** 使用した総予算（円） */
   totalBudget: number;
@@ -66,27 +62,10 @@ export function resolvePracticalShareBounds(
   return { minBudgetShare: minShare, maxBudgetShare: maxShare };
 }
 
-function modelWithShares(
-  base: StationReachModel,
-  shares: number[],
-): StationReachModel {
-  return {
-    ...base,
-    entries: base.entries.map((entry, i) => ({
-      ...entry,
-      grpShare: shares[i],
-    })),
-    weightedPerCost: base.entries.reduce(
-      (sum, entry, i) => sum + shares[i] * entry.perCost,
-      0,
-    ),
-    allocation: "manual" as StationGrpAllocation,
-  };
-}
-
 /**
- * 固定予算の下で、選択局への金額配分を貪欲に振り、合成リーチを最大化する。
- * theoretical: 制約なし（少数局に寄りやすい）
+ * 固定予算の下で、選択局への金額配分を貪欲に振り、主リーチ（合計GRP）を最大化する。
+ * 主リーチは合計GRPの単調関数なので、実質は「同じ予算で合計GRPを最大化」する配分。
+ * theoretical: 制約なし（安い局に寄りやすい）
  * practical: 全局に最低シェアを保証し、1局あたり上限で寡占を抑制
  */
 export function optimizeStationBudgetForMaxReach(
@@ -156,14 +135,17 @@ export function optimizeStationBudgetForMaxReach(
   const spendFromCounts = (counts: number[]): number[] =>
     counts.map((c) => c * chunkYen);
 
+  /** 主リーチ人数（合計GRP×単一母集団）。配分は合計GRPを介してのみ効く */
   const reachAtSpends = (values: number[]): number => {
-    const grps = values.map((spend, i) => spend / costs[i]);
-    const totalGrp = grps.reduce((a, b) => a + b, 0);
+    const totalGrp = values.reduce((sum, spend, i) => sum + spend / costs[i], 0);
     if (totalGrp <= 0) return 0;
-    const shares = grps.map((g) => g / totalGrp);
-    const customModel = modelWithShares(reachModel, shares);
     const effectiveTotal = grpForReachAndAwareness(totalGrp, input.cmLength);
-    return evaluateStationReach(customModel, effectiveTotal).combinedReachCount;
+    return calculateReach({
+      population: reachModel.areaPopulation,
+      grp: effectiveTotal,
+      effectiveFrequency: input.coefficients.effectiveFrequency,
+      cmCoefficient: kEffective,
+    }).reachCount;
   };
 
   for (let step = 0; step < remaining; step++) {

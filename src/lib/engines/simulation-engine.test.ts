@@ -209,4 +209,64 @@ describe("simulation-engine", () => {
     expect(s30.totalBudget).toBeCloseTo(s15.totalBudget * 2, 6);
     expect(s60.totalBudget).toBeCloseTo(s15.totalBudget * 4, 6);
   });
+
+  it("uses single-universe campaign reach as the primary KPI (not station Sainsbury)", () => {
+    const coefficients = buildRecommendedCoefficients("FMCG_FOOD", "awareness");
+    const result = runSimulation({
+      area: "宮城",
+      target: "個人全体",
+      industryCode: "FMCG_FOOD",
+      creativePattern: {
+        presetName: "ヨの字",
+        blocks: getPresetBlocks("ヨの字"),
+      },
+      coefficients: { ...coefficients, effectiveFrequency: 6, kPoisson: 0.01 },
+      funnelStage: "awareness",
+      grp: 770,
+      campaignWeeks: 4,
+      grpDistribution: "even",
+      selectedStations: ["TBC", "OXTV", "MMT", "KHB"],
+      cmLength: 15,
+      targetReachRatePercent: 78,
+    });
+    // 単一母集団・F=6・k=0.01・770GRP ≒ 78%付近
+    expect(result.reachRate).toBeGreaterThan(0.7);
+    expect(result.reachRate).toBeLessThan(0.85);
+    // 局合成は主リーチより低めになりやすい（参考値として別フィールド）
+    expect(result.stationCombinedReachRate).toBeLessThan(result.reachRate);
+    expect(result.reachPlan.requiredGrp).not.toBeNull();
+    expect(result.reachPlan.requiredBudget).toBeCloseTo(
+      result.reachPlan.requiredGrp! * result.perCost,
+      0,
+    );
+  });
+
+  it("keeps primary reach independent of station allocation", () => {
+    const base = {
+      area: "宮城",
+      target: "個人全体",
+      industryCode: "FMCG_FOOD",
+      creativePattern: {
+        presetName: "ヨの字" as const,
+        blocks: getPresetBlocks("ヨの字"),
+      },
+      coefficients: buildRecommendedCoefficients("FMCG_FOOD", "awareness"),
+      funnelStage: "awareness" as const,
+      grp: 500,
+      campaignWeeks: 4,
+      grpDistribution: "even" as const,
+      selectedStations: ["TBC", "OXTV", "MMT", "KHB"],
+      cmLength: 15 as const,
+    };
+    const weighted = runSimulation({
+      ...base,
+      stationGrpAllocation: "cost_weighted",
+    });
+    const equal = runSimulation({
+      ...base,
+      stationGrpAllocation: "equal",
+    });
+    expect(weighted.reachRate).toBeCloseTo(equal.reachRate, 12);
+    expect(weighted.totalBudget).not.toBeCloseTo(equal.totalBudget, 0);
+  });
 });

@@ -95,7 +95,7 @@ export function LeverageBottleneckPanel() {
         </div>
 
         <p className="text-xs text-slate-500">
-          出典注記: リーチはポアソン＋局合成モデルに基づくシミュレーション値。感度はOAT（One-at-a-time）近似です。
+          出典注記: リーチは合計GRP×単一母集団ポアソンのシミュレーション値。感度はOAT（One-at-a-time）近似です。
         </p>
       </CardContent>
     </Card>

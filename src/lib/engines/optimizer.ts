@@ -9,7 +9,7 @@ import { calculateReach } from "./reach-engine";
 export type OptimizerContext = {
   /**
    * 入力GRP → リーチ率（小数 0–1）。
-   * 本計算と同じプリミティブ（局合成＋CM秒数の実効GRP換算）を渡すこと。
+   * 本計算と同じプリミティブ（主リーチ＝合計GRPポアソン＋CM秒数の実効GRP換算）を渡すこと。
    */
   reachRateAtGrp: (grp: number) => number;
   /** リーチ人数換算の母数（人） */
@@ -33,12 +33,15 @@ export type OptimalGrpResult = {
   marginalEfficiencyGrp: number | null;
   /** 方式Bの基準とした限界リーチ効率のピークGRP */
   marginalPeakGrp: number | null;
-  /** ターゲットのリーチカーブ上でリーチ単価（円/%）が最小となるGRP */
+  /**
+   * 推奨GRP（方式C）: 1GRP刻み探索でリーチ単価（円/%）が最小となるGRP。
+   * 入力中の予算・GRPには依存しない（エリア・局・係数・単価で決まる）。
+   */
   minReachUnitPriceGrp: number | null;
   minReachUnitPrice: number | null;
   /** 使用した webベンチマーク単価（円/1再生） */
   webVideoCpmUsed: number;
-  /** 方式A・Bの探索上限GRP */
+  /** 方式A・B・Cの探索上限GRP */
   searchMaxGrp: number;
 };
 
@@ -62,7 +65,7 @@ export function poissonReachRateAtGrp(params: {
     }).reachRate;
 }
 
-/** リーチカーブ上の離散点からリーチ単価（円/%）が最小のポイントを選ぶ */
+/** リーチカーブ上の離散点からリーチ単価（円/%）が最小のポイントを選ぶ（チャート注記用） */
 export function findMinReachUnitPriceOnCurve(
   points: ReachCurvePoint[],
 ): MinReachUnitPriceOnCurve {
@@ -85,6 +88,31 @@ export function findMinReachUnitPriceOnCurve(
   }
 
   return { grp: best.grp, reachUnitPrice: best.reachUnitPrice };
+}
+
+/**
+ * 方式C: 1GRP刻みでリーチ単価（円/%）= (GRP×パーコスト)/(リーチ率[%]) の最小点。
+ * 入力GRPを候補に含めない固定探索のため、予算を変えても推奨は変わらない。
+ */
+export function findMinReachUnitPrice(
+  ctx: OptimizerContext,
+  reachRates: number[] = sampleReachRates(ctx, resolveMaxGrp(ctx)),
+): MinReachUnitPriceOnCurve {
+  let bestGrp: number | null = null;
+  let bestUnit: number | null = null;
+
+  for (let grp = 1; grp < reachRates.length; grp += 1) {
+    const rate = reachRates[grp];
+    if (!(rate > 0)) continue;
+    const unit = (grp * ctx.perCost) / (rate * 100);
+    if (!Number.isFinite(unit) || unit <= 0) continue;
+    if (bestUnit == null || unit < bestUnit) {
+      bestUnit = unit;
+      bestGrp = grp;
+    }
+  }
+
+  return { grp: bestGrp, reachUnitPrice: bestUnit };
 }
 
 export function getDefaultWebVideoCpm(): number {
@@ -211,15 +239,14 @@ export function findMarginalEfficiencyGrp(ctx: OptimizerContext): number | null 
 
 export function calculateOptimalGrp(
   ctx: OptimizerContext,
-  reachCurve?: ReachCurvePoint[],
+  _reachCurve?: ReachCurvePoint[],
 ): OptimalGrpResult {
   const webVideoCpmUsed = ctx.webVideoCpm ?? getDefaultWebVideoCpm();
   const searchMaxGrp = resolveMaxGrp(ctx);
   const reachRates = sampleReachRates(ctx, searchMaxGrp);
   const marginal = findMarginalEfficiency(ctx, reachRates);
-  const minOnCurve = reachCurve
-    ? findMinReachUnitPriceOnCurve(reachCurve)
-    : { grp: null, reachUnitPrice: null };
+  // 推奨はチャート用の粗いカーブではなく、固定1GRP刻み探索で求める
+  const minUnit = findMinReachUnitPrice(ctx, reachRates);
 
   return {
     webParityGrp: findWebParityGrp(
@@ -228,8 +255,8 @@ export function calculateOptimalGrp(
     ),
     marginalEfficiencyGrp: marginal.grp,
     marginalPeakGrp: marginal.peakGrp,
-    minReachUnitPriceGrp: minOnCurve.grp,
-    minReachUnitPrice: minOnCurve.reachUnitPrice,
+    minReachUnitPriceGrp: minUnit.grp,
+    minReachUnitPrice: minUnit.reachUnitPrice,
     webVideoCpmUsed,
     searchMaxGrp,
   };

@@ -3,6 +3,7 @@ import {
   calculateOptimalGrp,
   costPerThousandReachedAtGrp,
   findMarginalEfficiency,
+  findMinReachUnitPrice,
   findMinReachUnitPriceOnCurve,
   poissonReachRateAtGrp,
   type OptimizerContext,
@@ -73,13 +74,22 @@ describe("optimizer", () => {
     expect(min.reachUnitPrice).toBe(3000);
   });
 
-  it("includes min reach unit price in calculateOptimalGrp", () => {
+  it("includes min reach unit price in calculateOptimalGrp from fine grid", () => {
+    const onGrid = findMinReachUnitPrice(baseCtx);
+    const result = calculateOptimalGrp(baseCtx);
+    expect(result.minReachUnitPriceGrp).toBe(onGrid.grp);
+    expect(result.minReachUnitPrice).toBe(onGrid.reachUnitPrice);
+    expect(result.minReachUnitPriceGrp).not.toBeNull();
+  });
+
+  it("keeps recommended GRP independent of chart curve points", () => {
     const curve: ReachCurvePoint[] = [
-      { grp: 100, reachRate: 0.2, reachCount: 2000, reachUnitPrice: 4000 },
-      { grp: 150, reachRate: 0.28, reachCount: 2800, reachUnitPrice: 3200 },
+      { grp: 100, reachRate: 0.2, reachCount: 2000, reachUnitPrice: 1 },
+      { grp: 999, reachRate: 0.21, reachCount: 2100, reachUnitPrice: 0.5 },
     ];
-    const result = calculateOptimalGrp(baseCtx, curve);
-    expect(result.minReachUnitPriceGrp).toBe(150);
-    expect(result.minReachUnitPrice).toBe(3200);
+    const withoutCurve = calculateOptimalGrp(baseCtx);
+    const withCurve = calculateOptimalGrp(baseCtx, curve);
+    expect(withCurve.minReachUnitPriceGrp).toBe(withoutCurve.minReachUnitPriceGrp);
+    expect(withCurve.minReachUnitPriceGrp).not.toBe(999);
   });
 });

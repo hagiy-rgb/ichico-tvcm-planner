@@ -5,6 +5,7 @@ import {
 import { getPopulation } from "@/lib/masters/area-master";
 import type { DaypartsData } from "@/types/dayparts";
 import type { PrecisionLevel, SimulationInput } from "@/types/simulation";
+import { calculateReach, type ReachResult } from "./reach-engine";
 import {
   resolveCostPatternKey,
   resolvePatternCoefficient,
@@ -12,7 +13,6 @@ import {
 import { computePatternCoefficientFromDayparts } from "./dayparts-engine";
 import {
   buildStationReachModel,
-  combinedReachRateAt,
   evaluateStationReach,
   type StationReachModel,
   type StationReachResult,
@@ -23,8 +23,9 @@ export type RunSimulationOptions = {
 };
 
 /**
- * リーチ計算の前提（ターゲット単位）。本計算・リーチカーブ・最適GRP探索・感度分析が
- * すべてこのコンテキスト経由で同じプリミティブ（局合成＋CM秒数の実効GRP）を使う。
+ * リーチ計算の前提（ターゲット単位）。
+ * 主リーチは「エリア合計GRP × 単一母集団ポアソン」。
+ * 局モデルは費用按分と局別リーチ参考値用。
  */
 export type ReachContext = {
   target: string;
@@ -35,6 +36,7 @@ export type ReachContext = {
   precision: PrecisionLevel;
   daypartsLabel?: string;
   kEffective: number;
+  effectiveFrequency: number;
   cmLength: SimulationInput["cmLength"];
   stationModel: StationReachModel;
   /** 入力GRPあたり出稿単価（円/GRP）。局GRP配分で加重し、CM秒数補正済み */
@@ -98,14 +100,28 @@ export function resolveReachContext(
     precision,
     daypartsLabel,
     kEffective,
+    effectiveFrequency: input.coefficients.effectiveFrequency,
     cmLength: input.cmLength,
     stationModel,
     perCost: perCostForCmLength(stationModel.weightedPerCost, input.cmLength),
   };
 }
 
-/** 入力GRPでの局合成リーチ（CM秒数の実効GRP換算込み） */
-export function reachAtInputGrp(
+/** 主リーチ: 合計GRPを単一母集団に投下したポアソン到達 */
+export function campaignReachAtGrp(
+  ctx: ReachContext,
+  grp: number,
+): ReachResult {
+  return calculateReach({
+    population: ctx.population,
+    grp: Math.max(0, grpForReachAndAwareness(grp, ctx.cmLength)),
+    effectiveFrequency: ctx.effectiveFrequency,
+    cmCoefficient: ctx.kEffective,
+  });
+}
+
+/** 局別リーチ（参考・費用按分後） */
+export function stationReachAtInputGrp(
   ctx: ReachContext,
   grp: number,
 ): StationReachResult {
@@ -115,22 +131,22 @@ export function reachAtInputGrp(
   );
 }
 
-/** 入力条件でのリーチのみを求める（感度分析のように条件を振って多数回評価する用途） */
+/** 入力条件での主リーチのみ（感度分析用） */
 export function simulateReach(
   input: SimulationInput,
   options: RunSimulationOptions = {},
 ): { reachRate: number; reachCount: number } {
-  const result = reachAtInputGrp(resolveReachContext(input, options), input.grp);
+  const result = campaignReachAtGrp(
+    resolveReachContext(input, options),
+    input.grp,
+  );
   return {
-    reachRate: result.combinedReachRate,
-    reachCount: result.combinedReachCount,
+    reachRate: result.reachRate,
+    reachCount: result.reachCount,
   };
 }
 
-/** reachAtInputGrp のリーチ率のみ（多数回評価用の軽量版） */
+/** 主リーチ率（カーブ・最適GRP・逆算の共通評価） */
 export function reachRateAtInputGrp(ctx: ReachContext, grp: number): number {
-  return combinedReachRateAt(
-    ctx.stationModel,
-    grpForReachAndAwareness(grp, ctx.cmLength),
-  );
+  return campaignReachAtGrp(ctx, grp).reachRate;
 }

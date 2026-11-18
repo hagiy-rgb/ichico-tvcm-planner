@@ -10,8 +10,11 @@ export const DAYPARTS_COEFFICIENT_MIN = 0.1;
 /** 曜日時間区分データから推定する絵柄補正係数のクリップ上限 */
 export const DAYPARTS_COEFFICIENT_MAX = 3;
 
-/** 最適GRP探索（方式A・B）のデフォルト上限GRP */
-export const OPTIMIZER_DEFAULT_MAX_GRP = 2000;
+/** 最適GRP探索（方式A・B・C）のデフォルト上限GRP */
+export const OPTIMIZER_DEFAULT_MAX_GRP = 3000;
+
+/** 目標リーチ率の既定値（%）。逆算プランの初期値 */
+export const DEFAULT_TARGET_REACH_RATE_PERCENT = 70;
 
 /** 方式B: 限界リーチ効率がピーク値の何倍まで低下したら頭打ちとみなすか */
 export const MARGINAL_EFFICIENCY_RATIO = 0.5;

@@ -24,7 +24,7 @@ export function OptimalGrpPanel() {
             <HelpButton termId="optimalGrp" />
           </div>
           <p className="text-sm text-slate-600">
-            ターゲット「{input.target}」の参考値です。方式A・B・Cとも本計算と同じ局合成リーチ（CM秒数の実効GRP・局GRP按分込み）で評価します。
+            ターゲット「{input.target}」の参考値です。方式A・B・Cとも主リーチ（合計GRP×単一母集団ポアソン）で評価します。目標リーチ達成に必要なGRPとは別指標です。
           </p>
         </CardHeader>
         <CardContent className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

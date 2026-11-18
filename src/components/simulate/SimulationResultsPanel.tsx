@@ -7,6 +7,7 @@ import { LeverageBottleneckPanel } from "./LeverageBottleneckPanel";
 import { GrpManualEditor } from "./GrpManualEditor";
 import { KpiCard } from "@/components/kpi-cards/KpiCard";
 import { DecisionStrip } from "@/components/kpi-cards/DecisionStrip";
+import { OptimalGrpPanel } from "@/components/kpi-cards/OptimalGrpPanel";
 import { WebReplacePanel } from "@/components/kpi-cards/WebReplacePanel";
 import { ExportToolbar } from "@/components/export/ExportToolbar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -93,8 +94,8 @@ export function SimulationResultsPanel() {
         、α変換=
         {input.coefficients.alphaConversion.toFixed(2)}、MaxA=
         {results.maxAwareness.toFixed(0)}%、K=
-        {results.halfSaturationAdstock.toFixed(0)}）／局合成リーチ{" "}
-        {input.selectedStations.length}局（単純平均{" "}
+        {results.halfSaturationAdstock.toFixed(0)}）／主リーチ=合計GRP・単一母集団／局配分は費用用（参考・局合成{" "}
+        {(results.stationCombinedReachRate * 100).toFixed(2)}%・単純平均{" "}
         {(results.averageStationReachRate * 100).toFixed(2)}%）
       </p>
 
@@ -114,7 +115,7 @@ export function SimulationResultsPanel() {
                   <span>{formatNumber(results.reachCount)}人</span>
                 </div>
               }
-              sub={`母数 ${formatNumber(results.population)}人`}
+              sub={`合計GRP・単一母集団／母数 ${formatNumber(results.population)}人`}
               termId="reach"
               logicId="reach"
               precision={results.precision}
@@ -221,11 +222,16 @@ export function SimulationResultsPanel() {
             </CardContent>
           </Card>
 
+          <OptimalGrpPanel />
+
           <Card>
             <CardHeader>
-              <CardTitle>局別リーチ率</CardTitle>
+              <CardTitle>局別リーチ率（参考）</CardTitle>
             </CardHeader>
             <CardContent>
+              <p className="mb-3 text-xs text-slate-500">
+                費用按分後の各局GRPからの参考値です。主KPIのリーチ率は合計GRPの単一母集団計算を使います。
+              </p>
               <StationReachChart data={results.stationReachRows} />
             </CardContent>
           </Card>

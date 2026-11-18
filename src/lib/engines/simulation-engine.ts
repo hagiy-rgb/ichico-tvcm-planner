@@ -1,4 +1,7 @@
-import { OPTIMIZER_DEFAULT_MAX_GRP } from "@/lib/constants/model-constants";
+import {
+  DEFAULT_TARGET_REACH_RATE_PERCENT,
+  OPTIMIZER_DEFAULT_MAX_GRP,
+} from "@/lib/constants/model-constants";
 import { grpForReachAndAwareness, perCostForCmLength } from "@/lib/engines/cm-length";
 import { getPatternPreset } from "@/lib/masters/pattern-master";
 import { getDefaultDisplayName } from "@/lib/masters/station-network";
@@ -18,12 +21,14 @@ import {
 } from "./grp-schedule";
 import { calculateOptimalGrp, costPerThousandReachedAtGrp } from "./optimizer";
 import {
-  reachAtInputGrp,
+  campaignReachAtGrp,
   reachRateAtInputGrp,
   resolveReachContext,
+  stationReachAtInputGrp,
   type RunSimulationOptions,
 } from "./reach-context";
 import { buildReachCurveFromContext } from "./reach-curve-builder";
+import { buildReachPlan } from "./reach-planning";
 import { buildWebReplaceSuggestion } from "./web-replace-engine";
 
 export type { RunSimulationOptions } from "./reach-context";
@@ -61,6 +66,12 @@ function buildStationBudgetBreakdown(
   });
 }
 
+function resolveTargetReachRatePercent(input: SimulationInput): number {
+  const raw = input.targetReachRatePercent;
+  if (raw == null || !Number.isFinite(raw)) return DEFAULT_TARGET_REACH_RATE_PERCENT;
+  return Math.min(99.9, Math.max(0.1, raw));
+}
+
 export function runSimulation(
   input: SimulationInput,
   options: RunSimulationOptions = {},
@@ -68,9 +79,11 @@ export function runSimulation(
   const ctx = resolveReachContext(input, options);
   const effectiveGrp = grpForReachAndAwareness(input.grp, input.cmLength);
 
-  const stationReach = reachAtInputGrp(ctx, input.grp);
-  const reachRate = stationReach.combinedReachRate;
-  const reachCount = stationReach.combinedReachCount;
+  const campaignReach = campaignReachAtGrp(ctx, input.grp);
+  const reachRate = campaignReach.reachRate;
+  const reachCount = campaignReach.reachCount;
+
+  const stationReach = stationReachAtInputGrp(ctx, input.grp);
 
   const cost = calculateCost({
     grp: input.grp,
@@ -123,7 +136,8 @@ export function runSimulation(
     reachRateAtGrp: (grp: number) => reachRateAtInputGrp(ctx, grp),
     population: ctx.population,
     perCost: ctx.perCost,
-    maxGrp: Math.max(OPTIMIZER_DEFAULT_MAX_GRP, Math.ceil(input.grp * 3)),
+    // 推奨GRPは入力予算に依存させない（探索上限も固定）
+    maxGrp: OPTIMIZER_DEFAULT_MAX_GRP,
   };
   const optimalGrp = calculateOptimalGrp(optimizerCtx, reachCurve);
 
@@ -146,6 +160,15 @@ export function runSimulation(
       : null,
   });
 
+  const targetReachRatePercent = resolveTargetReachRatePercent(input);
+  const reachPlan = buildReachPlan({
+    targetReachRatePercent,
+    currentGrp: input.grp,
+    currentReachRate: reachRate,
+    perCost: ctx.perCost,
+    reachRateAtGrp: (grp) => reachRateAtInputGrp(ctx, grp),
+  });
+
   return {
     population: ctx.population,
     kIndustry: ctx.kIndustry,
@@ -165,9 +188,11 @@ export function runSimulation(
     reachRate,
     reachCount,
     averageStationReachRate: stationReach.averageReachRate,
+    stationCombinedReachRate: stationReach.combinedReachRate,
     stationReachRows: stationReach.rows,
     stationGrpAllocation: ctx.stationModel.allocation,
     stationBudgetBreakdown,
+    reachPlan,
     perCost: ctx.perCost,
     totalBudget: cost.totalBudget,
     cpm: cost.cpm,

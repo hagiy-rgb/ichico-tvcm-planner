@@ -43,6 +43,12 @@ export function PlanBuilderForm() {
   const setIndustryCode = useSimulationStore((s) => s.setIndustryCode);
   const setGrp = useSimulationStore((s) => s.setGrp);
   const setTotalBudgetYen = useSimulationStore((s) => s.setTotalBudgetYen);
+  const setTargetReachRatePercent = useSimulationStore(
+    (s) => s.setTargetReachRatePercent,
+  );
+  const applyRequiredGrpFromReachPlan = useSimulationStore(
+    (s) => s.applyRequiredGrpFromReachPlan,
+  );
   const setPlanningGranularity = useSimulationStore(
     (s) => s.setPlanningGranularity,
   );
@@ -53,7 +59,7 @@ export function PlanBuilderForm() {
     (s) => s.setWebVideoReachUnitPriceYen,
   );
 
-  const [budgetMode, setBudgetMode] = useState<"grp" | "yen">("grp");
+  const [budgetMode, setBudgetMode] = useState<"grp" | "yen" | "reach">("reach");
 
   const granularity = normalizePlanningGranularity(input.planningGranularity);
   const periods = input.campaignPeriods ?? input.campaignWeeks;
@@ -63,6 +69,10 @@ export function PlanBuilderForm() {
   const totalBudget =
     results?.totalBudget ??
     (results?.perCost != null ? input.grp * results.perCost : null);
+  const reachPlan = results?.reachPlan;
+  const targetReachPercent =
+    input.targetReachRatePercent ??
+    (reachPlan != null ? reachPlan.targetReachRate * 100 : 70);
 
   const areas = useMemo(() => listAreas(), []);
   const targets = useMemo(
@@ -171,10 +181,19 @@ export function PlanBuilderForm() {
         <CardContent className="grid gap-4">
           <div>
             <div className="flex items-center gap-1">
-              <Label>予算入力</Label>
-              <HelpButton termId="grp" />
+              <Label>出稿量の決め方</Label>
+              <HelpButton termId="targetReach" />
             </div>
             <div className="mt-2 flex flex-wrap gap-4">
+              <label className="flex cursor-pointer items-center gap-2 text-sm">
+                <input
+                  type="radio"
+                  name="budget-mode"
+                  checked={budgetMode === "reach"}
+                  onChange={() => setBudgetMode("reach")}
+                />
+                目標リーチ率
+              </label>
               <label className="flex cursor-pointer items-center gap-2 text-sm">
                 <input
                   type="radio"
@@ -194,7 +213,89 @@ export function PlanBuilderForm() {
                 出稿金額（合計・円）
               </label>
             </div>
-            {budgetMode === "grp" ? (
+            {budgetMode === "reach" ? (
+              <div className="mt-2 space-y-3">
+                <div>
+                  <Label htmlFor="target-reach">目標リーチ率（%）</Label>
+                  <NumberField
+                    id="target-reach"
+                    value={targetReachPercent}
+                    min={0.1}
+                    max={99.9}
+                    step={1}
+                    fractionDigits={1}
+                    onCommit={setTargetReachRatePercent}
+                    className="mt-1"
+                  />
+                </div>
+                <p className="text-xs text-slate-500">
+                  主リーチは合計GRPを単一母集団に投下したポアソン到達です。局配分は費用按分のみに使います。
+                </p>
+                <dl className="grid gap-1 rounded border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-700 sm:grid-cols-2">
+                  <div>
+                    <dt className="text-slate-500">必要GRP</dt>
+                    <dd className="text-sm font-semibold text-slate-900">
+                      {reachPlan?.requiredGrp != null
+                        ? formatGrp(reachPlan.requiredGrp)
+                        : "到達不可（探索上限内）"}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-slate-500">必要予算</dt>
+                    <dd className="text-sm font-semibold text-slate-900">
+                      {reachPlan?.requiredBudget != null
+                        ? formatYen(reachPlan.requiredBudget)
+                        : "—"}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-slate-500">現状リーチ</dt>
+                    <dd>
+                      {results != null
+                        ? `${(results.reachRate * 100).toFixed(1)}%`
+                        : "—"}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt className="text-slate-500">差分GRP</dt>
+                    <dd>
+                      {reachPlan?.gapGrp != null
+                        ? `${reachPlan.gapGrp > 0 ? "+" : ""}${formatGrp(reachPlan.gapGrp)}`
+                        : "—"}
+                    </dd>
+                  </div>
+                </dl>
+                <div className="flex flex-wrap items-end gap-3">
+                  <div className="min-w-[10rem] flex-1">
+                    <Label htmlFor="grp-under-reach">現状GRP（手調整可）</Label>
+                    <NumberField
+                      id="grp-under-reach"
+                      value={input.grp}
+                      min={0}
+                      step={10}
+                      fractionDigits={1}
+                      onCommit={setGrp}
+                      className="mt-1"
+                    />
+                  </div>
+                  {reachPlan?.requiredGrp != null &&
+                  Math.abs(reachPlan.gapGrp ?? 0) >= 1 ? (
+                    <button
+                      type="button"
+                      onClick={applyRequiredGrpFromReachPlan}
+                      className="rounded border border-slate-800 bg-slate-900 px-3 py-2 text-xs font-medium text-white hover:bg-slate-800"
+                    >
+                      必要GRP（{formatGrp(reachPlan.requiredGrp)}）を適用
+                    </button>
+                  ) : null}
+                </div>
+                <p className="text-xs text-slate-500">
+                  換算出稿金額{" "}
+                  {totalBudget != null ? formatYen(totalBudget) : "—"}
+                  （加重パーコスト × 現状GRP）
+                </p>
+              </div>
+            ) : budgetMode === "grp" ? (
               <NumberField
                 id="grp"
                 value={input.grp}
@@ -215,11 +316,13 @@ export function PlanBuilderForm() {
                 className="mt-2"
               />
             )}
-            <p className="mt-1 text-xs text-slate-500">
-              {budgetMode === "grp"
-                ? `換算出稿金額 ${totalBudget != null ? formatYen(totalBudget) : "—"}（加重パーコスト × GRP）`
-                : `換算GRP ${formatGrp(input.grp)}（出稿金額 ÷ 加重パーコスト）。出稿金額は整数円で入力します。`}
-            </p>
+            {budgetMode !== "reach" ? (
+              <p className="mt-1 text-xs text-slate-500">
+                {budgetMode === "grp"
+                  ? `換算出稿金額 ${totalBudget != null ? formatYen(totalBudget) : "—"}（加重パーコスト × GRP）`
+                  : `換算GRP ${formatGrp(input.grp)}（出稿金額 ÷ 加重パーコスト）。出稿金額は整数円で入力します。`}
+              </p>
+            ) : null}
             {input.manualGrpEnabled ? (
               <p className="mt-1 text-xs text-slate-500">
                 期間別の手入力配分の合計です。変更すると配分比を保って比例配分し直します。手入力欄は認知率推移グラフの下にあります。

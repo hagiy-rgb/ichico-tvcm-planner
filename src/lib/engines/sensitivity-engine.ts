@@ -38,7 +38,7 @@ export type LeverageAnalysis = {
   improvementStory: string;
 };
 
-/** 条件を振った場合のリーチ人数（本計算と同じ局合成・実効GRP・dayparts k を使用） */
+/** 条件を振った場合のリーチ人数（本計算と同じ主リーチ・実効GRP・dayparts k を使用） */
 function reachCountFor(
   input: SimulationInput,
   options: RunSimulationOptions,

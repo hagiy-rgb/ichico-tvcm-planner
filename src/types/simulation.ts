@@ -3,6 +3,7 @@ import type {
   AwarenessCurvePoint,
   AwarenessZone,
 } from "@/lib/engines/awareness-engine";
+import type { ReachPlanResult } from "@/lib/engines/reach-planning";
 import type {
   StationGrpAllocation,
   StationReachRow,
@@ -80,6 +81,11 @@ export type SimulationInput = {
   webVideoReachUnitPriceYen?: number | null;
   cmLength: 15 | 30 | 60;
   daypartsId?: string | null;
+  /**
+   * 目標リーチ率（%）。未指定時は既定70。
+   * 必要GRP・必要予算の逆算に使う。
+   */
+  targetReachRatePercent?: number | null;
 };
 
 export type ReachCurvePoint = {
@@ -115,13 +121,20 @@ export type SimulationResults = {
   halfSaturationAdstock: number;
   funnelStage: FunnelStage;
   patternLabel: string;
+  /** 主リーチ率（合計GRP × 単一母集団ポアソン、0–1） */
   reachRate: number;
+  /** 主リーチ人数 */
   reachCount: number;
+  /** 局別リーチの単純平均（参考） */
   averageStationReachRate: number;
+  /** 局合成リーチ率（Sainsbury式・参考） */
+  stationCombinedReachRate: number;
   stationReachRows: StationReachRow[];
   stationGrpAllocation: StationGrpAllocation;
   /** 局別出稿金額・割合・目安本数 */
   stationBudgetBreakdown: StationBudgetBreakdown[];
+  /** 目標リーチ率からの必要GRP・予算 */
+  reachPlan: ReachPlanResult;
   optimalGrp: OptimalGrpResult;
   /** 入力GRPあたり出稿単価（円/GRP）。局GRP配分で加重し、CM秒数補正済み */
   perCost: number;

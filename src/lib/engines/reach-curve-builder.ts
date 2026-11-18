@@ -1,7 +1,7 @@
 import { reachCurveGrpMax } from "@/lib/engines/reach-curve-chart-utils";
 import type { SimulationInput, ReachCurvePoint } from "@/types/simulation";
 import {
-  reachAtInputGrp,
+  campaignReachAtGrp,
   resolveReachContext,
   type ReachContext,
   type RunSimulationOptions,
@@ -39,22 +39,22 @@ export type TargetReachCurveSeries = {
   points: ReachCurvePoint[];
 };
 
-/** 解決済みのリーチ前提からカーブを生成（本計算と同じ局合成・実効GRP・加重パーコスト） */
+/** 解決済みのリーチ前提からカーブを生成（主リーチ＝合計GRP・単一母集団） */
 export function buildReachCurveFromContext(
   ctx: ReachContext,
   inputGrp: number,
 ): ReachCurvePoint[] {
   return buildCurveGrps(inputGrp).map((grp) => {
-    const stationReach = reachAtInputGrp(ctx, grp);
+    const campaign = campaignReachAtGrp(ctx, grp);
     // 内部単位は小数(0–1)。リーチ単価(円/%)の分母のみ百分率に換算する
-    const reachRate = stationReach.combinedReachRate;
+    const reachRate = campaign.reachRate;
     const reachRatePercent = reachRate * 100;
     const pointBudget = grp * ctx.perCost;
     const reachUnitPrice =
       reachRatePercent > 0
         ? pointBudget / reachRatePercent
         : Number.POSITIVE_INFINITY;
-    const reachCount = stationReach.combinedReachCount;
+    const reachCount = campaign.reachCount;
     const reachPersonUnitPrice =
       reachCount > 0 ? pointBudget / reachCount : Number.POSITIVE_INFINITY;
     return {

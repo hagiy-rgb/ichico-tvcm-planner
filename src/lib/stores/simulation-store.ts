@@ -48,6 +48,7 @@ import {
   normalizeStationGrpAllocation,
   type StationGrpAllocation,
 } from "@/lib/engines/station-engine";
+import { DEFAULT_TARGET_REACH_RATE_PERCENT } from "@/lib/constants/model-constants";
 import { saveSimulationDraft } from "@/lib/db/app-db";
 import { resolveDaypartsDataset } from "@/lib/stores/dayparts-store";
 import {
@@ -95,6 +96,10 @@ type SimulationState = {
   setGrp: (grp: number) => void;
   /** 出稿金額（円）からGRPを逆算して設定 */
   setTotalBudgetYen: (yen: number) => void;
+  /** 目標リーチ率（%）を設定し、必要GRP・予算を再計算 */
+  setTargetReachRatePercent: (percent: number) => void;
+  /** 目標リーチ達成に必要なGRPを現状GRPへ適用 */
+  applyRequiredGrpFromReachPlan: () => void;
   /** 固定予算でリーチ最大化となる局配分を適用（既定は実務寄り） */
   applyReachMaxStationAllocation: (mode?: ReachMaxMode) => void;
   setPlanningGranularity: (granularity: PlanningGranularity) => void;
@@ -153,6 +158,7 @@ export function createDefaultInput(): SimulationInput {
     webVideoReachUnitPriceYen: null,
     cmLength: 15,
     daypartsId: null,
+    targetReachRatePercent: DEFAULT_TARGET_REACH_RATE_PERCENT,
   };
 }
 
@@ -247,7 +253,19 @@ export function normalizeSimulationInput(
       ),
     ),
     daypartsId: input.daypartsId ?? null,
+    targetReachRatePercent: normalizeTargetReachRatePercent(
+      input.targetReachRatePercent,
+    ),
   };
+}
+
+function normalizeTargetReachRatePercent(
+  raw: number | null | undefined,
+): number {
+  if (raw == null || !Number.isFinite(raw)) {
+    return DEFAULT_TARGET_REACH_RATE_PERCENT;
+  }
+  return Math.min(99.9, Math.max(0.1, Math.round(raw * 10) / 10));
 }
 
 const COEFFICIENT_KEYS = [
@@ -563,6 +581,20 @@ export const useSimulationStore = create<SimulationState>((set, get) => {
       withRecalc({
         ...get().input,
         grp: roundGrp(amount / perCost),
+      });
+    },
+    setTargetReachRatePercent: (percent) => {
+      withRecalc({
+        ...get().input,
+        targetReachRatePercent: normalizeTargetReachRatePercent(percent),
+      });
+    },
+    applyRequiredGrpFromReachPlan: () => {
+      const required = get().results?.reachPlan?.requiredGrp;
+      if (required == null || !(required > 0)) return;
+      withRecalc({
+        ...get().input,
+        grp: roundGrp(required),
       });
     },
     applyReachMaxStationAllocation: (mode = "practical") => {
