@@ -164,7 +164,7 @@ describe("simulation-engine", () => {
       grpDistribution: "even" as const,
       selectedStations: ["TBC", "KHB"],
       stationPerCosts: { TBC: 9000, KHB: 3000 },
-      cmLength: 30 as const,
+      cmLength: 15 as const,
     };
     for (const stationGrpAllocation of ["cost_weighted", "equal"] as const) {
       const result = runSimulation({ ...input, stationGrpAllocation });
@@ -202,9 +202,11 @@ describe("simulation-engine", () => {
     const s30 = runSimulation({ ...base, cmLength: 30 });
     const s15 = runSimulation({ ...base, cmLength: 15 });
     const s60 = runSimulation({ ...base, cmLength: 60 });
-    expect(s15.reachRate).toBeGreaterThan(s30.reachRate);
-    expect(s60.reachRate).toBeLessThan(s30.reachRate);
-    expect(s60.totalBudget).toBeGreaterThan(s30.totalBudget);
-    expect(s15.totalBudget).toBeLessThan(s30.totalBudget);
+    // GRP定義は秒数非依存のため、同一GRPならリーチは一致
+    expect(s15.reachRate).toBeCloseTo(s30.reachRate, 10);
+    expect(s60.reachRate).toBeCloseTo(s30.reachRate, 10);
+    // パーコストは15秒基準（30秒=2倍、60秒=4倍）
+    expect(s30.totalBudget).toBeCloseTo(s15.totalBudget * 2, 6);
+    expect(s60.totalBudget).toBeCloseTo(s15.totalBudget * 4, 6);
   });
 });
